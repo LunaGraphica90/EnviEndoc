@@ -121,19 +121,20 @@ var selectCtrl = new Select({
   // target: $(".options").get(0),
   source: dataslayer,
   //property: $(".options select").val()
+  
 });
 //map.addControl (selectCtrl);
 
 console.log(selectCtrl);
 
 
-/* selectCtrl.on('select', function(e) {
+selectCtrl.on('select', function(e) {
   console.log(e);
   selecti.getFeatures().clear();
   for (var i=0, f; f=e.features[i]; i++) {
     selecti.getFeatures().push(f);
   }
-}); */
+});
 
 document.body.onload = addElement;
 
