@@ -7,6 +7,8 @@ import {fromLonLat} from 'ol/proj.js';
 import GeoJSON from 'ol/format/GeoJSON';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
+import Select from 'ol-ext/control/Select';
+
 
 //console.log(json_Diffusion_Donnes_Mesures_CNEP1_0.features);
 // Centre carte sur centre de la France
@@ -80,8 +82,9 @@ map.on('click', function (evt) {
       return feature;
     });
 
-  //console.log(feature.values_);
-  //console.log(feature.get('nom du site'))
+/*console.log(feature);
+  console.log(feature.values_);
+  console.log(feature.get('nom du site')) */
   if (feature) {
     var content = '<h3>' + feature.get('nom du site') + '</h3>';
     content += '<p>Culture dominante autour du site : ' + feature.get('culture dominante autour du site') + '</p>';
@@ -111,4 +114,40 @@ for (let baseLayerElement of baseLayerElements){
         }
       })
     })
+}
+
+// Test search
+var selectCtrl = new Select({
+  // target: $(".options").get(0),
+  source: dataslayer,
+  //property: $(".options select").val()
+});
+//map.addControl (selectCtrl);
+
+console.log(selectCtrl);
+
+
+/* selectCtrl.on('select', function(e) {
+  console.log(e);
+  selecti.getFeatures().clear();
+  for (var i=0, f; f=e.features[i]; i++) {
+    selecti.getFeatures().push(f);
+  }
+}); */
+
+document.body.onload = addElement;
+
+function addElement() {
+  // create a new div element
+  const newDiv = document.createElement("div");
+
+  // and give it some content
+  //const newContent = document.createTextNode(selectCtrl.element);
+
+  // add the text node to the newly created div
+  newDiv.appendChild(selectCtrl.element);
+
+  // add the newly created element and its content into the DOM
+  const currentDiv = document.getElementById("div1");
+  document.body.insertBefore(newDiv, currentDiv);
 }

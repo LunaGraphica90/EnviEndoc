@@ -7,3 +7,9 @@ Projet basé sur [OpenLayers](https://openlayers.org/)  et son [API](https://ope
     cd my-app
     npm install
     npm start
+
+## Ajout d'extensions ol-ext
+
+http://viglino.github.io/ol-ext/
+
+https://github.com/Viglino/ol-ext
