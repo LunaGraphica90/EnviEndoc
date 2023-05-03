@@ -114,16 +114,19 @@ for (let baseLayerElement of baseLayerElements){
         }
       })
     })
+
 }
 
 // Test search
 var selectCtrl = new Select({
-  // target: $(".options").get(0),
+  //target: $(".options").get(0),
+  target: document.getElementById('selectmulti'),
   source: dataslayer,
   //property: $(".options select").val()
   
 });
-//map.addControl (selectCtrl);
+
+map.addControl (selectCtrl);
 
 console.log(selectCtrl);
 
@@ -136,9 +139,9 @@ selectCtrl.on('select', function(e) {
   }
 });
 
-document.body.onload = addElement;
+//document.body.onload = addElement;
 
-function addElement() {
+/* function addElement() {
   // create a new div element
   const newDiv = document.createElement("div");
 
@@ -151,4 +154,4 @@ function addElement() {
   // add the newly created element and its content into the DOM
   const currentDiv = document.getElementById("div1");
   document.body.insertBefore(newDiv, currentDiv);
-}
+} */
