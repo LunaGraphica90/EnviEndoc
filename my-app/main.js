@@ -7,7 +7,16 @@ import {fromLonLat} from 'ol/proj.js';
 import GeoJSON from 'ol/format/GeoJSON';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
-import Select from 'ol-ext/control/Select';
+import Select from 'ol/interaction/Select';
+import {singleClick} from 'ol/events/condition.js';
+import SelectMulti from 'ol-ext/control/SelectMulti';
+//import {SelectFulltext, SelectPopup, SelectCheck, SelectCondition} from 'ol-ext/control';
+import SelectFulltext from 'ol-ext/control/SelectFulltext';
+import SelectPopup from 'ol-ext/control/SelectPopup';
+import SelectCheck from 'ol-ext/control/SelectCheck';
+import SelectCondition from 'ol-ext/control/SelectCondition';
+import {unByKey} from 'ol/Observable';
+
 
 
 //console.log(json_Diffusion_Donnes_Mesures_CNEP1_0.features);
@@ -17,14 +26,19 @@ const franceWebMercator = fromLonLat(franceLat);
   
 
 /// Import des données
-const datas = './datas/CNEP_test.json';
+//const datas = './datas/CNEP_test.json';
 
+const datas = new VectorSource({
+  format: new GeoJSON(),
+  url: './datas/CNEP_test.json'
+});
 
 var dataslayer = new VectorLayer({
-  source: new VectorSource({
+  /* source: new VectorSource({
     format: new GeoJSON(),
     url: datas
-  }),
+  }), */
+  source: datas,
   style: {
     //symbol: '/images/icon.png',
     'circle-radius': 8,
@@ -36,10 +50,7 @@ var dataslayer = new VectorLayer({
 console.log(dataslayer)
 
 var dataslayer2 = new VectorLayer({
-  source: new VectorSource({
-    format: new GeoJSON(),
-    url: datas
-  }),
+  source: datas,
   style: {
     //symbol: '/images/icon.png',
     'circle-radius': 4,
@@ -118,40 +129,105 @@ for (let baseLayerElement of baseLayerElements){
 }
 
 // Test search
-var selectCtrl = new Select({
-  //target: $(".options").get(0),
-  target: document.getElementById('selectmulti'),
-  source: dataslayer,
-  //property: $(".options select").val()
-  
+// Select  interaction
+var selecti = new Select({
+  hitTolerance: 5,
+  //condition: ol.events.condition.singleClick
+  //condition: new ol.events.condition.singleClick()
+  condition: singleClick
+
 });
-
-map.addControl (selectCtrl);
-
-console.log(selectCtrl);
-
-
-selectCtrl.on('select', function(e) {
-  console.log(e);
-  selecti.getFeatures().clear();
-  for (var i=0, f; f=e.features[i]; i++) {
-    selecti.getFeatures().push(f);
+map.addInteraction(selecti);
+// Select feature when click on the reference index
+selecti.on('select', function(e) {
+  var f = e.selected[0];
+  if (f) {
+    var prop = f.getProperties();
+    //var ul = $('.options ul').html('');
+    var ul = document.querySelector('.options ul').innerHTML('');
+    /*
+    for (var p in prop) if (p!=='geometry') {
+      if (p==='img') $('<li>').appendTo(ul).append($('<img>').attr('src', prop[p]));
+      else $('<li>').text(p+': '+prop[p]).appendTo(ul);
+    }
+    */
+    for (var p in prop) if (p!=='geometry') {
+      if (p==='img') document.querySelector('li').append(document.querySelector('ul')).append(document.querySelector('img').setAttribute('src', prop[p]));
+      else document.querySelector('li').textContent(p+': '+prop[p]).append(document.querySelector('ul'));
+    }
   }
 });
 
-//document.body.onload = addElement;
+// Select control
+const options = document.getElementById('options');
 
-/* function addElement() {
-  // create a new div element
-  const newDiv = document.createElement("div");
+var selectCtrl = new SelectMulti({
+  //target: $('.options').get(0),
+  target: options,
+  controls: [
+    new SelectFulltext({
+      label: 'Text:',
+      property: 'text'
+    }),
+    new SelectPopup({
+      defaultLabel: 'all',
+      label: 'Region:',
+      property: 'region'
+    }),
+    new SelectCheck({
+      label: 'Author:',
+      property: 'author',
+      // type: 'radio',
+      values: {
+        'Opérateur D ; Brissy, Edouard': 'Brissy, Edouard',
+        'Opérateur D ; Sélince': 'Sélince',
+        'Opérateur Théta (code armée, photographe)': 'Théta'
+      },
+      sort: true 
+    }),
+    new SelectCondition({
+      label: 'before 1918',
+      condition: { attr: 'date', op:'<', val:'1918' }
+    })
+  ]
+});
+// Add control
+map.addControl (selectCtrl);
 
-  // and give it some content
-  //const newContent = document.createTextNode(selectCtrl.element);
-
-  // add the text node to the newly created div
-  newDiv.appendChild(selectCtrl.element);
-
-  // add the newly created element and its content into the DOM
-  const currentDiv = document.getElementById("div1");
-  document.body.insertBefore(newDiv, currentDiv);
-} */
+// Do something on select
+selectCtrl.on('select', function(e) {
+  selecti.getFeatures().clear();
+  //if ($('#select').prop('checked')) {
+  if (document.getElementById('select').checked) {
+    // Select features
+    e.features.forEach(function(f) {
+      selecti.getFeatures().push(f);
+    });
+  } else {
+    // Hide features
+    dataslayer.getFeatures().forEach(function(f) {
+      f.setStyle([]);
+    });
+    // Show current
+    e.features.forEach(function(f) {
+      f.setStyle(null);
+    });
+  }
+});
+// Show all features
+function reset() {
+  selecti.getFeatures().clear();
+  dataslayer.getFeatures().forEach(function(f) {
+    f.setStyle(null);
+  });
+  selectCtrl.doSelect();
+}
+// Set values when loaded
+var listenerKey = dataslayer.on('change',function(e){
+  if (datas.getState() === 'ready') {
+    //ol.Observable.unByKey(listenerKey);
+    new unByKey(listenerKey);
+    // Fill the popup with the features values
+    selectCtrl.getControls()[1].setValues({ sort: true });
+  }
+});
