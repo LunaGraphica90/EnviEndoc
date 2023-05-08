@@ -12,7 +12,6 @@ import VectorSource from 'ol/source/Vector';
 // Centre carte sur centre de la France
 const franceLat = [1.52, 46.36];
 const franceWebMercator = fromLonLat(franceLat);
-  
 
 /// Import des données
 const datas = './datas/CNEP_test.json';
