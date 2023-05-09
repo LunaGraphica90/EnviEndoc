@@ -8,12 +8,14 @@ import GeoJSON from 'ol/format/GeoJSON';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import Select from 'ol/interaction/Select';
-import {singleClick} from 'ol/events/condition.js';
-import SelectMulti from 'ol-ext/control/SelectMulti';
+import SearchFeature from 'ol-ext/control/SearchFeature';
+import {singleClick} from 'ol/events/condition';
+//import {singleClick} from 'ol/events/condition.singleClick';
+import SelectMulti from 'ol-ext/control/SelectMulti.js';
 //import {SelectFulltext, SelectPopup, SelectCheck, SelectCondition} from 'ol-ext/control';
 import SelectFulltext from 'ol-ext/control/SelectFulltext';
 import SelectPopup from 'ol-ext/control/SelectPopup';
-import SelectCheck from 'ol-ext/control/SelectCheck';
+//import SelectCheck from 'ol-ext/control/SelectCheck';
 import SelectCondition from 'ol-ext/control/SelectCondition';
 import {unByKey} from 'ol/Observable';
 
@@ -36,7 +38,7 @@ const datas = new VectorSource({
 var dataslayer = new VectorLayer({
   /* source: new VectorSource({
     format: new GeoJSON(),
-    url: datas
+    url: './datas/CNEP_test.json'
   }), */
   source: datas,
   style: {
@@ -46,8 +48,6 @@ var dataslayer = new VectorLayer({
   },
   title: 'dataslayer'
 });
-
-console.log(dataslayer)
 
 var dataslayer2 = new VectorLayer({
   source: datas,
@@ -129,52 +129,81 @@ for (let baseLayerElement of baseLayerElements){
 }
 
 // Test search
-// Select  interaction
-var selecti = new Select({
-  hitTolerance: 5,
-  //condition: ol.events.condition.singleClick
-  //condition: new ol.events.condition.singleClick()
-  condition: singleClick
-
+// Create a vector layer
+/* const vectorSource = new ol.source.Vector({
+  format: new ol.format.GeoJSON(),
+  url: 'data.json'
 });
-map.addInteraction(selecti);
-// Select feature when click on the reference index
-selecti.on('select', function(e) {
-  var f = e.selected[0];
-  if (f) {
-    var prop = f.getProperties();
-    //var ul = $('.options ul').html('');
-    var ul = document.querySelector('.options ul').innerHTML('');
-    /*
-    for (var p in prop) if (p!=='geometry') {
-      if (p==='img') $('<li>').appendTo(ul).append($('<img>').attr('src', prop[p]));
-      else $('<li>').text(p+': '+prop[p]).appendTo(ul);
-    }
-    */
-    for (var p in prop) if (p!=='geometry') {
-      if (p==='img') document.querySelector('li').append(document.querySelector('ul')).append(document.querySelector('img').setAttribute('src', prop[p]));
-      else document.querySelector('li').textContent(p+': '+prop[p]).append(document.querySelector('ul'));
+const vectorLayer = new ol.layer.Vector({
+  source: vectorSource
+});
+ */
+// Create a select interaction
+/* const select = new Select({
+  layers: [baseLayerGroup]
+});
+
+// Add the select interaction to the map
+map.addInteraction(select);
+
+// Register a listener for the select event
+select.on('select', function(event) {
+  const selectedFeatures = event.selected;
+  console.log(selectedFeatures);
+}); */
+
+// Control Select 
+var select = new Select({});
+map.addInteraction(select);
+
+// Set the control grid reference
+var search = new SearchFeature({
+  target: document.querySelector('#options'),
+  source: datas,
+  property: document.querySelector('#options select').value,
+  sort: function(f1,f2) {
+    if (search.getSearchString(f1) < search.getSearchString(f2)) {
+      return -1;
+    } else if (search.getSearchString(f1) > search.getSearchString(f2)) {
+      return 1;
+    } else {
+      return 0;
     }
   }
 });
+map.addControl (search);
 
-// Select control
-const options = document.getElementById('options');
+var searchSelect = document.getElementById('searchSelect');
 
+searchSelect.addEventListener('change', function() {
+  search.set('property', this.value);
+  search.search();
+});
+
+search.on('select', function(e) {
+  select.getFeatures().clear();
+  select.getFeatures().push(e.search);
+  var p = e.search.getGeometry().getFirstCoordinate();
+  map.getView().animate({ center: p, zoom : 12});
+});
+
+
+// Select control Multi
 var selectCtrl = new SelectMulti({
-  //target: $('.options').get(0),
-  target: options,
+  target: document.querySelector('#options2'),
+  source: datas,
   controls: [
     new SelectFulltext({
       label: 'Text:',
-      property: 'text'
+      //property: 'text'
+      property:document.querySelector('#options2 input'),
     }),
-    new SelectPopup({
+    /* new ol.control.SelectPopup({
       defaultLabel: 'all',
       label: 'Region:',
       property: 'region'
     }),
-    new SelectCheck({
+    new ol.control.SelectCheck({
       label: 'Author:',
       property: 'author',
       // type: 'radio',
@@ -185,49 +214,11 @@ var selectCtrl = new SelectMulti({
       },
       sort: true 
     }),
-    new SelectCondition({
+    new ol.control.SelectCondition({
       label: 'before 1918',
       condition: { attr: 'date', op:'<', val:'1918' }
-    })
+    }) */
   ]
 });
 // Add control
 map.addControl (selectCtrl);
-
-// Do something on select
-selectCtrl.on('select', function(e) {
-  selecti.getFeatures().clear();
-  //if ($('#select').prop('checked')) {
-  if (document.getElementById('select').checked) {
-    // Select features
-    e.features.forEach(function(f) {
-      selecti.getFeatures().push(f);
-    });
-  } else {
-    // Hide features
-    dataslayer.getFeatures().forEach(function(f) {
-      f.setStyle([]);
-    });
-    // Show current
-    e.features.forEach(function(f) {
-      f.setStyle(null);
-    });
-  }
-});
-// Show all features
-function reset() {
-  selecti.getFeatures().clear();
-  dataslayer.getFeatures().forEach(function(f) {
-    f.setStyle(null);
-  });
-  selectCtrl.doSelect();
-}
-// Set values when loaded
-var listenerKey = dataslayer.on('change',function(e){
-  if (datas.getState() === 'ready') {
-    //ol.Observable.unByKey(listenerKey);
-    new unByKey(listenerKey);
-    // Fill the popup with the features values
-    selectCtrl.getControls()[1].setValues({ sort: true });
-  }
-});
