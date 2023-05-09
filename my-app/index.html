@@ -12,8 +12,9 @@
     <!--enlever si pas de scripts routeur-->
     <div id="app" >
       <header>
-        <!--enlever h1 integrer logo-->
-        <h1 class="header__logo" onclick="NavigationAccueil()">EnviEndoc</h1>
+        
+        <!-- br et <em></em sur peturbaendcri et environneement pour green background> H1 sur accueil blabla endocri blabla span et -->
+        <img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png"/>
         <div class="header__menu">
         <a class="header__menu-links" href="#"><h3>Accueil</h3></a>
         <a class="header__menu-links" href="#"><h3>Cartographie</h3></a>
@@ -21,50 +22,52 @@
         <a class="header__menu-links" href="#"><h3>À propos</h3></a>
     </div>
     </header>
-    <div class="main">
-    <div class="main__title">CARTOGRAPHIE</div>
-    <div class="row">
-        <div class="sidebar-left col-2">
+    <main class="main">
+    <div class="main__title">
+      <img class="main__title-image" src="./images/Soutiens_logos/title_background.png"/>      
+      <h1 class="main__title-text">CARTOGRAPHIE</h1>
+    </div> 
+     <div class="main__content">
+          <div class="main__content-panel1">
             <fieldset>
                 <legend>Choose :</legend>
-    
                 <div>
                     <input type="checkbox" id="dataslayer" name="dataslayer" value="dataslayer" checked >
                     <label for="dataslayer">dataslayer blue</label>
                 </div>
-    
                 <div>
                     <input type="checkbox" id="dataslayer2" name="dataslayer2" value="dataslayer2" checked >
                     <label for="dataslayer2">dataslayer red</label>
                 </div>
-            </fieldset>
-    
-            
-        </div>
-    
-        <div class="col-8">
+              </fieldset>
+     </div>
+      <div class="main__content-panelmap">
             <div id="map" ></div>
-        </div>
-    
-        <div class="sidepanel col-2">
+      </div>
+        <div class="main__content-panel2">
             <span class="sidepanel-title">Side Panel</span>
-            <div id="content"></div>
+            <div id="content"> </div>
         </div>
-    </div>
-    </div>
+
+  </div>
+    </main>
     <footer class="footer">
       <div class="footer__soutiens">
-      <p>Avec le soutien de: </p>
-        <p>Projet développé dans le cadre du Green Data for Health</p>
+        <p>Avec le soutien de: </p>
+        <img class="footer__soutiens-images" src="./images/Soutiens_logos/universite_picardie.png" />
+        <img class="footer__soutiens-images" src="./images/Soutiens_logos/UGA.png" />
+        <img class="footer__soutiens-images" src="./images/Soutiens_logos/peritox.png" />
+        <img class="footer__soutiens-images" src="./images/Soutiens_logos/timc.png" />
+        <p class="footer__soutiens-propos">Projet développé dans le cadre du Green Data for Health</p>
       </div>
       <div class="hyperfooter">
-      <a>Mentions légales</a>
-      <a>Aide</a>
-      <a>Liste des perturbateurs endocriniens</a>
+      <a class="hyperfooter__links">Mentions légales</a>
+      <a class="hyperfooter__links">Aide</a>
+      <a class="hyperfooter__links">Liste des perturbateurs endocriniens</a>
       </div>
     </footer>
     </div>
-    <script type="module" src="./main.js"></script>
+    <script type="module" src="./javascript/hola.js"></script>
     <!-- tests intégrations js => <script type="text/javascript" src="./function.js"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </body>
