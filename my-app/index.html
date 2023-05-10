@@ -5,45 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" media="screen" type="text/css" href="./css/style.css"/>
     <title>MultiLingual</title>
     
 </head>
 
 <body>
-    <!-- <form id="langue-select" name="" >
-        <select onchange="selectLang()">
-            <option value="en-CA">Canadian English</option>
-            <option value="de">Deutsh</option>
-            <option value="fr-CA">Français</option>
+    <div class="box">
+        <select id="language-select" onchange="selectLang()">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
         </select>
-    </form> -->
-    
-    <!-- <form id="selectbox" name="" >
-        <select onchange="javascript:location.href = this.value;">
-            <option value={{ url('/de') }}>Deutsch</option>
-            <option value={{ url('/en') }}>English</option>
-        </select>
-    </form> -->
+    </div>
 
-    <label for="language-select">Choose your language:</label>
-    <select id="language-select" onchange="selectLang()">
-        <option value="fr">Français</option>
-        <option value="en">English</option>
-    </select>
-
-    <!-- <h1 data-key="data-translate">{{title}}</h1>
-    <p data-key="data-translate">{{content}}</p> -->
     <h1 data-translate="title">{{title}}</h1>
     <p data-translate="content">{{content}}</p>
 
-    <!-- <div lang="fr">
-        <button data-key="btn-yes">Actual</button>
-        <button data-key="btn-no">Actual</button>
-    </div>
-    <div lang="en">
-        <button data-key="btn-yes">DEFAULT</button>
-        <button data-key="btn-no">DEFAULT</button>
-    </div> -->
     <script type="text/javascript" src="./js/translate.js"></script>
 </body>
 
