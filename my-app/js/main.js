@@ -1,4 +1,4 @@
-import './style.css';
+import '../css/style.css';
 import {Map, View} from 'ol';
 import LayerGroup from 'ol/layer/Group.js';
 import TileLayer from 'ol/layer/Tile';
@@ -13,7 +13,7 @@ import VectorSource from 'ol/source/Vector';
 const franceLat = [1.52, 46.36];
 const franceWebMercator = fromLonLat(franceLat);
   
-
+console.log(localStorage.getItem('lang'));
 /// Import des données
 const datas = './datas/CNEP_test.json';
 
