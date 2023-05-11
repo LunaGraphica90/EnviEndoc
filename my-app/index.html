@@ -23,27 +23,16 @@
         </nav>
     </header>
 
-    <main class="main">
-        <div class="home__main-content">
-            <div class="home__main-content-panel1">
-                <div class="home__main-content-title">
-                    <h1>Faciliter l'accès<br>
-                        aux données sur les<br>
-                        <em class="home__main-content-em">perturbateurs endocriniens</em><br>
-                        présents dans notre<br>
-                        <em class="home__main-content-em">environnement</em>
-                    </h1>
-                </div>
-                <div class="home__main-content-text">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quos pariatur eos. Animi
-                        repellendus, ab, pariatur iure totam excepturi quia explicabo temporibus labore quidem libero
-                        perferendis veritatis, accusantium vero facilis.</p>
-                </div>
-                <button class="home__main-content-button">VOIR LA CARTE</button>
-            </div>
-            <div class="home__main-content-panel2">
-                <img class="home__main-content-image" src="./images/img_home.png" />
-            </div>
+    <main>
+        <div class="home__main-content-panel1">
+            <h1 data-translate="home-title"></h1>
+           <!-- <div class="home__main-content-text">-->
+                <p data-translate="home-content"></p>
+            <button class="btn" data-translate="home-btn"></button>
+        </div>
+        <div class="home__main-content-panel2">
+            <img class="home__main-content-image" src="./images/img_home.png" />
+        </div>
         </div>
     </main>
     <footer class="footer">
@@ -64,14 +53,17 @@
             </div>
         </div>
         <div class="hyperfooter">
-            <div><p id="copyright"></p></div>
             <div>
-            <a class="hyperfooter__links">Mentions légales</a>
-            <a class="hyperfooter__links">Aide</a>
-            <a class="hyperfooter__links">Liste des perturbateurs endocriniens</a>
+                <p id="copyright"></p>
+            </div>
+            <div>
+                <a class="hyperfooter__links">Mentions légales</a>
+                <a class="hyperfooter__links">Aide</a>
+                <a class="hyperfooter__links">Liste des perturbateurs endocriniens</a>
             </div>
         </div>
     </footer>
+    <script type="module" src="./js/main.js"></script>
     <script type="text/javascript" src="./js/copyright.js"></script>
     <script type="text/javascript" src="./js/translate.js"></script>
 </body>
