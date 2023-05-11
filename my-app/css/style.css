@@ -70,6 +70,55 @@ justify-content: space-between;
   background-color: rgba(127, 255, 212, 0.1);
   border-radius: 15px;
 }
+
+/*SELECT LANGUES*/
+.box {
+  margin:1em;
+  position: relative;
+  width: 9em;
+}
+
+.box select{
+  /* position: relative; */
+  background-color: #152932;
+  color: #b0f197;
+  padding: 0.8em;
+  width: 100%;
+  border: none;
+  border-radius:3em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.box::before {
+  content:url('/images/down.png');
+  position: absolute;
+  top: 0.4em;
+  right: 0;
+  cursor: pointer;
+  width:32px;
+  height:32px;
+}
+
+.box:hover::after {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box select:hover {
+  /* color: #1c1b20;
+  background-color: white; */
+  cursor: pointer;
+  border:none !important;
+}
+
+.box select option {
+  border-radius: 0 !important;
+  background-color: #1c1b20;
+  color:white
+}
+
 .main{
   padding-inline: 30px;
   height: 77vh;

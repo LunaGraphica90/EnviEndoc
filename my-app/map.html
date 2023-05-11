@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="../images/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" media="screen" type="text/css" href="./css/style.css"/>
+    <title>Map</title>
+
+  </head>
+  <body>
+    <!--enlever si pas de scripts routeur-->
+    <div id="app" >
+      <header>
+        
+        <!-- br et <em></em sur peturbaendcri et environneement pour green background> H1 sur accueil blabla endocri blabla span et -->
+        <a><img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" href="./home.html"/></a>
+        <div class="header__menu">
+        <a class="header__menu-links" href="./home.html"><h3>Accueil</h3></a>
+        <a class="header__menu-links" href="./index.html"><h3>Cartographie</h3></a>
+        <a class="header__menu-links" href="#"><h3>Source des données</h3></a>
+        <a class="header__menu-links" href="./about.html"><h3>À propos</h3></a>
+    </div>
+    </header>
+    <main class="main">
+    <div class="main__title">
+      <img class="main__title-image" src="./images/Soutiens_logos/title_background.png"/>      
+      <h1 class="main__title-text">CARTOGRAPHIE</h1>
+    </div> 
+     <div class="main__content">
+          <div class="main__content-panel1">
+            <fieldset>
+                <legend>Choose :</legend>
+                <div>
+                    <input type="checkbox" id="dataslayer" name="dataslayer" value="dataslayer" checked >
+                    <label for="dataslayer">dataslayer blue</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="dataslayer2" name="dataslayer2" value="dataslayer2" checked >
+                    <label for="dataslayer2">dataslayer red</label>
+                </div>
+              </fieldset>
+     </div>
+      <div class="main__content-panelmap">
+            <div id="map" ></div>
+      </div>
+        <div class="main__content-panel2">
+            <span class="sidepanel-title">Side Panel</span>
+            <div id="content"> </div>
+        </div>
+
+  </div>
+    </main>
+    <footer class="footer">
+      <div class="footer__soutiens">
+        <p>Avec le soutien de: </p>
+        <img class="footer__soutiens-images" src="./images/Soutiens_logos/universite_picardie.png" />
+        <img class="footer__soutiens-images" src="./images/Soutiens_logos/UGA.png" />
+        <img class="footer__soutiens-images" src="./images/Soutiens_logos/peritox.png" />
+        <img class="footer__soutiens-images" src="./images/Soutiens_logos/timc.png" />
+        <p class="footer__soutiens-propos">Projet développé dans le cadre du Green Data for Health</p>
+      </div>
+      <div class="hyperfooter">
+      <a class="hyperfooter__links">Mentions légales</a>
+      <a class="hyperfooter__links">Aide</a>
+      <a class="hyperfooter__links">Liste des perturbateurs endocriniens</a>
+      </div>
+    </footer>
+    </div>
+    
+    <script type="module" src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/translate.js"></script>
+  </body>
+</html>
