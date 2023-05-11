@@ -72,6 +72,7 @@ justify-content: space-between;
 }
 .main{
   padding-inline: 30px;
+  height: 77vh;
 }
 .main__title {
   display: inline-flex;
@@ -128,7 +129,7 @@ grid-column: 3/3;
   height: 4vw;
 }
 .footer__soutiens-propos {
-
+ 
 }
 .hyperfooter {
   text-align: end;
@@ -150,4 +151,36 @@ grid-column: 3/3;
     height: 8vh;
   }
   
+}
+
+.home__main-content {
+  display: grid;
+  grid-template-columns: 3;
+  grid-template-rows: 1;
+}
+.home__main-content-panel1 {
+  grid-column: 1/2; 
+}
+.home__main-content-panel2 {
+  grid-column: 2/3;
+}
+.home__main-content-title {
+  margin: 5vh 0;
+}
+.home__main-content-em {
+  font-style: normal;
+  background-color: var(--green-highlight-color);
+}
+.home__main-content-text {
+  margin-top: 5vh;
+}
+.home__main-content-button{
+  margin: 5vh 0;
+  color: var(--green-highlight-color);
+  border: var(--green-highlight-color) solid 2px;
+  background-color: white;
+}
+.home__main-content-image {
+  padding-top: 5vh;
+  height: 40%;
 }

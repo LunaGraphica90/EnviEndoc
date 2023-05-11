@@ -15,7 +15,7 @@ function home() {
     app_div.appendChild(div);
 };
 
-function about() {
+function about(){
     let div = document.createElement('div');
     let link = document.createElement('a');
     link.href = '#/';
