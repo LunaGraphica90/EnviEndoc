@@ -1,6 +1,21 @@
 {
-
-    "hp-title": "Faciliter l’accès<br>aux données sur les<br><em>perturbateurs endocriniens</em><br>présents dans notre<br><em>environnement</em>",
-    "content": "Bienvenue sur notre site multilingue !",
-    "map-title": "Cartographie"
+    "navlink-home":"Accueil",
+    "navlink-carto":"Cartographie",
+    "navlink-sources":"Sources des données",
+    "navlink-about": "À propos",
+    "footer-support": "Avec le soutien de",
+    "footer-challenge": "Projet développé dans le cadre du <a class='external' href='https://challenge.gd4h.ecologie.gouv.fr/' target='blank'>Challenge Green Data for Health</a>",
+    "footlink-legacy": "Mentions légales",
+    "footlink-help": "Aide",
+    "footlink-list": "Liste des perturbateurs endocriniens",
+    "home-title": "Faciliter l’accès<br>aux données sur les<br><em>perturbateurs endocriniens</em><br>présents dans notre<br><em>environnement</em>",
+    "home-content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet risus leo, sed lobortis justo convallis ut. Donec ultricies ullamcorper leo. Donec sed neque eget ex malesuada molestie sit amet sed arcu. Nunc et nisl nunc. Sed sit amet porttitor quam, sit amet pellentesque ex. Pellentesque sagittis elementum dui, eget congue diam. Sed nibh mauris, condimentum id ligula id, tempus maximus magna. Maecenas lectus est, pulvinar ut imperdiet nec, consectetur vel tortor. Nam et vehicula purus. Curabitur consectetur tincidunt velit sed imperdiet. Nullam arcu nulla, euismod vel porttitor a, accumsan vitae magna.",
+    "home-btn": "Voir la carte",
+    "map-title": "Cartographie",
+    "map-search": "Rechercher",
+    "map-result": "Résultats",
+    "map-btn-help": "Aide sur la carte",
+    "map-btn-export": "Exporter les données",
+    "warning-block-1": "L’ensemble des données affichées ou accessibles sur ENVIENDOC sont sous le régime de la licence <a class='external' href='https://www.etalab.gouv.fr/licence-ouverte-open-licence/' target='_blank'>Licence Ouverte/Open License</a> ",
+    "warning-block-2": "Avant toutes réutilisation des données contenues sur ENVIENDOC, nous attirons l’attention de tous sur l’absolue nécessité d’utiliser ces données en prenant en compte les spécificités de chacune des bases de données agrégées sur le site, notamment en ce qui concerne les incertitudes sur la qualité des données fournies par chaque producteur de données. Veuillez-vous référer à chaque fois à la documentation de chaque producteur. <br>Vous trouverez ici les liens les plus adaptés : "
 }
