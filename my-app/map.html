@@ -10,24 +10,21 @@
 
   </head>
   <body>
-    <!--enlever si pas de scripts routeur-->
-    <div id="app" >
       <header>
-        
-        <!-- br et <em></em sur peturbaendcri et environneement pour green background> H1 sur accueil blabla endocri blabla span et -->
-        <a><img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" href="./home.html"/></a>
-        <div class="header__menu">
-        <a class="header__menu-links" href="./home.html"><h3>Accueil</h3></a>
-        <a class="header__menu-links" href="./index.html"><h3>Cartographie</h3></a>
-        <a class="header__menu-links" href="#"><h3>Source des données</h3></a>
-        <a class="header__menu-links" href="./about.html"><h3>À propos</h3></a>
-    </div>
+        <a href="./index.html"><img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" /></a>
+        <nav class="header__menu">
+          <ul>
+            <li><a class="header__menu-links" href="./index.html" data-translate="navlink-home"></a></li>
+            <li><a class="header__menu-links" href="./map.html" data-translate="navlink-carto"></a></li>
+            <li><a class="header__menu-links" href="./sourcedata.html" data-translate="navlink-sources"></a></li>
+            <li><a class="header__menu-links" href="./about.html" data-translate="navlink-about"></a></li>
+          </ul>
+        </nav>
     </header>
     <main class="main">
-    <div class="main__title">
-      <img class="main__title-image" src="./images/Soutiens_logos/title_background.png"/>      
-      <h1 class="main__title-text">CARTOGRAPHIE</h1>
-    </div> 
+    
+       <h1 data-translate="map-title"></h1>
+   
      <div class="main__content">
           <div class="main__content-panel1">
             <fieldset>
@@ -54,21 +51,31 @@
     </main>
     <footer class="footer">
       <div class="footer__soutiens">
-        <p>Avec le soutien de: </p>
-        <img class="footer__soutiens-images" src="./images/Soutiens_logos/universite_picardie.png" />
-        <img class="footer__soutiens-images" src="./images/Soutiens_logos/UGA.png" />
-        <img class="footer__soutiens-images" src="./images/Soutiens_logos/peritox.png" />
-        <img class="footer__soutiens-images" src="./images/Soutiens_logos/timc.png" />
-        <p class="footer__soutiens-propos">Projet développé dans le cadre du Green Data for Health</p>
+          <div style="align-self: center;">
+              <p style="display: inline-block;" data-translate="footer-support"></p>
+              <a href="https://www.u-picardie.fr/" target='blank'><img class="footer__soutiens-images"
+                      src="./images/Soutiens_logos/universite_picardie.png" /></a>
+              <a href="https://www.univ-grenoble-alpes.fr/" target='blank'><img class="footer__soutiens-images"
+                      src="./images/Soutiens_logos/UGA.png" /></a>
+              <a href="https://peritox.u-picardie.fr/" target='blank'><img class="footer__soutiens-images"
+                      src="./images/Soutiens_logos/peritox.png" /></a>
+              <a href="https://www.timc.fr/" target='blank'><img class="footer__soutiens-images"
+                      src="./images/Soutiens_logos/timc.png" /></a>
+          </div>
+          <div style="align-self: center;">
+              <p class="footer__soutiens-propos" data-translate="footer-challenge"></p>
+          </div>
       </div>
       <div class="hyperfooter">
-      <a class="hyperfooter__links">Mentions légales</a>
-      <a class="hyperfooter__links">Aide</a>
-      <a class="hyperfooter__links">Liste des perturbateurs endocriniens</a>
+          <div><p id="copyright"></p></div>
+          <div>
+          <a class="hyperfooter__links">Mentions légales</a>
+          <a class="hyperfooter__links">Aide</a>
+          <a class="hyperfooter__links">Liste des perturbateurs endocriniens</a>
+          </div>
       </div>
-    </footer>
-    </div>
-    
+  </footer>
+  <script type="text/javascript" src="./js/copyright.js"></script>
     <script type="module" src="./js/main.js"></script>
     <script type="text/javascript" src="./js/translate.js"></script>
   </body>
