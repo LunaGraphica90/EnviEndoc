@@ -1,0 +1,22 @@
+.home__main {
+   display: inline-flex;
+}
+.home__main-content-panel1 > h1 {
+    background: none;
+    margin: 5vh 0;
+  }
+  .home__main-content-panel1 > h1 > em {
+    font-style: normal;
+    background-color: var(--green-highlight-color);
+  }
+  .home__main-content-panel2 {
+  
+  }
+  
+  .home__main-content-text {
+    margin-top: 5vh;
+  }
+  .home__main-content-image {
+    padding-top: 5vh;
+    width: 60%;
+  }

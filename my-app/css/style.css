@@ -47,28 +47,23 @@ html, body {
  color: white;
  background-color: var(--green-highlight-color);
 }
-
 header {
   padding: 3em;
-  display: grid;
-  grid-template-columns: 3;
- 
-  max-width: 100%;
+  display: inline-flex;
+  width: 100%;
   background-color: var(--containers-bg-color);
-  
   color: #ffffff;
-  
+  justify-content: space-between;
 }
 .header__logo {
  width: 250px;
 }
-.header__menu {
-grid-column: 3/3;
-display: inline-flex;
-flex-wrap: wrap;
-justify-content: space-between;
+header > nav > ul{
+  list-style-type: none;
+  display: inline-flex;
 }
 .header__menu-links {
+  padding: 10px;
   text-decoration: none;
   max-width: 100%;
   color: var(--font-titles-color);
@@ -160,7 +155,7 @@ grid-column: 3/3;
 }
 .footer {
   font-size: var(--font-size-textes);
-  font-weight: 800;
+  font-weight: 600;
   display: grid;
   grid-template-rows: 2/2;
   grid-template-columns: 3/3;
@@ -182,7 +177,10 @@ grid-column: 3/3;
   height: 4vw;
 }
 .footer__soutiens-propos {
- 
+ background: url('./../images/external-link.png') no-repeat right center;
+ background-size: 0.4em;
+ align-self: center;
+ padding-right: 20px;
 }
 .hyperfooter {
   display: flex;
@@ -200,30 +198,4 @@ grid-column: 3/3;
   padding-inline: 20px;
   text-decoration: none;
   color: var(--font-titles-color);
-}
-@media screen and (max-width: 800px){
-  .header {
-    height: 8vh;
-  }
-  
-}
-
-.home__main-content-panel1 > h1 {
-  background: none;
-  margin: 5vh 0;
-}
-.home__main-content-panel1 > h1 > em {
-  font-style: normal;
-  background-color: var(--green-highlight-color);
-}
-.home__main-content-panel2 {
-
-}
-
-.home__main-content-text {
-  margin-top: 5vh;
-}
-.home__main-content-image {
-  padding-top: 5vh;
-  width: 60%;
 }
