@@ -30,6 +30,13 @@ html, body {
   color: var(--general-text-color);
 }
 
+body.home{
+  min-height:100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 a{
   color:var(--general-text-color);
   text-decoration: underline;
