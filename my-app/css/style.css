@@ -255,6 +255,14 @@ aside h2{
   margin-top:0;
 }
 
+a.btn.external{
+  background: url('/images/external-link.png') no-repeat center right 0.8em;
+  background-size: 0.8em;
+  align-self: center;
+  padding: 0.4em 2em 0.4em 1em;
+  text-decoration:none;
+ }
+
 /* Styles de base pour le tableau */
 table {
   width:75%;
