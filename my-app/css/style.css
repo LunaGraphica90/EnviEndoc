@@ -236,3 +236,58 @@ grid-column: 3/3;
 .hyperfooter__links:hover{
   text-decoration: underline;
 }
+
+/*CSS AUDREY*/
+
+section{
+  max-width:1400px;
+  margin:auto;
+}
+
+aside{
+  margin-top:8em;
+  margin-bottom:5em;
+  border: var(--green-highlight-color) solid 2px;
+  padding:1.5em;
+}
+
+aside h2{
+  margin-top:0;
+}
+
+a.external{
+  background: url('/images/external-link.png') no-repeat center right 0.8em;
+  background-size: 0.8em;
+  align-self: center;
+  padding: 0.4em 2em 0.4em 1em;
+  text-decoration:none;
+ }
+
+/* Styles de base pour le tableau */
+table {
+  width:75%;
+  margin:auto;
+  margin-bottom: 3em;
+  color: var(--general-text-color);
+  border-collapse: collapse;
+  margin-top:3em;
+}
+
+/* Styles pour l'en-tête du tableau */
+thead th {
+  border-bottom: 2px solid var(--general-text-color);
+  padding: 0.75rem;
+  vertical-align: top;
+}
+
+/* Styles pour les cellules du tableau */
+tbody td {
+  border-bottom: 1px solid #dee2e6;
+  padding: 1.2em 0.75em;
+  vertical-align: top;
+}
+
+/* Sélecteur pour la colonne de droite */
+tbody td:last-child {
+  text-align:center
+}

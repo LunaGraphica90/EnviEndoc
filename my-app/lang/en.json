@@ -17,5 +17,10 @@
     "map-btn-help": "Help on the map",
     "map-btn-export": "Export datas",
     "warning-block-1": "All data displayed or accessible on ENVIENDOC are licensed <a class='external' href='https://www.etalab.gouv.fr/licence-ouverte-open-licence/' target='_blank'>Licence Ouverte/Open License</a>",
-    "warning-block-2": "Before reusing the data contained on ENVIENDOC, we draw everyone’s attention to the absolute necessity of using this data taking into account the specificities of each of the databases aggregated on the site, in particular with regard to uncertainties about the quality of the data provided by each data producer. Please refer each time to the documentation of each producer. <br>Here you will find the most suitable links:git "
+    "warning-block-2": "Before reusing the data contained on ENVIENDOC, we draw everyone’s attention to the absolute necessity of using this data taking into account the specificities of each of the databases aggregated on the site, in particular with regard to uncertainties about the quality of the data provided by each data producer. Please refer each time to the documentation of each producer. <br>Here you will find the most suitable links: ",
+    "web-link": "See website",
+    "document-link": "See PDF",
+    "use-datas-title": "Data Usage",
+    "use-datas-content": "Do you want to use the data processed by EnviEndoc? This is possible! But you must mention the resources used. For this, please refer to the document below:",
+    "use-datas-note": "Note on the use of EnviEndoc resources"
 }

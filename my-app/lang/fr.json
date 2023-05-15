@@ -17,5 +17,10 @@
     "map-btn-help": "Aide sur la carte",
     "map-btn-export": "Exporter les données",
     "warning-block-1": "L’ensemble des données affichées ou accessibles sur ENVIENDOC sont sous le régime de la licence <a class='external' href='https://www.etalab.gouv.fr/licence-ouverte-open-licence/' target='_blank'>Licence Ouverte/Open License</a> ",
-    "warning-block-2": "Avant toutes réutilisation des données contenues sur ENVIENDOC, nous attirons l’attention de tous sur l’absolue nécessité d’utiliser ces données en prenant en compte les spécificités de chacune des bases de données agrégées sur le site, notamment en ce qui concerne les incertitudes sur la qualité des données fournies par chaque producteur de données. Veuillez-vous référer à chaque fois à la documentation de chaque producteur. <br>Vous trouverez ici les liens les plus adaptés : "
+    "warning-block-2": "Avant toutes réutilisation des données contenues sur ENVIENDOC, nous attirons l’attention de tous sur l’absolue nécessité d’utiliser ces données en prenant en compte les spécificités de chacune des bases de données agrégées sur le site, notamment en ce qui concerne les incertitudes sur la qualité des données fournies par chaque producteur de données. Veuillez-vous référer à chaque fois à la documentation de chaque producteur. <br>Vous trouverez ici les liens les plus adaptés : ",
+    "web-link": "Voir site web",
+    "document-link": "Voir document PDF",
+    "use-datas-title": "Utilisation des données",
+    "use-datas-content": "Vous souhaitez utiliser les données traitées par EnviEndoc ? Cela est possible ! Mais il vous faudra impérativement citer les ressources utilisées. Pour cela, référez vous au document consultable ci-dessous :",
+    "use-datas-note": "Note relative à l'utlisation des ressources EnviEndoc"
 }

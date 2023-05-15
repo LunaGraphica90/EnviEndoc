@@ -11,56 +11,106 @@
 </head>
 
 <body>
-	<header>
-		<a href="./index.html"><img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" /></a>
-		<nav class="header__menu">
-			<ul>
-				<li><a class="header__menu-links" href="./index.html" data-translate="navlink-home"></a></li>
-				<li><a class="header__menu-links" href="./map.html" data-translate="navlink-carto"></a></li>
-				<li><a class="header__menu-links active" href="./sourcedata.html" data-translate="navlink-sources"></a></li>
-				<li><a class="header__menu-links" href="./about.html" data-translate="navlink-about"></a></li>
-			</ul>
-		</nav>
-		<div class="box">
-			<select id="language-select" onchange="selectLang()">
-				<option value="fr">Français</option>
-				<option value="en">English</option>
-			</select>
-		</div>
-	</header>
-	<main>
-		<h1 data-translate="navlink-sources"></h1>
-	</main>
-	<footer class="footer">
-		<div class="footer__soutiens">
-			<div style="align-self: center;">
-				<p style="display: inline-block;" data-translate="footer-support"></p>
-				<a href="https://www.u-picardie.fr/" target="blank"><img class="footer__soutiens-images"
-						src="./images/Soutiens_logos/universite_picardie.png" /></a>
-				<a href="https://www.univ-grenoble-alpes.fr/" target="blank"><img class="footer__soutiens-images"
-						src="./images/Soutiens_logos/UGA.png" /></a>
-				<a href="https://peritox.u-picardie.fr/" target="blank"><img class="footer__soutiens-images"
-						src="./images/Soutiens_logos/peritox.png" /></a>
-				<a href="https://www.timc.fr/" target="blank"><img class="footer__soutiens-images"
-						src="./images/Soutiens_logos/timc.png" /></a>
-			</div>
-			<div style="align-self: center;">
-				<p class="footer__soutiens-propos" data-translate="footer-challenge"></p>
-			</div>
-		</div>
-		<div class="hyperfooter">
-			<div>
-				<p id="copyright"></p>
-			</div>
-			<div>
-				<a class="hyperfooter__links">Mentions légales</a>
-				<a class="hyperfooter__links">Aide</a>
-				<a class="hyperfooter__links">Liste des perturbateurs endocriniens</a>
-			</div>
-		</div>
-	</footer>
-	<script type="text/javascript" src="./js/copyright.js"></script>
-	<script type="text/javascript" src="./js/translate.js"></script>
-</body>
-
+    <header>
+        <a href="./index.html"><img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" /></a>
+          <nav class="header__menu">
+            <ul>
+              <li><a class="header__menu-links" href="./index.html" data-translate="navlink-home"></a></li>
+              <li><a class="header__menu-links" href="./map.html" data-translate="navlink-carto"></a></li>
+              <li><a class="header__menu-links active" href="./sourcedata.html" data-translate="navlink-sources"></a></li>
+              <li><a class="header__menu-links" href="./about.html" data-translate="navlink-about"></a></li>
+            </ul>
+          </nav>
+          <div class="box">
+            <select id="language-select" onchange="selectLang()">
+                <option value="fr">Français</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+  </header>
+  <main>
+    <h1 data-translate="navlink-sources"></h1>
+	<section>
+		<h2>Licence</h2>
+		<p data-translate="warning-block-1"></p>
+		<h2>Sources</h2>
+		<p data-translate="warning-block-2"></p>
+		<table>
+			<thead>
+				<tr>
+					<th>Source</th>
+					<th>Lien</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>DEDuCT</td>
+					<td><a href="https://cb.imsc.res.in/deduct/" class="btn external" data-translate="web-link" target="_blank"></a></td>
+				</tr>
+				<tr>
+					<td>Forever Pollution Project</td>
+					<td><a href="https://assets-decodeurs.lemonde.fr/decodeurs/medias/foreverpollution/Methodology___The_Map_of_Forever_Pollution_2023.02.23.pdf" class="btn external" data-translate="document-link" target="_blank"></a></td>
+				</tr>
+				<tr>
+					<td>BDREP</td>
+					<td>
+						<a href="https://optigede.ademe.fr/sites/default/files/ademe-guide-obs-dae-enquete-irep.pdf" class="btn external" data-translate="document-link" target="_blank"></a>
+						<a href="https://www.georisques.gouv.fr/risques/registre-des-emissions-polluantes" class="btn external" data-translate="web-link" target="_blank"></a>
+					</td>
+				</tr>
+				<tr>
+					<td>CNEP</td>
+					<td><a href="https://www.lcsqa.org/fr/rapport/resultats-de-la-campagne-nationale-exploratoire-de-mesure-des-residus-de-pesticides-dans" class="btn external" data-translate="web-link" target="_blank"></a></td>
+				</tr>
+				<tr>
+					<td>GEOD’AIR </td>
+					<td><a href="https://www.geodair.fr/a-propos" class="btn external" data-translate="web-link" target="_blank"></a></td>
+				</tr>
+				<tr>
+					<td>BNV-d</td>
+					<td>
+						<a href="https://ventes-produits-phytopharmaceutiques.eaufrance.fr/about" class="btn external" data-translate="web-link" target="_blank"></a></td>
+				</tr>
+				<tr>
+					<td>SISE-Eaux </td>
+					<td><a href="https://www.data.gouv.fr/fr/datasets/resultats-du-controle-sanitaire-de-leau-du-robinet/#/resources" class="btn external" data-translate="web-link" ></a></td>
+				</tr>
+			</tbody>
+		</table>
+		<aside>
+			<h2 data-translate="use-datas-title"></h2>
+			<p data-translate="use-datas-content"></p>
+			<a href="../documents/NoteENVIENDOC.pdf" class="btn external" target="_blank" data-translate="use-datas-note"></a>
+		</aside>
+	</section>
+  </main>
+  <footer class="footer">
+    <div class="footer__soutiens">
+        <div style="align-self: center;">
+            <p style="display: inline-block;" data-translate="footer-support"></p>
+            <a href="https://www.u-picardie.fr/" target='blank'><img class="footer__soutiens-images"
+                    src="./images/Soutiens_logos/universite_picardie.png" /></a>
+            <a href="https://www.univ-grenoble-alpes.fr/" target='blank'><img class="footer__soutiens-images"
+                    src="./images/Soutiens_logos/UGA.png" /></a>
+            <a href="https://peritox.u-picardie.fr/" target='blank'><img class="footer__soutiens-images"
+                    src="./images/Soutiens_logos/peritox.png" /></a>
+            <a href="https://www.timc.fr/" target='blank'><img class="footer__soutiens-images"
+                    src="./images/Soutiens_logos/timc.png" /></a>
+        </div>
+        <div style="align-self: center;">
+            <p class="footer__soutiens-propos" data-translate="footer-challenge"></p>
+        </div>
+    </div>
+    <div class="hyperfooter">
+        <div><p id="copyright"></p></div>
+        <div>
+        <a class="hyperfooter__links">Mentions légales</a>
+        <a class="hyperfooter__links">Aide</a>
+        <a class="hyperfooter__links">Liste des perturbateurs endocriniens</a>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="./js/copyright.js"></script>
+    <script type="text/javascript" src="./js/translate.js"></script>
+  </body>
 </html>
