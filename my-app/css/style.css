@@ -80,15 +80,15 @@ header > nav > ul > li{
 }
 
 .header__menu-links {
-  padding: 10px;
   text-decoration: none;
   max-width: 100%;
   color: var(--font-titles-color);
-  font-size: var(--font-size-menu); 
+  font-size: var(--font-size-menu);
+  padding:0.4em 1em;
 }
 .header__menu-links.active, .header__menu-links:hover{
   color: var(--font-hover-color);
-  background-color: rgba(127, 255, 212, 0.1);
+  background-color: var(--general-text-color);
   border-radius: 15px;
 }
 
@@ -108,7 +108,7 @@ a.external {
 
 .box select{
   /* position: relative; */
-  background-color: #152932;
+  background-color: var(--general-text-color);
   color: #b0f197;
   padding: 0.8em;
   width: 100%;
@@ -254,14 +254,6 @@ aside{
 aside h2{
   margin-top:0;
 }
-
-a.external{
-  background: url('/images/external-link.png') no-repeat center right 0.8em;
-  background-size: 0.8em;
-  align-self: center;
-  padding: 0.4em 2em 0.4em 1em;
-  text-decoration:none;
- }
 
 /* Styles de base pour le tableau */
 table {
