@@ -154,7 +154,7 @@ h1 {
   padding: 2.5em;
   padding-left: 4em;
   text-transform: uppercase;
-  background: url(./images/title_background.png) no-repeat left center;
+  background: url(../images/title_background.png) no-repeat left center;
   background-size: 3em;
 }
 .main__content {
