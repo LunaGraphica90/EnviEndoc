@@ -45,3 +45,35 @@ a.card-content{
 a.card-content:hover{
     color:#1C3643;
 }
+
+@media only screen and (max-width: 1200px){
+    section{
+        max-width:100%;
+        padding:1em;
+        box-sizing:border-box;
+    }
+}
+
+@media only screen and (max-width: 992px){
+    .card{
+        width:25%;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .card{
+        width:33%;
+    }
+}
+
+@media only screen and (max-width: 576px){
+    .card{
+        width:50%;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    .card{
+        width:100%;
+    }
+}
