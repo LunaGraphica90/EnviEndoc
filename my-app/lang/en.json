@@ -22,5 +22,9 @@
     "document-link": "See PDF",
     "use-datas-title": "Data Usage",
     "use-datas-content": "Do you want to use the data processed by EnviEndoc? This is possible! But you must mention the resources used. For this, please refer to the document below:",
-    "use-datas-note": "Note on the use of EnviEndoc resources"
+    "use-datas-note": "Note on the use of EnviEndoc resources",
+    "use-datas": "If you use ENVIENDOC resources, please quote:",
+    "use-datas-all": "In all cases:",
+    "stockholm": "Data from the Stockholm Convention:",
+    "ed": "Data from ED lists:"
 }

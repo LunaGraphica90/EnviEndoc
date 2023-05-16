@@ -22,5 +22,9 @@
     "document-link": "Voir document PDF",
     "use-datas-title": "Utilisation des données",
     "use-datas-content": "Vous souhaitez utiliser les données traitées par EnviEndoc ? Cela est possible ! Mais il vous faudra impérativement citer les ressources utilisées. Pour cela, référez vous au document consultable ci-dessous :",
-    "use-datas-note": "Note relative à l'utlisation des ressources EnviEndoc"
+    "use-datas-note": "Note relative à l'utlisation des ressources EnviEndoc",
+    "use-datas": "Si vous utilisez les ressources d’ENVIENDOC, veuillez citer : ",
+    "use-datas-all" : "Dans tous les cas : ",
+    "stockholm": "Données issues de la Convention de Stockholm : ",
+    "ed": "Données issues des ED lists"
 }

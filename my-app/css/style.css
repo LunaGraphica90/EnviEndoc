@@ -270,6 +270,10 @@ a.btn.external{
   text-decoration:none;
  }
 
+ a.btn.external:hover{
+  background-color:var(--green-highlight-color);
+ }
+
 /* Styles de base pour le tableau */
 table {
   width:75%;
@@ -296,5 +300,13 @@ tbody td {
 
 /* Sélecteur pour la colonne de droite */
 tbody td:last-child {
-  text-align:center
+  text-align:center;
+}
+
+#table-map tbody td:last-child {
+  text-align:left;
+}
+
+#table-map tbody td:first-child {
+  width:25%;
 }
