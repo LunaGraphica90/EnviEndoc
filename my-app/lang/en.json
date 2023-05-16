@@ -38,5 +38,10 @@
     "legacy-property": "INTELLECTUAL PROPERTY",
     "legacy-property-content":"This website (texts, photographs, illustrations, logos, icons, files available for download) constitutes a work protected in France by the Intellectual Property Code, and abroad by international conventions in force on copyright. The violation of one of the copyrights of the work is an infringement offence punishable under article L.335-2 of the Intellectual Property Code, of three years imprisonment and 300 000 Euros fine.",
     "legacy-link": "CREATING LINKS TO THIS SITE",
-    "legacy-link-content":"ENVIENDOC authorises the setting up of hyperlinks redirecting to its pages, subject to: <ul><li>that these links are not created using the \"deep link\" technique and therefore that the activation of the link cannot leave any doubt about the address of the site visited and that it is displayed in a browser window independent of the original window,</li><li>that these links are unrelated to any website disseminating information of a discriminatory, racist, pornographic, xenophobic, pedophile nature, or that may, in general, be harmful to morality or morality.</li></ul>"
+    "legacy-link-content":"ENVIENDOC authorises the setting up of hyperlinks redirecting to its pages, subject to: <ul><li>that these links are not created using the \"deep link\" technique and therefore that the activation of the link cannot leave any doubt about the address of the site visited and that it is displayed in a browser window independent of the original window,</li><li>that these links are unrelated to any website disseminating information of a discriminatory, racist, pornographic, xenophobic, pedophile nature, or that may, in general, be harmful to morality or morality.</li></ul>",
+    "about-project": "The project",
+    "about-resume-project": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non corporis vitae consectetur temporibus saepe eos magni repudiandae. Laudantium saepe iusto doloribus nobis minima sequi aspernatur. Consectetur similique tempora a vero.",
+    "about-team": "The team",
+    "card-role-title": "Role in the project:",
+    "card-role-orcid": "ORCID ID :"
 }

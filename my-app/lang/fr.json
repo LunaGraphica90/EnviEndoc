@@ -38,6 +38,11 @@
     "legacy-property": "PROPRIETÉ INTELLECTUELLE",
     "legacy-property-content":"Ce site web (textes, photographies, illustrations, logos, icônes, fichiers disponibles en téléchargement) constitue une œuvre protégée en France par le Code de la Propriété Intellectuelle, et à l’étranger par les conventions internationales en vigueur sur le droit d’auteur. La violation de l’un des droits d’auteur de l’œuvre est un délit de contrefaçon passible aux termes de l’article L.335-2 du Code de la Propriété Intellectuelle, de trois ans d’emprisonnement et de 300 000 Euros d’amende.",
     "legacy-link": "CRÉATION DE LIENS VERS CE SITE",
-    "legacy-link-content":"ENVIENDOC autorise la mise en place de liens hypertextes redirigeant vers ses pages, sous réserve : <ul><li>que ces liens ne soient pas créés en utilisant la technique du \"lien profond\" et par conséquent que l'activation du lien ne puisse laisser aucun doute sur l'adresse du site visité et qu'elle s'affiche dans une fenêtre du navigateur indépendante de la fenêtre d'origine, </li><li>que ces liens soient sans relation avec un quelconque site Internet diffusant des informations à caractère discriminatoire, raciste, pornographique, xénophobe, pédophile, ou pouvant, d'une façon générale, porter atteinte à la morale ou aux bonnes mœurs.</li></ul>"
+    "legacy-link-content":"ENVIENDOC autorise la mise en place de liens hypertextes redirigeant vers ses pages, sous réserve : <ul><li>que ces liens ne soient pas créés en utilisant la technique du \"lien profond\" et par conséquent que l'activation du lien ne puisse laisser aucun doute sur l'adresse du site visité et qu'elle s'affiche dans une fenêtre du navigateur indépendante de la fenêtre d'origine, </li><li>que ces liens soient sans relation avec un quelconque site Internet diffusant des informations à caractère discriminatoire, raciste, pornographique, xénophobe, pédophile, ou pouvant, d'une façon générale, porter atteinte à la morale ou aux bonnes mœurs.</li></ul>",
+    "about-project": "Le projet",
+    "about-resume-project": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non corporis vitae consectetur temporibus saepe eos magni repudiandae. Laudantium saepe iusto doloribus nobis minima sequi aspernatur. Consectetur similique tempora a vero.",
+    "about-team": "L'équipe",
+    "card-role-title": "Rôle dans le projet :",
+    "card-role-orcid": "Identifiant ORCID :"
 
 }

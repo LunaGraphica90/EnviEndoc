@@ -1,0 +1,46 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 20%;
+    line-height: 0.8em;
+    padding:2em;
+    box-sizing: border-box;
+}
+
+.card-img-top{
+    width:100%;
+}
+
+.card-title{
+    text-transform: uppercase;
+    margin: 0.5em 0;
+}
+
+.card-subtitle{
+    font-size:0.8em;
+    margin: 0.5em 0;
+}
+
+.card-job, .card-content{
+    font-size:0.8em;
+}
+
+a.card-content{
+    display: block;
+    color:#55B030;
+    text-decoration:none;
+}
+
+.iconify{
+    font-size:2em;
+    position: relative;
+    top: 7px;
+    margin-right:0.3em
+}
+
+a.card-content:hover{
+    color:#1C3643;
+}
