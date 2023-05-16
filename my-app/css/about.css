@@ -32,6 +32,7 @@ a.card-content{
     display: block;
     color:#55B030;
     text-decoration:none;
+    text-transform: uppercase;
 }
 
 .iconify{
