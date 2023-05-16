@@ -26,5 +26,18 @@
     "use-datas": "Si vous utilisez les ressources d’ENVIENDOC, veuillez citer : ",
     "use-datas-all" : "Dans tous les cas : ",
     "stockholm": "Données issues de la Convention de Stockholm : ",
-    "ed": "Données issues des ED lists"
+    "ed": "Données issues des ED lists",
+    "legacy-editor": "INFORMATION ÉDITEUR",
+    "legacy-editor-content": "Responsable de la publication : Dr Sylvain CHAMOT, Médecin responsable du site d’Amiens du Centre régional de pathologies professionnelles et environnementales des Hauts-de-France & Doctorant au sein de l’Unité Mixte de Recherche UPJV/INERIS Péritox (UMR_I 01)",
+    "legacy-realisation": "RÉALISATION",
+    "legacy-realisation-content" : "Site réalisé dans le cadre du <a class='external' href='https://challenge.gd4h.ecologie.gouv.fr/' target='blank'>Challenge Green Data for Health</a>, sur la base d’Openlayers et de son API.",
+    "legacy-hosting": "HÉBERGEMENT",
+    "legacy-hosting-content":"---",
+    "legacy-datas": "COLLECTE DES DONNÉES",
+    "legacy-datas-content":"Le site est exempté de déclaration à la Commission Nationale Informatique et Libertés (CNIL) dans la mesure où il ne collecte aucune donnée concernant les utilisateurs.",
+    "legacy-property": "PROPRIETÉ INTELLECTUELLE",
+    "legacy-property-content":"Ce site web (textes, photographies, illustrations, logos, icônes, fichiers disponibles en téléchargement) constitue une œuvre protégée en France par le Code de la Propriété Intellectuelle, et à l’étranger par les conventions internationales en vigueur sur le droit d’auteur. La violation de l’un des droits d’auteur de l’œuvre est un délit de contrefaçon passible aux termes de l’article L.335-2 du Code de la Propriété Intellectuelle, de trois ans d’emprisonnement et de 300 000 Euros d’amende.",
+    "legacy-link": "CRÉATION DE LIENS VERS CE SITE",
+    "legacy-link-content":"ENVIENDOC autorise la mise en place de liens hypertextes redirigeant vers ses pages, sous réserve : <ul><li>que ces liens ne soient pas créés en utilisant la technique du \"lien profond\" et par conséquent que l'activation du lien ne puisse laisser aucun doute sur l'adresse du site visité et qu'elle s'affiche dans une fenêtre du navigateur indépendante de la fenêtre d'origine, </li><li>que ces liens soient sans relation avec un quelconque site Internet diffusant des informations à caractère discriminatoire, raciste, pornographique, xénophobe, pédophile, ou pouvant, d'une façon générale, porter atteinte à la morale ou aux bonnes mœurs.</li></ul>"
+
 }

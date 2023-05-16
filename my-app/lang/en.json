@@ -26,5 +26,17 @@
     "use-datas": "If you use ENVIENDOC resources, please quote:",
     "use-datas-all": "In all cases:",
     "stockholm": "Data from the Stockholm Convention:",
-    "ed": "Data from ED lists:"
+    "ed": "Data from ED lists:",
+    "legacy-editor": "PUBLISHER INFORMATION",
+    "legacy-editor-content": "Responsible for publication: Dr Sylvain CHAMOT, Médecin responsable du site d’Amiens du Centre régional de pathologies professionnelles et environnementales des Hauts-de-France & Doctorant au sein de l’Unité Mixte de Recherche UPJV/INERIS Péritox (UMR_I 01)",
+    "legacy-realisation": "ACHIEVEMENT",
+    "legacy-realisation-content" : "Website created as part of the <a class='external' href='https://challenge.gd4h.ecologie.gouv.fr/' target='blank'>Challenge Green Data for Health</a>, based on Openlayers and its API.",
+    "legacy-hosting": "HOSTING",
+    "legacy-hosting-content":"---",
+    "legacy-datas": "COLLECT DATA",
+    "legacy-datas-content":"The site is exempt from reporting to the Commission Nationale Informatique et Libertés (CNIL) as it does not collect any data concerning users.",
+    "legacy-property": "INTELLECTUAL PROPERTY",
+    "legacy-property-content":"This website (texts, photographs, illustrations, logos, icons, files available for download) constitutes a work protected in France by the Intellectual Property Code, and abroad by international conventions in force on copyright. The violation of one of the copyrights of the work is an infringement offence punishable under article L.335-2 of the Intellectual Property Code, of three years imprisonment and 300 000 Euros fine.",
+    "legacy-link": "CREATING LINKS TO THIS SITE",
+    "legacy-link-content":"ENVIENDOC authorises the setting up of hyperlinks redirecting to its pages, subject to: <ul><li>that these links are not created using the \"deep link\" technique and therefore that the activation of the link cannot leave any doubt about the address of the site visited and that it is displayed in a browser window independent of the original window,</li><li>that these links are unrelated to any website disseminating information of a discriminatory, racist, pornographic, xenophobic, pedophile nature, or that may, in general, be harmful to morality or morality.</li></ul>"
 }
