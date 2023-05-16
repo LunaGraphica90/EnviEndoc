@@ -3,7 +3,6 @@
 }
 .home__main-content-panel1 > h1 {
     background: none;
-    margin: 5vh 0;
   }
   .home__main-content-panel1 > h1 > em {
     font-style: normal;
@@ -13,8 +12,9 @@
   
   }
   
-  .home__main-content-text {
+  .home__main-content-panel1 > p {
     margin-top: 5vh;
+    padding-left: 4rem;
   }
   .home__main-content-image {
     padding-top: 5vh;
