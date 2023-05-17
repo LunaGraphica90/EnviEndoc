@@ -30,7 +30,7 @@
     transition: all .3s ease-in;
     text-align: center;
 
-    background-color: #1c3643;
+    background-image: linear-gradient(to bottom, #1c3643, #1c3643, #1c36434a);
   }
   #menu .brand {
     height: 40px;
