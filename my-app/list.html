@@ -7,29 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" media="screen" type="text/css" href="./css/style.css"/>
+    <link rel="stylesheet" media="screen" type="text/css" href="./css/responsive.css" />
     <title>About</title>
 
   </head>
 
 <body>
-    <header>
-      <!-- br et <em></em sur peturbaendcri et environneement pour green background> H1 sur accueil blabla endocri blabla span et -->
-      <a href="./index.html"><img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" /></a>
-      <nav class="header__menu">
+  <header>
+    <a href="./index.html"><img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" /></a>
+    <nav class="header__nav-desktop">
         <ul>
-          <li><a class="header__menu-links" href="./index.html" data-translate="navlink-home"></a></li>
-          <li><a class="header__menu-links" href="./map.html" data-translate="navlink-carto"></a></li>
-          <li><a class="header__menu-links" href="./sourcedata.html" data-translate="navlink-sources"></a></li>
-          <li><a class="header__menu-links" href="./about.html" data-translate="navlink-about"></a></li>
+            <li><a class="header__menu-links" href="./index.html" data-translate="navlink-home"></a></li>
+            <li><a class="header__menu-links" href="./map.html" data-translate="navlink-carto"></a></li>
+            <li><a class="header__menu-links" href="./sourcedata.html" data-translate="navlink-sources"></a></li>
+            <li><a class="header__menu-links" href="./about.html" data-translate="navlink-about"></a></li>
         </ul>
-      </nav>
-      <div class="box">
+    </nav>
+    <input id="menu-switch" type="checkbox" />
+    <nav id="menu" role="navigation">
+        <ul>
+            <li><a href="./index.html" data-translate="navlink-home"></a></li>
+            <li><a href="./map.html" data-translate="navlink-carto"></a></li>
+            <li><a href="./sourcedata.html" data-translate="navlink-sources"></a></li>
+            <li><a href="./about.html" data-translate="navlink-about"></a></li>
+        </ul>
+    </nav>
+    <div class="box">
         <select id="language-select" onchange="selectLang()">
             <option value="fr">Français</option>
             <option value="en">English</option>
         </select>
-      </div>
-    </header>
+    </div>
+    <label for="menu-switch" id="menu-toggle"></label>
+</header>
     <main class="main">
         <h1 data-translate="footlink-list"></h1>
     </main>

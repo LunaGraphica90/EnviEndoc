@@ -1,5 +1,9 @@
-.container {
+.page-wrap {
   display: inline-flex;
+}
+.home__main-content-panel1 {
+padding-left: 4rem;
+width: 50%
 }
 .home__main-content-panel1 > h1 {
     background: none;
@@ -9,12 +13,11 @@
     background-color: var(--green-highlight-color);
   }
   .home__main-content-panel2 {
-  
+    width: 50%
   }
   
   .home__main-content-panel1 > p {
     margin-top: 5vh;
-    padding-left: 4rem;
   }
   .home__main-content-image {
     padding-top: 5vh;

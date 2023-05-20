@@ -9,7 +9,7 @@
     <link rel="stylesheet" media="screen" type="text/css" href="./css/responsive.css" />
     <link rel="stylesheet" media="screen" type="text/css" href="./css/style.css" />
     <link rel="stylesheet" media="screen" type="text/css" href="./css/home.css" />
-    
+
     <title>HomePage</title>
 </head>
 
@@ -26,14 +26,13 @@
         </nav>
         <input id="menu-switch" type="checkbox" />
         <nav id="menu" role="navigation">
-          <img class="brand" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png"/>            
-        <ul>
-            <li><a  href="./index.html" data-translate="navlink-home"></a></li>
-            <li><a  href="./map.html" data-translate="navlink-carto"></a></li>
-            <li><a  href="./sourcedata.html" data-translate="navlink-sources"></a></li>
-            <li><a  href="./about.html" data-translate="navlink-about"></a></li>
-        </ul>
-    </nav>
+            <ul>
+                <li><a href="./index.html" data-translate="navlink-home"></a></li>
+                <li><a href="./map.html" data-translate="navlink-carto"></a></li>
+                <li><a href="./sourcedata.html" data-translate="navlink-sources"></a></li>
+                <li><a href="./about.html" data-translate="navlink-about"></a></li>
+            </ul>
+        </nav>
         <div class="box">
             <select id="language-select" onchange="selectLang()">
                 <option value="fr">Français</option>
@@ -44,17 +43,16 @@
     </header>
     <main class="home__main">
         <div class="page-wrap">
-               <div class="container" role="main">
-        <div class="home__main-content-panel1">
-            <h1 data-translate="home-title"></h1>
-           <!-- <div class="home__main-content-text">-->
-            <p data-translate="home-content"></p>
-            <a href="./map.html"><button class="btn" data-translate="home-btn"></button></a>
+            <div class="home__main-content-panel1">
+                <h1 data-translate="home-title"></h1>
+                <!-- <div class="home__main-content-text">-->
+                <p data-translate="home-content"></p>
+                <a href="./map.html"><button class="btn" data-translate="home-btn"></button></a>
+            </div>
+            <div class="home__main-content-panel2">
+                <img class="home__main-content-image" src="./images/img_home.png" />
+            </div>
         </div>
-        <div class="home__main-content-panel2">
-            <img class="home__main-content-image" src="./images/img_home.png" />
-        </div>
-               </div></div>
     </main>
     <footer class="footer">
         <div class="footer__soutiens">
@@ -69,18 +67,18 @@
                 <a href="https://www.timc.fr/" target="blank"><img class="footer__soutiens-images"
                         src="./images/Soutiens_logos/timc.png" /></a>
             </div>
-                <p class="footer__soutiens-propos" data-translate="footer-challenge"></p>
+            <p class="footer__soutiens-propos" data-translate="footer-challenge"></p>
         </div>
         <div class="hyperfooter">
             <div>
                 <p id="copyright"></p>
             </div>
             <nav class="menu-footer">
-              <ul>
-                <li><a href="/legacy.html" class="hyperfooter__links" data-translate="footlink-legacy"></a></li>
-                <li><a href="/help.html" class="hyperfooter__links" data-translate="footlink-help"></a></li>
-                <li><a href="/list.html" class="hyperfooter__links" data-translate="footlink-list"></a></li>
-              </ul>
+                <ul>
+                    <li><a href="/legacy.html" class="hyperfooter__links" data-translate="footlink-legacy"></a></li>
+                    <li><a href="/help.html" class="hyperfooter__links" data-translate="footlink-help"></a></li>
+                    <li><a href="/list.html" class="hyperfooter__links" data-translate="footlink-list"></a></li>
+                </ul>
             </nav>
         </div>
     </footer>

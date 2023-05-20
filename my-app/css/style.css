@@ -54,7 +54,7 @@ a:hover{
   height:65vh;
 }
 .btn {
-  margin: 5vw 4rem;
+  margin: 5vw;
   color: var(--green-highlight-color);
   border: var(--green-highlight-color) solid 2px;
   background-color: white;
@@ -75,10 +75,6 @@ header {
   justify-content: space-between;
   box-sizing:border-box;
 }
-.header__logo {
- width: 250px;
-}
-
 header > nav > ul{
   list-style-type: none;
   display: inline-flex;
@@ -160,7 +156,7 @@ a.external {
 h1 {
   font-size: var(--font-size-titles);
   font-weight: 600;
-  padding-left: 4rem;
+  
   text-transform: uppercase;
   background: url(../images/title_background.png) no-repeat left center;
   background-size: 3em;
