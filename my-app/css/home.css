@@ -69,8 +69,8 @@ h1 {
   display: inline-flex;
 }
 .home__main-content-panel1 {
-  padding-left: 4rem;
-  width: 40%
+  padding-left: 5rem;
+  width: 50%
 }
 .home__main-content-panel1 > h1 {
   background: none;
@@ -80,13 +80,19 @@ h1 {
   background-color: var(--green-highlight-color);
 }
 .home__main-content-panel2 {
-  width: 40%
+  width: 50%;
+  padding-left: 5rem;
 }
   
 .home__main-content-panel1 > p {
-  margin-top: 5vh;
+  margin-top: 20px;
 }
 .home__main-content-image {
-  padding-top: 5vh;
-  width: 90%;
+  width: 75%;
+}
+
+@media screen and (max-width:800px) {
+  .page-wrap {
+    display: block;
+  }
 }
