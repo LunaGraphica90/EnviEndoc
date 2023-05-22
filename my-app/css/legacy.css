@@ -1,0 +1,9 @@
+h1 {
+    padding-left: 3em;
+    font-size: var(--font-size-titles);
+    font-weight: 600;
+    
+    text-transform: uppercase;
+    background: url(../images/title_background.png) no-repeat left center;
+    background-size: 2.5em;
+}

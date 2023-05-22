@@ -1,27 +1,92 @@
+/* Déclarations de variable pour uniformiser les pages,
+ couleurs, polices etc
+ changer couleurs avec les exactes*/
+
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: 300;
+  src: url('../montserrat/fonts/Montserrat-VariableFont_wght.ttf'), format(‘truetype’)
+}
+:root{
+  --main-font: 'Montserrat';
+  --containers-bg-color: #1c3643;
+  --green-highlight-color: #39c711;
+  --dark-blue-color-on-hover: #152932;
+  --general-text-color: #1c1b20;
+  --font-size-textes: 1rem;
+  --font-size-menu: clamp(0.9rem, 0.8vw + 0.25rem, 0.8rem);
+  --font-size-titles: clamp(1.5rem, 1vw + 1rem, 2.5rem);
+  --font-titles-color: rgb(255, 255, 255);
+  --font-hover-color: #b0f197;
+}
+html, body {
+  font-family: var(--main-font);
+  margin: 0;
+  height: 100%;
+  color: var(--general-text-color);
+}
+  
+body.home{
+  min-height:100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+  
+a{
+  color:var(--general-text-color);
+  text-decoration: underline;
+}
+  
+a:hover{
+  text-decoration: none;
+}
+h1 {
+  font-size: var(--font-size-titles);
+  font-weight: 600;
+  
+  text-transform: uppercase;
+  background: url(../images/title_background.png) no-repeat left center;
+  background-size: 3em;
+}
+
+/*Début du css spécifique*/
+
+.btn {
+  margin-top: 2em;
+  color: var(--green-highlight-color);
+  border: var(--green-highlight-color) solid 2px;
+  background-color: white;
+  font-size: var(--font-size-titles);
+  padding: 0.5vw;
+}
+.btn:hover {
+  cursor: pointer;
+  color: white;
+  background-color: var(--green-highlight-color);
+}
 .page-wrap {
   display: inline-flex;
 }
 .home__main-content-panel1 {
-padding-left: 4rem;
-width: 50%
+  padding-left: 4rem;
+  width: 40%
 }
 .home__main-content-panel1 > h1 {
-    background: none;
-  }
-  .home__main-content-panel1 > h1 > em {
-    font-style: normal;
-    background-color: var(--green-highlight-color);
-  }
-  .home__main-content-panel2 {
-    width: 50%
-  }
+  background: none;
+}
+.home__main-content-panel1 > h1 > em {
+  font-style: normal;
+  background-color: var(--green-highlight-color);
+}
+.home__main-content-panel2 {
+  width: 40%
+}
   
-  .home__main-content-panel1 > p {
-    margin-top: 5vh;
-  }
-  .home__main-content-image {
-    padding-top: 5vh;
-    width: 90%;
-  }
-
-   
+.home__main-content-panel1 > p {
+  margin-top: 5vh;
+}
+.home__main-content-image {
+  padding-top: 5vh;
+  width: 90%;
+}

@@ -1,0 +1,112 @@
+/* Déclarations de variable pour uniformiser les pages,
+ couleurs, polices etc
+ changer couleurs avec les exactes*/
+
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 300;
+    src: url('../montserrat/fonts/Montserrat-VariableFont_wght.ttf'), format(‘truetype’)
+}
+:root{
+    --main-font: 'Montserrat';
+    --containers-bg-color: #1c3643;
+    --green-highlight-color: #39c711;
+    --dark-blue-color-on-hover: #152932;
+    --general-text-color: #1c1b20;
+    --font-size-textes: 1rem;
+    --font-size-menu: clamp(0.9rem, 0.8vw + 0.25rem, 0.8rem);
+    --font-size-titles: clamp(1.5rem, 1vw + 1rem, 2.5rem);
+    --font-titles-color: rgb(255, 255, 255);
+    --font-hover-color: #b0f197;
+}
+html, body {
+    font-family: var(--main-font);
+    margin: 0;
+    height: 100%;
+    color: var(--general-text-color);
+}
+  
+body.home{
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+  
+a{
+    color:var(--general-text-color);
+    text-decoration: underline;
+}
+  
+a:hover{
+    text-decoration: none;
+}
+
+/*Début du css spécifique*/
+
+
+a.external {
+    background: url('/images/external-link.png') no-repeat right center;
+    background-size: 0.8em;
+    align-self: center;
+    padding-right: 1.2em;
+}
+.footer {
+    font-size: var(--font-size-textes);
+    font-weight: 300;
+    display: grid;
+    grid-template-rows: 2/2;
+    grid-template-columns: 3/3;
+}
+.footer__soutiens {
+    border-top: var(--general-text-color) solid 1px;
+    margin-inline: 3vw;
+    display: inline-flex;
+    justify-content: space-between;
+    grid-row: 1/1;
+    grid-column: 1/3;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding-top: 30px;
+}
+.footer__soutiens-images {
+    justify-content: flex-start;
+    padding-inline: 20px;
+    height: 4vw;
+}
+  
+.footer__soutiens-propos{
+    margin:0;
+    align-self: center;
+}
+  
+.hyperfooter {
+    display: flex;
+    justify-content: space-between;
+    grid-column: 1/3;
+    background-color: var(--containers-bg-color);
+    color: var(--font-titles-color);
+    font-size: 0.8em;
+    font-weight: 300;
+    padding: 0.5em;
+    box-sizing: border-box;
+}
+  
+  
+.hyperfooter nav > ul, p#copyright{
+    margin:0;
+}
+  
+.hyperfooter nav ul li{
+    display:inline-block;
+}
+  
+.hyperfooter__links{
+    padding-inline:1em;
+    text-decoration: none;
+    color: var(--font-titles-color);
+}
+  
+.hyperfooter__links:hover{
+    text-decoration: underline;
+}
