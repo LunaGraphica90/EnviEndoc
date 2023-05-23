@@ -1,66 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="../images/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" media="screen" type="text/css" href="./css/style.css"/>
-    <title>About</title>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="../images/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" media="screen" type="text/css" href="./css/style.css" />
+  <title>Legacy</title>
 
-  </head>
+</head>
 
 <body>
-    <header>
-      <!-- br et <em></em sur peturbaendcri et environneement pour green background> H1 sur accueil blabla endocri blabla span et -->
-      <a href="./index.html"><img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" /></a>
-      <nav class="header__menu">
+  <header>
+    <!-- br et <em></em sur peturbaendcri et environneement pour green background> H1 sur accueil blabla endocri blabla span et -->
+    <a href="./index.html"><img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" /></a>
+    <nav class="header__menu">
+      <ul>
+        <li><a class="header__menu-links" href="./index.html" data-translate="navlink-home"></a></li>
+        <li><a class="header__menu-links" href="./map.html" data-translate="navlink-carto"></a></li>
+        <li><a class="header__menu-links" href="./sourcedata.html" data-translate="navlink-sources"></a></li>
+        <li><a class="header__menu-links" href="./about.html" data-translate="navlink-about"></a></li>
+      </ul>
+    </nav>
+    <div class="box">
+      <select id="language-select" onchange="selectLang()">
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+  </header>
+  <main class="main">
+    <h1 data-translate="footlink-legacy"></h1>
+    <section>
+      <h2 data-translate="legacy-editor"></h2>
+      <p>
+        PERITOX - UMR-I 01, Unité mixte INERIS, Périnatalité &#38; Risques Toxiques<br>
+        Université de Picardie Jules Verne<br>
+        Présidence<br>
+        CURS<br>
+        Chemin du Thil<br>
+        80025 Amiens<br>
+        Téléphone : +33 (0) 3 22 82 78 96
+      </p>
+      <p>
+        Laboratoire TIMC<br>
+        Rond-Point de la Croix de Vie<br>
+        Domaine de la Merci<br>
+        38706 La Tronche cedex – France<br>
+        Téléphone : +33 (0)4 56 52 01 08<br>
+      </p>
+      <h2 data-translate="legacy-director"></h2>
+      <p>
+        Dr Sylvain Chamot, Péritox<br>
+        Pr Vincent Bonnettere, TIMC
+      </p>
+      <h2 data-translate="legacy-realisation"></h2>
+      <p data-translate="legacy-realisation-content"></p>
+      <h2 data-translate="legacy-hosting"></h2>
+      <p>
+        Laboratoire TIMC<br>
+        Rond-Point de la Croix de Vie<br>
+        Domaine de la Merci<br>
+        38706 La Tronche cedex – France<br>
+        Téléphone : +33 (0)4 56 52 01 08<br>
+      </p>
+      <h2 data-translate="legacy-datas"></h2>
+      <p data-translate="legacy-datas-content"></p>
+      <h2 data-translate="legacy-property"></h2>
+      <p data-translate="legacy-property-content"></p>
+      <h2 data-translate="legacy-open-content"></h2>
+      <p data-translate="legacy-open-content-content"></p>
+      <h2 data-translate="legacy-open-data"></h2>
+      <p data-translate="legacy-open-data-content"></p>
+      <h2 data-translate="legacy-link"></h2>
+      <p data-translate="legacy-link-content"></p>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer__soutiens">
+      <div style="display: flex;">
+        <p style="align-self: center;" data-translate="footer-support"></p>
+        <a href="https://www.u-picardie.fr/" target="blank"><img class="footer__soutiens-images"
+            src="./images/Soutiens_logos/universite_picardie.png" /></a>
+        <a href="https://www.univ-grenoble-alpes.fr/" target="blank"><img class="footer__soutiens-images"
+            src="./images/Soutiens_logos/UGA.png" /></a>
+        <a href="https://peritox.u-picardie.fr/" target="blank"><img class="footer__soutiens-images"
+            src="./images/Soutiens_logos/peritox.png" /></a>
+        <a href="https://www.timc.fr/" target="blank"><img class="footer__soutiens-images"
+            src="./images/Soutiens_logos/timc.png" /></a>
+      </div>
+      <div style="align-self: center;">
+        <p class="footer__soutiens-propos" data-translate="footer-challenge"></p>
+      </div>
+    </div>
+    <div class="hyperfooter">
+      <div>
+        <p id="copyright"></p>
+      </div>
+      <nav class="menu-footer">
         <ul>
-          <li><a class="header__menu-links" href="./index.html" data-translate="navlink-home"></a></li>
-          <li><a class="header__menu-links" href="./map.html" data-translate="navlink-carto"></a></li>
-          <li><a class="header__menu-links" href="./sourcedata.html" data-translate="navlink-sources"></a></li>
-          <li><a class="header__menu-links" href="./about.html" data-translate="navlink-about"></a></li>
+          <li><a href="/legacy.html" class="hyperfooter__links" data-translate="footlink-legacy"></a></li>
+          <li><a href="/help.html" class="hyperfooter__links" data-translate="footlink-help"></a></li>
+          <li><a href="/list.html" class="hyperfooter__links" data-translate="footlink-list"></a></li>
         </ul>
       </nav>
-      <div class="box">
-        <select id="language-select" onchange="selectLang()">
-            <option value="fr">Français</option>
-            <option value="en">English</option>
-        </select>
-      </div>
-    </header>
-    <main class="main">
-        <h1 data-translate="footlink-legacy"></h1>
-    </main>
-    <footer class="footer">
-      <div class="footer__soutiens">
-        <div style="display: flex;">
-            <p style="align-self: center;" data-translate="footer-support"></p>
-              <a href="https://www.u-picardie.fr/" target="blank"><img class="footer__soutiens-images"
-                src="./images/Soutiens_logos/universite_picardie.png" /></a>
-            <a href="https://www.univ-grenoble-alpes.fr/" target="blank"><img class="footer__soutiens-images"
-                src="./images/Soutiens_logos/UGA.png" /></a>
-            <a href="https://peritox.u-picardie.fr/" target="blank"><img class="footer__soutiens-images"
-                src="./images/Soutiens_logos/peritox.png" /></a>
-            <a href="https://www.timc.fr/" target="blank"><img class="footer__soutiens-images"
-                src="./images/Soutiens_logos/timc.png" /></a>
-          </div>
-          <div style="align-self: center;">
-              <p class="footer__soutiens-propos" data-translate="footer-challenge"></p>
-          </div>
-      </div>
-      <div class="hyperfooter">
-        <div>
-            <p id="copyright"></p>
-        </div>
-        <nav class="menu-footer">
-          <ul>
-            <li><a href="/legacy.html" class="hyperfooter__links" data-translate="footlink-legacy"></a></li>
-            <li><a href="/help.html" class="hyperfooter__links" data-translate="footlink-help"></a></li>
-            <li><a href="/list.html" class="hyperfooter__links" data-translate="footlink-list"></a></li>
-          </ul>
-        </nav>
     </div>
   </footer>
   <script type="text/javascript" src="./js/copyright.js"></script>
