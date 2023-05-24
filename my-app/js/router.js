@@ -6,14 +6,14 @@ const route = (event) => {
 }
 
 const routes = {
-    404 : "/404.html",
-    "/" : "/home.html",
-    "/about" : "/about.html",
-    "/map" : "/map.html",
-    "/datas" : "/sourcedata.html",
-    "/legacy" : "/legacy.html",
-    "/help" : "/help.html",
-    "/list" : "/list.html",
+    404 : "../404.html",
+    "/" : "../home.html",
+    "/about" : "../about.html",
+    "/map" : "../map.html",
+    "/datas" : "../sourcedata.html",
+    "/legacy" : "../legacy.html",
+    "/help" : "../help.html",
+    "/list" : "../list.html",
 };
 
 const gestionLocation = async () => {
