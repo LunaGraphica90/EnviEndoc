@@ -11,16 +11,20 @@
     <title>EnviEndoc - Facilitationg access to datas on endocrine disruptoes in our environment</title>
     <script src="./js/pageTitles.js"></script>
 </head>
-
-<body class="home">
+<body>
     <header>
-        <a href="./index.html"><img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" /></a>
+        <a onclick="route();" href="./"><img class="header__logo"
+                src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" /></a>
         <nav>
             <ul>
-                <li><a class="header__menu-links active" href="./index.html" data-translate="navlink-home"></a></li>
-                <li><a class="header__menu-links" href="./map.html" data-translate="navlink-carto"></a></li>
-                <li><a class="header__menu-links" href="./sourcedata.html" data-translate="navlink-sources"></a></li>
-                <li><a class="header__menu-links" href="./about.html" data-translate="navlink-about"></a></li>
+                <li><a class="header__menu-links active" onclick="route();" href="./" data-translate="navlink-home"></a>
+                </li>
+                <li><a class="header__menu-links" onclick="route();" href="./map" data-translate="navlink-carto"></a>
+                </li>
+                <li><a class="header__menu-links" onclick="route();" href="./datas"
+                        data-translate="navlink-sources"></a></li>
+                <li><a class="header__menu-links" onclick="route();" href="./about" data-translate="navlink-about"></a>
+                </li>
             </ul>
         </nav>
         <div class="box">
@@ -30,19 +34,9 @@
             </select>
         </div>
     </header>
+    <div id="app">
 
-    <main class="home__main">
-        <div class="home__main-content-panel1">
-            <h1 data-translate="home-title"></h1>
-            <!-- <div class="home__main-content-text">-->
-            <p data-translate="home-content"></p>
-            <a href="./map.html"><button class="btn" data-translate="home-btn"></button></a>
-        </div>
-        <div class="home__main-content-panel2">
-            <img class="home__main-content-image" src="./images/img_home.png" />
-        </div>
-
-    </main>
+    </div>
     <footer class="footer">
         <div class="footer__soutiens">
             <div style="display: flex;">
@@ -64,13 +58,14 @@
             </div>
             <nav class="menu-footer">
                 <ul>
-                    <li><a href="/legacy.html" class="hyperfooter__links" data-translate="footlink-legacy"></a></li>
-                    <li><a href="/help.html" class="hyperfooter__links" data-translate="footlink-help"></a></li>
-                    <li><a href="/list.html" class="hyperfooter__links" data-translate="footlink-list"></a></li>
+                    <li><a onclick="route();" href="/legacy" class="hyperfooter__links" data-translate="footlink-legacy"></a></li>
+                    <li><a onclick="route();" href="/help" class="hyperfooter__links" data-translate="footlink-help"></a></li>
+                    <li><a onclick="route();" href="/list" class="hyperfooter__links" data-translate="footlink-list"></a></li>
                 </ul>
             </nav>
         </div>
     </footer>
+    <script type="text/javascript" src="./router.js"></script>
     <script type="text/javascript" src="./js/copyright.js"></script>
     <script type="text/javascript" src="./js/translate.js"></script>
 </body>
