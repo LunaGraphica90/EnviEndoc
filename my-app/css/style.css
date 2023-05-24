@@ -240,8 +240,6 @@ header > nav > ul > li{
 }
 
 .box select:hover {
-  /* color: #1c1b20;
-  background-color: white; */
   cursor: pointer;
   border:none !important;
 }
@@ -439,7 +437,4 @@ a.card-content:hover{
 .hyperfooter__links:hover{
   text-decoration: underline;
 }
-
-/*CSS AUDREY*/
-
 
