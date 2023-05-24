@@ -26,38 +26,6 @@ function getLanguage() {
     }
 }
 
-// Fonctions pour traduire le texte dans la langue sélectionnée
-/* function translate() {
-    // Récupérer la langue actuelle
-    const lang = getLanguage();
-
-    // Charger le fichier de langue appropriée
-    fetch(`lang/${lang}.json`)
-        .then(response => response.json())
-        .then(data => {
-        // Sélectionner tous les éléments avec un attribut "data-translate"
-        const elements = document.querySelectorAll('[data-translate]');
-        
-
-        // Parcourir tous les éléments et remplacer leur texte par la traduction appropriée
-        elements.forEach(element => {
-            console.log(element);
-            const key = element.getAttribute('data-translate');
-            console.log(key);
-            if (key in data) {
-                //element.textContent = data[key];
-                element.innerHtml = data[key];
-
-                //element.innerText = data[key];
-
-                console.log(element);
-                console.log(data[key]);
-            }
-        });
-    });
-}
- */
-
 // Chargement des traductions
 async function loadTranslations() {
     const lang = getLanguage();
