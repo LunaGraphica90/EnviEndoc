@@ -10,11 +10,11 @@
   .home__main-content-panel1 {
     padding-left: 2rem;
 
-}
+  }
 
-.footer__soutiens-propos {
-  margin-bottom: 1em;
-}
+  .footer__soutiens-propos {
+    margin-bottom: 1em;
+  }
 
   .card {
     width: 25%;
@@ -138,11 +138,35 @@
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
-    background: url(../images/menu.png) no-repeat center;
+    background: #1c1b20;
+    /* background: url(../images/menu.png) no-repeat center; */
     -webkit-transition: all .5s ease;
     -moz-transition: all .5s ease;
     -o-transition: all .5s ease;
     transition: all .5s ease;
+  }
+
+
+  #menu-toggle span {
+    position: absolute;
+    display: block;
+    width: 50%;
+    height: 2px;
+    background-color: #eee;
+    transition: transform 0.3s ease-in-out;
+    left: 12px;
+  }
+
+  #menu-toggle span:nth-child(1) {
+    top: 14px;
+  }
+
+  #menu-toggle span:nth-child(2) {
+    top: 24px;
+  }
+
+  #menu-toggle span:nth-child(3) {
+    top: 34px;
   }
 
 }
