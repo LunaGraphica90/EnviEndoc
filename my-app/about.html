@@ -2,243 +2,248 @@
 <html>
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="../images/favicon.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" media="screen" type="text/css" href="./css/style.css" />
-  <link rel="stylesheet" media="screen" type="text/css" href="./css/responsive.css" />
-  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
-  <title>EnviEndoc - About</title>
-  <script src="./js/pageTitles.js"></script>
+	<meta charset="UTF-8" />
+	<link rel="icon" type="image/png" href="../images/favicon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" media="screen" type="text/css" href="./css/style.css" />
+	<link rel="stylesheet" media="screen" type="text/css" href="./css/responsive.css" />
+	<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+	<title>EnviEndoc - About</title>
+	<script src="./js/pageTitles.js"></script>
 
 </head>
 
 <body>
-  <header>
-    <a href="./index.html"><img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" /></a>
-    <nav class="header__nav-desktop">
-      <ul>
-        <li><a class="header__menu-links active" href="./index.html" data-translate="navlink-home"></a></li>
-        <li><a class="header__menu-links" href="./map.html" data-translate="navlink-carto"></a></li>
-        <li><a class="header__menu-links" href="./sourcedata.html" data-translate="navlink-sources"></a></li>
-        <li><a class="header__menu-links" href="./about.html" data-translate="navlink-about"></a></li>
-      </ul>
-    </nav>
-    <div class="box">
-      <select id="language-select" onchange="selectLang()">
-        <option value="fr">Français</option>
-        <option value="en">English</option>
-      </select>
-    </div>
-    <div class="menu-mobile">
-      <input id="menu-switch" type="checkbox" />
-      <nav id="menu" role="navigation">
-        <ul>
-          <li><a href="./index.html" data-translate="navlink-home"></a></li>
-          <li><a href="./map.html" data-translate="navlink-carto"></a></li>
-          <li><a href="./sourcedata.html" data-translate="navlink-sources"></a></li>
-          <li><a href="./about.html" data-translate="navlink-about"></a></li>
-        </ul>
-      </nav>
-      <label for="menu-switch" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-    </div>
-  </header>
-  
-  <main class="main">
-    <h1 data-translate="navlink-about"></h1>
-    <section>
-      <h2 data-translate="about-project"></h2>
-      <p data-translate="about-resume-project"></p>
-      <h2 data-translate="about-team"></h2>
-      <div class="row">
-
-        <div class="card">
-          <img class="card-img-top" src="/images/Equipe/SylvainChamot.jpg" alt="Sylvain Chamot">
-          <div class="card-body">
-            <h5 class="card-title">Dr Sylvain Chamot</h5>
-            <p class="card-job">Médecin responsable du site d’Amiens du Centre régional de pathologies professionnelles
-              et environnementales des Hauts-de-France &#38; Doctorant au sein de l’Unité Mixte de Recherche UPJV/INERIS
-              Péritox (UMR_I 01).</p>
-            <h6 class="card-subtitle" data-translate="card-role-title"></h6>
-            <p class="card-content">Créateur et Porteur du projet ENVIENDOC</p>
-            <h6 class="card-subtitle" data-translate="card-role-orcid"></h6>
-            <p class="card-content">0000-0001-8769-8090</p>
-            <a href="https://www.linkedin.com/in/sylvain-chamot-8769a4160/" target="_blank" class="card-content"><span
-                class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
-            <a href="https://www.chu-amiens.fr/patients-et-visiteurs/services-et-contacts/medecine/centre-regional-pathologies-professionnelles-environnementales-crppe-amiens/"
-              target="_blank" class="card-content"><span class="iconify" data-icon="mdi:web"></span>Website</a>
-          </div>
+	<header>
+        <a href="./index.html"><img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" /></a>
+        <nav class="header__nav-desktop">
+            <ul>
+                <li><a class="header__menu-links active" href="./index.html" data-translate="navlink-home"></a></li>
+                <li><a class="header__menu-links" href="./map.html" data-translate="navlink-carto"></a></li>
+                <li><a class="header__menu-links" href="./sourcedata.html" data-translate="navlink-sources"></a></li>
+                <li><a class="header__menu-links" href="./about.html" data-translate="navlink-about"></a></li>
+            </ul>
+        </nav>
+        <div class="box">
+            <select id="language-select" onchange="selectLang()">
+                <option value="fr">Français</option>
+                <option value="en">English</option>
+            </select>
         </div>
-
-        <div class="card">
-          <img class="card-img-top" src="/images/Equipe/vincent-bonneterre.jpg" alt="Vincent Bonneterre">
-          <div class="card-body">
-            <h5 class="card-title">Pr Vincent Bonneterre</h5>
-            <p class="card-job">Médecin et enseignant chercheur, responsable du Centre régional de Pathologies
-              Professionnelles et Environnementales, de la région Auvergne Rhône-Alpes</p>
-            <h6 class="card-subtitle">Rôle dans le projet :</h6>
-            <p class="card-content">Porteur du projet ENVIENDOC</p>
-            <h6 class="card-subtitle">Identifiant ORCID :</h6>
-            <p class="card-content">0000-0003-2353-7102</p>
-            <a href="https://www.linkedin.com/in/bonneterre-vincent-99289142/" target="_blank"
-              class="card-content"><span class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
-          </div>
+        <div class="header__nav-mobile">
+            <input id="menu-switch" type="checkbox" />
+            <nav id="menu" role="navigation">
+                <ul>
+                    <li><a href="./index.html" data-translate="navlink-home"></a></li>
+                    <li><a href="./map.html" data-translate="navlink-carto"></a></li>
+                    <li><a href="./sourcedata.html" data-translate="navlink-sources"></a></li>
+                    <li><a href="./about.html" data-translate="navlink-about"></a></li>
+                </ul>
+            </nav>
+            <label for="menu-switch" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
         </div>
+    </header>
 
-        <div class="card">
-          <img class="card-img-top" src="/images/Equipe/christophe-cance.jpg" alt="Christophe Cancé">
-          <div class="card-body">
-            <h5 class="card-title">Christophe Cancé</h5>
-            <p class="card-job">Ingénieur de recherche</p>
-            <h6 class="card-subtitle" data-translate="card-role-title"></h6>
-            <p class="card-content">Porteur du projet ENVIENDOC</p>
-            <h6 class="card-subtitle" data-translate="card-role-orcid"></h6>
-            <p class="card-content">0000-0002-8373-5445</p>
-            <a href="https://www.linkedin.com/in/bonneterre-vincent-99289142/" target="_blank"
-              class="card-content"><span class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
-            <a href="https://www.timc.fr/christophe-cance/" target="_blank" class="card-content"><span class="iconify"
-                data-icon="mdi:web"></span>Website</a>
-          </div>
-        </div>
+	<main class="main">
+		<h1 data-translate="navlink-about"></h1>
+		<section>
+			<h2 data-translate="about-project"></h2>
+			<p data-translate="about-resume-project"></p>
+			<h2 data-translate="about-team"></h2>
+			<div class="row">
 
-        <div class="card">
-          <img class="card-img-top" src="/images/Equipe/noimage.jpg" alt="Rachel Desailloud">
-          <div class="card-body">
-            <h5 class="card-title">Pr Rachel Desailloud</h5>
-            <p class="card-job">Professeur des Universités - praticien hospitalier en endocrinologie au CHU
-              Amiens-Picardie &#38; membre de l’Unité Mixte de Recherche UPJV/INERIS Péritox</p>
-            <h6 class="card-subtitle" data-translate="card-role-title"></h6>
-            <p class="card-content">Responsable scientifique santé</p>
-            <h6 class="card-subtitle" data-translate="card-role-orcid"></h6>
-            <p class="card-content">0000-0001-9976-7938</p>
-          </div>
-        </div>
+				<div class="card">
+					<img class="card-img-top" src="/images/Equipe/SylvainChamot.jpg" alt="Sylvain Chamot">
+					<div class="card-body">
+						<h5 class="card-title">Dr Sylvain Chamot</h5>
+						<p class="card-job">Médecin responsable du site d’Amiens du Centre régional de pathologies
+							professionnelles
+							et environnementales des Hauts-de-France &#38; Doctorant au sein de l’Unité Mixte de
+							Recherche UPJV/INERIS
+							Péritox (UMR_I 01).</p>
+						<h6 class="card-subtitle" data-translate="card-role-title"></h6>
+						<p class="card-content">Créateur et Porteur du projet ENVIENDOC</p>
+						<h6 class="card-subtitle" data-translate="card-role-orcid"></h6>
+						<p class="card-content">0000-0001-8769-8090</p>
+						<a href="https://www.linkedin.com/in/sylvain-chamot-8769a4160/" target="_blank"
+							class="card-content"><span class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
+						<a href="https://www.chu-amiens.fr/patients-et-visiteurs/services-et-contacts/medecine/centre-regional-pathologies-professionnelles-environnementales-crppe-amiens/"
+							target="_blank" class="card-content"><span class="iconify"
+								data-icon="mdi:web"></span>Website</a>
+					</div>
+				</div>
 
-        <div class="card">
-          <img class="card-img-top" src="/images/Equipe/Abdallah-Al-Salameh.jpg" alt="Abdallah Al-Salameh">
-          <div class="card-body">
-            <h5 class="card-title">Dr Abdallah Al-Salameh</h5>
-            <p class="card-job">Maître de conférence des Universités - praticien hospitalier en endocrinologie au CHU
-              Amiens-Picardie &#38; membre de l’Unité Mixte de Recherche UPJV/INERIS Péritox</p>
-            <h6 class="card-subtitle" data-translate="card-role-title"></h6>
-            <p class="card-content">Responsable scientifique santé</p>
-            <h6 class="card-subtitle" data-translate="card-role-orcid"></h6>
-            <p class="card-content">0000-0002-7951-9926</p>
-            <a href="#" target="_blank" class="card-content"><span class="iconify"
-                data-icon="mdi:linkedin"></span>Linkedin</a>
-            <a href="#" target="_blank" class="card-content"><span class="iconify"
-                data-icon="mdi:web"></span>Website</a>
-          </div>
-        </div>
+				<div class="card">
+					<img class="card-img-top" src="/images/Equipe/vincent-bonneterre.jpg" alt="Vincent Bonneterre">
+					<div class="card-body">
+						<h5 class="card-title">Pr Vincent Bonneterre</h5>
+						<p class="card-job">Médecin et enseignant chercheur, responsable du Centre régional de
+							Pathologies
+							Professionnelles et Environnementales, de la région Auvergne Rhône-Alpes</p>
+						<h6 class="card-subtitle">Rôle dans le projet :</h6>
+						<p class="card-content">Porteur du projet ENVIENDOC</p>
+						<h6 class="card-subtitle">Identifiant ORCID :</h6>
+						<p class="card-content">0000-0003-2353-7102</p>
+						<a href="https://www.linkedin.com/in/bonneterre-vincent-99289142/" target="_blank"
+							class="card-content"><span class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
+					</div>
+				</div>
 
-        <div class="card">
-          <img class="card-img-top" src="/images/Equipe/Louis-Fouquet.jpg" alt="Louis Fouquet">
-          <div class="card-body">
-            <h5 class="card-title">Louis Fouquet</h5>
-            <p class="card-job">Research Scientist</p>
-            <h6 class="card-subtitle" data-translate="card-role-title"></h6>
-            <p class="card-content">Data scientist - Tech Lead</p>
-            <h6 class="card-subtitle" data-translate="card-role-orcid"></h6>
-            <p class="card-content">0000-0002-4207-904X</p>
-            <a href="https://www.linkedin.com/in/louis-fouquet/" target="_blank" class="card-content"><span
-                class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
-          </div>
-        </div>
+				<div class="card">
+					<img class="card-img-top" src="/images/Equipe/christophe-cance.jpg" alt="Christophe Cancé">
+					<div class="card-body">
+						<h5 class="card-title">Christophe Cancé</h5>
+						<p class="card-job">Ingénieur de recherche</p>
+						<h6 class="card-subtitle" data-translate="card-role-title"></h6>
+						<p class="card-content">Porteur du projet ENVIENDOC</p>
+						<h6 class="card-subtitle" data-translate="card-role-orcid"></h6>
+						<p class="card-content">0000-0002-8373-5445</p>
+						<a href="https://www.linkedin.com/in/bonneterre-vincent-99289142/" target="_blank"
+							class="card-content"><span class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
+						<a href="https://www.timc.fr/christophe-cance/" target="_blank" class="card-content"><span
+								class="iconify" data-icon="mdi:web"></span>Website</a>
+					</div>
+				</div>
 
-        <div class="card">
-          <img class="card-img-top" src="/images/Equipe/adriana-sardi.jpg" alt="Adriana Sardi">
-          <div class="card-body">
-            <h5 class="card-title">Dr Adriana Sardi</h5>
-            <p class="card-job">Chercheuse en écotoxicologie marine </p>
-            <h6 class="card-subtitle" data-translate="card-role-title"></h6>
-            <p class="card-content">Data scientist</p>
-            <h6 class="card-subtitle" data-translate="card-role-orcid"></h6>
-            <p class="card-content">0000-0001-5323-2006</p>
-            <a href="https://www.linkedin.com/in/adriana-sardi/" target="_blank" class="card-content"><span
-                class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
-          </div>
-        </div>
+				<div class="card">
+					<img class="card-img-top" src="/images/Equipe/noimage.jpg" alt="Rachel Desailloud">
+					<div class="card-body">
+						<h5 class="card-title">Pr Rachel Desailloud</h5>
+						<p class="card-job">Professeur des Universités - praticien hospitalier en endocrinologie au CHU
+							Amiens-Picardie &#38; membre de l’Unité Mixte de Recherche UPJV/INERIS Péritox</p>
+						<h6 class="card-subtitle" data-translate="card-role-title"></h6>
+						<p class="card-content">Responsable scientifique santé</p>
+						<h6 class="card-subtitle" data-translate="card-role-orcid"></h6>
+						<p class="card-content">0000-0001-9976-7938</p>
+					</div>
+				</div>
 
-        <div class="card">
-          <img class="card-img-top" src="/images/Equipe/matthieu-monchet.jpeg" alt="Matthieu Monchet">
-          <div class="card-body">
-            <h5 class="card-title">Matthieu Monchet</h5>
-            <p class="card-job">Data Analyst/data engineer</p>
-            <h6 class="card-subtitle" data-translate="card-role-title"></h6>
-            <p class="card-content">Data Analyst/ Animateur</p>
-            <a href="https://www.linkedin.com/in/matthieu-monchet-085b97226/" target="_blank" class="card-content"><span
-                class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
-          </div>
-        </div>
+				<div class="card">
+					<img class="card-img-top" src="/images/Equipe/Abdallah-Al-Salameh.jpg" alt="Abdallah Al-Salameh">
+					<div class="card-body">
+						<h5 class="card-title">Dr Abdallah Al-Salameh</h5>
+						<p class="card-job">Maître de conférence des Universités - praticien hospitalier en
+							endocrinologie au CHU
+							Amiens-Picardie &#38; membre de l’Unité Mixte de Recherche UPJV/INERIS Péritox</p>
+						<h6 class="card-subtitle" data-translate="card-role-title"></h6>
+						<p class="card-content">Responsable scientifique santé</p>
+						<h6 class="card-subtitle" data-translate="card-role-orcid"></h6>
+						<p class="card-content">0000-0002-7951-9926</p>
+						<a href="#" target="_blank" class="card-content"><span class="iconify"
+								data-icon="mdi:linkedin"></span>Linkedin</a>
+						<a href="#" target="_blank" class="card-content"><span class="iconify"
+								data-icon="mdi:web"></span>Website</a>
+					</div>
+				</div>
 
-        <div class="card">
-          <img class="card-img-top" src="/images/Equipe/maevaLG.jpg" alt="Maeva Le Guennec">
-          <div class="card-body">
-            <h5 class="card-title">Maeva Le Guennec</h5>
-            <p class="card-job">Data Analyst/data engineer</p>
-            <h6 class="card-subtitle" data-translate="card-role-title"></h6>
-            <p class="card-content">Data Analyst</p>
-            <h6 class="card-subtitle" data-translate="card-role-orcid"></h6>
-            <p class="card-content">0000-0002-3789-7988</p>
-            <a href="https://www.linkedin.com/in/maeva-le-guennec-6b8968a9/" target="_blank" class="card-content"><span
-                class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
-          </div>
-        </div>
+				<div class="card">
+					<img class="card-img-top" src="/images/Equipe/Louis-Fouquet.jpg" alt="Louis Fouquet">
+					<div class="card-body">
+						<h5 class="card-title">Louis Fouquet</h5>
+						<p class="card-job">Research Scientist</p>
+						<h6 class="card-subtitle" data-translate="card-role-title"></h6>
+						<p class="card-content">Data scientist - Tech Lead</p>
+						<h6 class="card-subtitle" data-translate="card-role-orcid"></h6>
+						<p class="card-content">0000-0002-4207-904X</p>
+						<a href="https://www.linkedin.com/in/louis-fouquet/" target="_blank" class="card-content"><span
+								class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
+					</div>
+				</div>
 
-        <div class="card">
-          <img class="card-img-top" src="/images/Equipe/zlatka-gras.jpg" alt="Zlatka Avramova-Gras">
-          <div class="card-body">
-            <h5 class="card-title">Zlatka Avramova-Gras</h5>
-            <p class="card-job">Dev PEGA/Data Analyst</p>
-            <h6 class="card-subtitle" data-translate="card-role-title"></h6>
-            <p class="card-content">Data Analyst</p>
-            <a href="http://www.linkedin.com/in/zlatka-avramova-gras" target="_blank" class="card-content"><span
-                class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
-          </div>
-        </div>
+				<div class="card">
+					<img class="card-img-top" src="/images/Equipe/adriana-sardi.jpg" alt="Adriana Sardi">
+					<div class="card-body">
+						<h5 class="card-title">Dr Adriana Sardi</h5>
+						<p class="card-job">Chercheuse en écotoxicologie marine </p>
+						<h6 class="card-subtitle" data-translate="card-role-title"></h6>
+						<p class="card-content">Data scientist</p>
+						<h6 class="card-subtitle" data-translate="card-role-orcid"></h6>
+						<p class="card-content">0000-0001-5323-2006</p>
+						<a href="https://www.linkedin.com/in/adriana-sardi/" target="_blank" class="card-content"><span
+								class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
+					</div>
+				</div>
 
-        <div class="card">
-          <img class="card-img-top" src="/images/Equipe/Audrey-Talfumier.jpg" alt="Audrey Talfumier">
-          <div class="card-body">
-            <h5 class="card-title">Audrey Talfumier</h5>
-            <p class="card-job">Graphiste - Web developper</p>
-            <h6 class="card-subtitle" data-translate="card-role-title"></h6>
-            <p class="card-content">UX Design - Front-end web development</p>
-            <a href="https://www.linkedin.com/in/audreytalfumier/" target="_blank" class="card-content"><span
-                class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
-            <a href="https://luna-graphica.fr/" target="_blank" class="card-content"><span class="iconify"
-                data-icon="mdi:web"></span>Website</a>
-          </div>
-        </div>
+				<div class="card">
+					<img class="card-img-top" src="/images/Equipe/matthieu-monchet.jpeg" alt="Matthieu Monchet">
+					<div class="card-body">
+						<h5 class="card-title">Matthieu Monchet</h5>
+						<p class="card-job">Data Analyst/data engineer</p>
+						<h6 class="card-subtitle" data-translate="card-role-title"></h6>
+						<p class="card-content">Data Analyst/ Animateur</p>
+						<a href="https://www.linkedin.com/in/matthieu-monchet-085b97226/" target="_blank"
+							class="card-content"><span class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
+					</div>
+				</div>
 
-        <div class="card">
-          <img class="card-img-top" src="/images/Equipe/kevin-gaborel.jpg" alt="Kevin Gaborel">
-          <div class="card-body">
-            <h5 class="card-title">Kévin Gaborel</h5>
-            <p class="card-job">Web developper</p>
-            <h6 class="card-subtitle" data-translate="card-role-title"></h6>
-            <p class="card-content">Front-end web development</p>
-            <a href="https://www.linkedin.com/in/kevin-gaborel/" target="_blank" class="card-content"><span
-                class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
-          </div>
-        </div>
+				<div class="card">
+					<img class="card-img-top" src="/images/Equipe/maevaLG.jpg" alt="Maeva Le Guennec">
+					<div class="card-body">
+						<h5 class="card-title">Maeva Le Guennec</h5>
+						<p class="card-job">Data Analyst/data engineer</p>
+						<h6 class="card-subtitle" data-translate="card-role-title"></h6>
+						<p class="card-content">Data Analyst</p>
+						<h6 class="card-subtitle" data-translate="card-role-orcid"></h6>
+						<p class="card-content">0000-0002-3789-7988</p>
+						<a href="https://www.linkedin.com/in/maeva-le-guennec-6b8968a9/" target="_blank"
+							class="card-content"><span class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
+					</div>
+				</div>
 
-        <div class="card">
-          <img class="card-img-top" src="/images/Equipe/leopold-marescal.jpg" alt="Leopold Marescal">
-          <div class="card-body">
-            <h5 class="card-title">Leopold Marescal</h5>
-            <p class="card-job">Web developper</p>
-            <h6 class="card-subtitle" data-translate="card-role-title"></h6>
-            <p class="card-content">Front-end web development</p>
-            <a href="https://www.linkedin.com/in/leopold-marescal-3228501a6/" target="_blank" class="card-content"><span
-                class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
-          </div>
-        </div>
+				<div class="card">
+					<img class="card-img-top" src="/images/Equipe/zlatka-gras.jpg" alt="Zlatka Avramova-Gras">
+					<div class="card-body">
+						<h5 class="card-title">Zlatka Avramova-Gras</h5>
+						<p class="card-job">Dev PEGA/Data Analyst</p>
+						<h6 class="card-subtitle" data-translate="card-role-title"></h6>
+						<p class="card-content">Data Analyst</p>
+						<a href="http://www.linkedin.com/in/zlatka-avramova-gras" target="_blank"
+							class="card-content"><span class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
+					</div>
+				</div>
+
+				<div class="card">
+					<img class="card-img-top" src="/images/Equipe/Audrey-Talfumier.jpg" alt="Audrey Talfumier">
+					<div class="card-body">
+						<h5 class="card-title">Audrey Talfumier</h5>
+						<p class="card-job">Graphiste - Web developper</p>
+						<h6 class="card-subtitle" data-translate="card-role-title"></h6>
+						<p class="card-content">UX Design - Front-end web development</p>
+						<a href="https://www.linkedin.com/in/audreytalfumier/" target="_blank"
+							class="card-content"><span class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
+						<a href="https://luna-graphica.fr/" target="_blank" class="card-content"><span class="iconify"
+								data-icon="mdi:web"></span>Website</a>
+					</div>
+				</div>
+
+				<div class="card">
+					<img class="card-img-top" src="/images/Equipe/kevin-gaborel.jpg" alt="Kevin Gaborel">
+					<div class="card-body">
+						<h5 class="card-title">Kévin Gaborel</h5>
+						<p class="card-job">Web developper</p>
+						<h6 class="card-subtitle" data-translate="card-role-title"></h6>
+						<p class="card-content">Front-end web development</p>
+						<a href="https://www.linkedin.com/in/kevin-gaborel/" target="_blank" class="card-content"><span
+								class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
+					</div>
+				</div>
+
+				<div class="card">
+					<img class="card-img-top" src="/images/Equipe/leopold-marescal.jpg" alt="Leopold Marescal">
+					<div class="card-body">
+						<h5 class="card-title">Leopold Marescal</h5>
+						<p class="card-job">Web developper</p>
+						<h6 class="card-subtitle" data-translate="card-role-title"></h6>
+						<p class="card-content">Front-end web development</p>
+						<a href="https://www.linkedin.com/in/leopold-marescal-3228501a6/" target="_blank"
+							class="card-content"><span class="iconify" data-icon="mdi:linkedin"></span>Linkedin</a>
+					</div>
+				</div>
 
 
 
@@ -247,41 +252,41 @@
 
 
 
-      </div>
-    </section>
-  </main>
-  <footer class="footer">
-    <div class="footer__soutiens">
-      <div style="display: flex;">
-        <p style="align-self: center;" data-translate="footer-support"></p>
-        <a href="https://www.u-picardie.fr/" target="blank"><img class="footer__soutiens-images"
-            src="./images/Soutiens_logos/universite_picardie.png" /></a>
-        <a href="https://www.univ-grenoble-alpes.fr/" target="blank"><img class="footer__soutiens-images"
-            src="./images/Soutiens_logos/UGA.png" /></a>
-        <a href="https://peritox.u-picardie.fr/" target="blank"><img class="footer__soutiens-images"
-            src="./images/Soutiens_logos/peritox.png" /></a>
-        <a href="https://www.timc.fr/" target="blank"><img class="footer__soutiens-images"
-            src="./images/Soutiens_logos/timc.png" /></a>
-      </div>
-      <div style="align-self: center;">
-        <p class="footer__soutiens-propos" data-translate="footer-challenge"></p>
-      </div>
-    </div>
-    <div class="hyperfooter">
-      <div>
-        <p id="copyright"></p>
-      </div>
-      <nav class="menu-footer">
-        <ul>
-          <li><a href="/legacy.html" class="hyperfooter__links" data-translate="footlink-legacy"></a></li>
-          <li><a href="/help.html" class="hyperfooter__links" data-translate="footlink-help"></a></li>
-          <li><a href="/list.html" class="hyperfooter__links" data-translate="footlink-list"></a></li>
-        </ul>
-      </nav>
-    </div>
-  </footer>
-  <script type="text/javascript" src="./js/copyright.js"></script>
-  <script type="text/javascript" src="./js/translate.js"></script>
+			</div>
+		</section>
+	</main>
+	<footer class="footer">
+		<div class="footer__soutiens">
+			<div style="display: flex;">
+				<p style="align-self: center;" data-translate="footer-support"></p>
+				<a href="https://www.u-picardie.fr/" target="blank"><img class="footer__soutiens-images"
+						src="./images/Soutiens_logos/universite_picardie.png" /></a>
+				<a href="https://www.univ-grenoble-alpes.fr/" target="blank"><img class="footer__soutiens-images"
+						src="./images/Soutiens_logos/UGA.png" /></a>
+				<a href="https://peritox.u-picardie.fr/" target="blank"><img class="footer__soutiens-images"
+						src="./images/Soutiens_logos/peritox.png" /></a>
+				<a href="https://www.timc.fr/" target="blank"><img class="footer__soutiens-images"
+						src="./images/Soutiens_logos/timc.png" /></a>
+			</div>
+			<div style="align-self: center;">
+				<p class="footer__soutiens-propos" data-translate="footer-challenge"></p>
+			</div>
+		</div>
+		<div class="hyperfooter">
+			<div>
+				<p id="copyright"></p>
+			</div>
+			<nav class="menu-footer">
+				<ul>
+					<li><a href="/legacy.html" class="hyperfooter__links" data-translate="footlink-legacy"></a></li>
+					<li><a href="/help.html" class="hyperfooter__links" data-translate="footlink-help"></a></li>
+					<li><a href="/list.html" class="hyperfooter__links" data-translate="footlink-list"></a></li>
+				</ul>
+			</nav>
+		</div>
+	</footer>
+	<script type="text/javascript" src="./js/copyright.js"></script>
+	<script type="text/javascript" src="./js/translate.js"></script>
 </body>
 
 </html>

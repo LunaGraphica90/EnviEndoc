@@ -7,44 +7,45 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" media="screen" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" media="screen" type="text/css" href="./css/responsive.css" />
 	<title>EnviEndoc - Data Sources</title>
 	<script src="./js/pageTitles.js"></script>
 </head>
 
 <body>
 	<header>
-		<a href="./index.html"><img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" /></a>
-		<nav class="header__nav-desktop">
-			<ul>
-				<li><a class="header__menu-links active" href="./index.html" data-translate="navlink-home"></a></li>
-				<li><a class="header__menu-links" href="./map.html" data-translate="navlink-carto"></a></li>
-				<li><a class="header__menu-links" href="./sourcedata.html" data-translate="navlink-sources"></a></li>
-				<li><a class="header__menu-links" href="./about.html" data-translate="navlink-about"></a></li>
-			</ul>
-		</nav>
-		<div class="box">
-			<select id="language-select" onchange="selectLang()">
-				<option value="fr">Français</option>
-				<option value="en">English</option>
-			</select>
-		</div>
-		<div class="menu-mobile">
-			<input id="menu-switch" type="checkbox" />
-			<nav id="menu" role="navigation">
-				<ul>
-					<li><a href="./index.html" data-translate="navlink-home"></a></li>
-					<li><a href="./map.html" data-translate="navlink-carto"></a></li>
-					<li><a href="./sourcedata.html" data-translate="navlink-sources"></a></li>
-					<li><a href="./about.html" data-translate="navlink-about"></a></li>
-				</ul>
-			</nav>
-			<label for="menu-switch" id="menu-toggle">
-				<span></span>
-				<span></span>
-				<span></span>
-			</label>
-		</div>
-	</header>
+        <a href="./index.html"><img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" /></a>
+        <nav class="header__nav-desktop">
+            <ul>
+                <li><a class="header__menu-links active" href="./index.html" data-translate="navlink-home"></a></li>
+                <li><a class="header__menu-links" href="./map.html" data-translate="navlink-carto"></a></li>
+                <li><a class="header__menu-links" href="./sourcedata.html" data-translate="navlink-sources"></a></li>
+                <li><a class="header__menu-links" href="./about.html" data-translate="navlink-about"></a></li>
+            </ul>
+        </nav>
+        <div class="box">
+            <select id="language-select" onchange="selectLang()">
+                <option value="fr">Français</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+        <div class="header__nav-mobile">
+            <input id="menu-switch" type="checkbox" />
+            <nav id="menu" role="navigation">
+                <ul>
+                    <li><a href="./index.html" data-translate="navlink-home"></a></li>
+                    <li><a href="./map.html" data-translate="navlink-carto"></a></li>
+                    <li><a href="./sourcedata.html" data-translate="navlink-sources"></a></li>
+                    <li><a href="./about.html" data-translate="navlink-about"></a></li>
+                </ul>
+            </nav>
+            <label for="menu-switch" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+    </header>
 
 	<main>
 		<h1 data-translate="navlink-sources"></h1>
