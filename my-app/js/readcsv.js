@@ -56,7 +56,7 @@ parseCSV()
                     //console.log(columnIndex)
                     const cell = document.createElement('td');
                     const value = rowData[columnName];
-                    console.log(value);
+                    //console.log(value);
             
                     // Vérifie si la colonne correspond à la colonne contenant les liens
                     if (columnName === 'URL vers la fiche DEDuCT' || columnName === 'URL to the DEDuCT page') {
