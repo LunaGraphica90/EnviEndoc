@@ -1,196 +1,167 @@
-<!DOCTYPE html>
-<html>
-  
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="../images/favicon.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" media="screen" type="text/css" href="./css/style.css" />
-  <title>EnviEndoc - Map</title>
-  <script src="./js/pageTitles.js"></script>
+<main class="main">
 
-</head>
+  <h1 data-translate="map-title"></h1>
 
-<body>
-  <header>
-    <a href="./index.html"><img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" /></a>
-    <nav class="header__menu">
-      <ul>
-        <li><a class="header__menu-links" href="./home.html" data-translate="navlink-home"></a></li>
-        <li><a class="header__menu-links active" href="./map.html" data-translate="navlink-carto"></a></li>
-        <li><a class="header__menu-links" href="./sourcedata.html" data-translate="navlink-sources"></a></li>
-        <li><a class="header__menu-links" href="./about.html" data-translate="navlink-about"></a></li>
-      </ul>
-    </nav>
-    <div class="box">
-      <select id="language-select" onchange="selectLang()">
-        <option value="fr">Français</option>
-        <option value="en">English</option>
-      </select>
+  <div class="main__content">
+    <div class="main__content-panel1">
+      <fieldset>
+        <legend>Choose :</legend>
+        <div>
+          <input type="checkbox" id="dataslayer" name="dataslayer" value="dataslayer" checked>
+          <label for="dataslayer">dataslayer blue</label>
+        </div>
+        <div>
+          <input type="checkbox" id="dataslayer2" name="dataslayer2" value="dataslayer2" checked>
+          <label for="dataslayer2">dataslayer red</label>
+        </div>
+      </fieldset>
     </div>
-  </header>
-  <main class="main">
-
-    <h1 data-translate="map-title"></h1>
-
-    <div class="main__content">
-      <div class="main__content-panel1">
-        <fieldset>
-          <legend>Choose :</legend>
-          <div>
-            <input type="checkbox" id="dataslayer" name="dataslayer" value="dataslayer" checked>
-            <label for="dataslayer">dataslayer blue</label>
-          </div>
-          <div>
-            <input type="checkbox" id="dataslayer2" name="dataslayer2" value="dataslayer2" checked>
-            <label for="dataslayer2">dataslayer red</label>
-          </div>
-        </fieldset>
-      </div>
-      <div class="main__content-panelmap">
-        <div id="map"></div>
-      </div>
-      <div class="main__content-panel2">
-        <span class="sidepanel-title">Side Panel</span>
-        <div id="content"> </div>
-      </div>
-
+    <div class="main__content-panelmap">
+      <div id="map"></div>
     </div>
-    <section id="use-datas">
-      <aside>
-        <h2 data-translate="use-datas-title"></h2>
-        <p data-translate="use-datas"></p>
-        <table id="table-map">
-          <tbody>
-            <tr>
-              <td data-translate="use-datas-all"></td>
-              <td>
-                <ul>
-                  <li>Chamot S, Leroy L, Marhic G, Al Salameh A, Pons R, Bonneterre V, Cance C, Balcaen T, RamonDare M, Gignon P, Desailloud R, Petit P. Perturbateurs endocriniens et environnement : revue des bases de données existantes</li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>DEDuCT</td>
-              <td>
-                <ul>
-                  <li>B.S. Karthikeyan, J. Ravichandran, K. Mohanraj, R.P. Vivek-Ananth &#38; A. Samal, A curated knowledgebase on endocrine disrupting chemicals and their biological systems-level perturbations, Science of the Total Environment, 692: 281-296 (2019).</li>
-                  <li>B.S. Karthikeyan, J. Ravichandran, S.R. Aparna &#38; A. Samal, DEDuCT 2.0: An updated knowledgebase and an exploration of the current regulations and guidelines from the perspective of endocrine disrupting chemicals, Chemosphere, 267:128898 (2021).</li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>Forever Pollution Project</td>
-              <td>
-                <ul>
-                  <li>Forever Pollution Project. "Forever pollution": Explore the map of Europe's PFAS contamination. <a href="https://www.lemonde.fr/en/les-decodeurs/article/2023/02/23/foreverpollution-explore-the-map-of-europe-s-pfas-contamination_6016905_8.html" target="_blank" class="external">https://www.lemonde.fr/en/les-decodeurs/article/2023/02/23/foreverpollution-explore-the-map-of-europe-s-pfas-contamination_6016905_8.html</a></li>
-                  <li>En informer le Forever Pollution Project à l’adresse horel[@]lemonde.fr </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>BDREP</td>
-              <td>
-                <ul>
-                  <li>INERIS. Base de données du registre des émissions polluantes et des déchets. <a href="https://www.georisques.gouv.fr/risques/registre-des-emissions-polluantes" target="_blank" class="external">https://www.georisques.gouv.fr/risques/registre-des-emissions-polluantes</a></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>CNEP</td>
-              <td>
-                <ul>
-                  <li>Laboratoire Central de Surveillance de la Qualité de l’Air, 2019. Résultats de la campagne nationale exploratoire de mesure des résidus de pesticides dans l’air ambiant (2018-2019). <a href="https://www.lcsqa.org/fr/rapport/resultats-de-la-campagne-nationale-exploratoire-de-mesure-des-residus-de-pesticides-dans" target="_blank" class="external">https://www.lcsqa.org/fr/rapport/resultats-de-la-campagne-nationale-exploratoire-demesure-des-residus-de-pesticides-dans</a></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>GEOD’AIR </td>
-              <td>
-                <ul>
-                  <li>Laboratoire Central de Surveillance de la Qualité de l’Air. Geod’air : données et statistiques sur la qualité de l’air en France. <a href="https://www.geodair.fr/" target="_blank" class="external">https://www.geodair.fr/</a></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>BNV-d</td>
-              <td>
-                <ul>
-                  <li>Office français de la biodiversité. Banque Nationale des Ventes distributeurs (BNV-d) <a href="https://www.eaufrance.fr/actualites/mise-en-ligne-du-site-bnv-d-tracabilite" target="_blank" class="external">https://www.eaufrance.fr/actualites/mise-en-ligne-du-site-bnv-d-tracabilite</a></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>SISE-Eaux</td>
-              <td>
-                <ul>
-                  <li>Direction Générale de la Santé. Résultats du contrôle sanitaire de l’eau distribuée commune par commune. <a href="https://www.data.gouv.fr/fr/datasets/resultats-du-controle-sanitaire-de-leau-distribuee-commune-par-commune/" target="_blank" class="external">https://www.data.gouv.fr/fr/datasets/resultats-du-controle-sanitaire-de-leau-distribuee-commune-par-commune/</a></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td data-translate="stockholm"></td>
-              <td>
-                <ul>
-                  <li>The Stockholm Convention. The Stockholm Convention. <a href="http://chm.pops.int/TheConvention/ThePOPs/ListingofPOPs/tabid/2509/Default.aspx" target="_blank" class="external">http://chm.pops.int/TheConvention/ThePOPs/ListingofPOPs/tabid/2509/Default.aspx</a></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>ECHA</td>
-              <td>
-                <ul>
-                  <li>European Chemicals Agency. List of substances subject to POPs Regulation. <a href="https://echa.europa.eu/list-of-substances-subject-to-pops-regulation" target="_blank" class="external">https://echa.europa.eu/list-of-substances-subject-to-pops-regulation</a></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td data-translate="ed"></td>
-              <td>
-                <ul>
-                  <li>Federal Public Service – Health, Food Chain Safety and Environment (Belgium), National Environment and Health Action Plan (Belgium), Danish Environmental Protection Agency (Denmark), ANSES (France), French Ministry for the Ecological and Inclusive Transition (France), The Ministry of Infrastructure and Water Management (Netherland), General Directorate for Environmental Quality and Assessment (Spain), General Directorate for Public Health (Spain), KEMI (Sweden). The ED Lists. <a href="https://edlists.org/the-ed-lists" target="_blank" class="external">https://edlists.org/the-ed-lists</a></li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </aside>
-    </section>    
-  </main>
-  <footer class="footer">
-    <div class="footer__soutiens">
-      <div style="display: flex;">
-        <p style="align-self: center;" data-translate="footer-support"></p>
-        <a href="https://www.u-picardie.fr/" target="blank"><img class="footer__soutiens-images"
-            src="./images/Soutiens_logos/universite_picardie.png" /></a>
-        <a href="https://www.univ-grenoble-alpes.fr/" target="blank"><img class="footer__soutiens-images"
-            src="./images/Soutiens_logos/UGA.png" /></a>
-        <a href="https://peritox.u-picardie.fr/" target="blank"><img class="footer__soutiens-images"
-            src="./images/Soutiens_logos/peritox.png" /></a>
-        <a href="https://www.timc.fr/" target="blank"><img class="footer__soutiens-images"
-            src="./images/Soutiens_logos/timc.png" /></a>
-      </div>
-      <div style="align-self: center;">
-        <p class="footer__soutiens-propos" data-translate="footer-challenge"></p>
-      </div>
+    <div class="main__content-panel2">
+      <span class="sidepanel-title">Side Panel</span>
+      <div id="content"> </div>
     </div>
-    <div class="hyperfooter">
-      <div>
-        <p id="copyright"></p>
-      </div>
-      <nav class="menu-footer">
-        <ul>
-          <li><a href="/legacy.html" class="hyperfooter__links" data-translate="footlink-legacy"></a></li>
-          <li><a href="/help.html" class="hyperfooter__links" data-translate="footlink-help"></a></li>
-          <li><a href="/list.html" class="hyperfooter__links" data-translate="footlink-list"></a></li>
-        </ul>
-      </nav>
-    </div>
-  </footer>
-  <script type="text/javascript" src="./js/copyright.js"></script>
-  <script type="module" src="./js/main.js"></script>
-  <script type="text/javascript" src="./js/translate.js"></script>
-</body>
 
-</html>
+  </div>
+  <section id="use-datas">
+    <aside>
+      <h2 data-translate="use-datas-title"></h2>
+      <p data-translate="use-datas"></p>
+      <table id="table-map">
+        <tbody>
+          <tr>
+            <td data-translate="use-datas-all"></td>
+            <td>
+              <ul>
+                <li>Chamot S, Leroy L, Marhic G, Al Salameh A, Pons R, Bonneterre V, Cance C, Balcaen T, RamonDare M,
+                  Gignon P, Desailloud R, Petit P. Perturbateurs endocriniens et environnement : revue des bases de
+                  données existantes</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>DEDuCT</td>
+            <td>
+              <ul>
+                <li>B.S. Karthikeyan, J. Ravichandran, K. Mohanraj, R.P. Vivek-Ananth &#38; A. Samal, A curated
+                  knowledgebase on endocrine disrupting chemicals and their biological systems-level perturbations,
+                  Science of the Total Environment, 692: 281-296 (2019).</li>
+                <li>B.S. Karthikeyan, J. Ravichandran, S.R. Aparna &#38; A. Samal, DEDuCT 2.0: An updated knowledgebase
+                  and an exploration of the current regulations and guidelines from the perspective of endocrine
+                  disrupting chemicals, Chemosphere, 267:128898 (2021).</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>Forever Pollution Project</td>
+            <td>
+              <ul>
+                <li>Forever Pollution Project. "Forever pollution": Explore the map of Europe's PFAS contamination. <a
+                    href="https://www.lemonde.fr/en/les-decodeurs/article/2023/02/23/foreverpollution-explore-the-map-of-europe-s-pfas-contamination_6016905_8.html"
+                    target="_blank"
+                    class="external">https://www.lemonde.fr/en/les-decodeurs/article/2023/02/23/foreverpollution-explore-the-map-of-europe-s-pfas-contamination_6016905_8.html</a>
+                </li>
+                <li>En informer le Forever Pollution Project à l’adresse horel[@]lemonde.fr </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>BDREP</td>
+            <td>
+              <ul>
+                <li>INERIS. Base de données du registre des émissions polluantes et des déchets. <a
+                    href="https://www.georisques.gouv.fr/risques/registre-des-emissions-polluantes" target="_blank"
+                    class="external">https://www.georisques.gouv.fr/risques/registre-des-emissions-polluantes</a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>CNEP</td>
+            <td>
+              <ul>
+                <li>Laboratoire Central de Surveillance de la Qualité de l’Air, 2019. Résultats de la campagne nationale
+                  exploratoire de mesure des résidus de pesticides dans l’air ambiant (2018-2019). <a
+                    href="https://www.lcsqa.org/fr/rapport/resultats-de-la-campagne-nationale-exploratoire-de-mesure-des-residus-de-pesticides-dans"
+                    target="_blank"
+                    class="external">https://www.lcsqa.org/fr/rapport/resultats-de-la-campagne-nationale-exploratoire-demesure-des-residus-de-pesticides-dans</a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>GEOD’AIR </td>
+            <td>
+              <ul>
+                <li>Laboratoire Central de Surveillance de la Qualité de l’Air. Geod’air : données et statistiques sur
+                  la qualité de l’air en France. <a href="https://www.geodair.fr/" target="_blank"
+                    class="external">https://www.geodair.fr/</a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>BNV-d</td>
+            <td>
+              <ul>
+                <li>Office français de la biodiversité. Banque Nationale des Ventes distributeurs (BNV-d) <a
+                    href="https://www.eaufrance.fr/actualites/mise-en-ligne-du-site-bnv-d-tracabilite" target="_blank"
+                    class="external">https://www.eaufrance.fr/actualites/mise-en-ligne-du-site-bnv-d-tracabilite</a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>SISE-Eaux</td>
+            <td>
+              <ul>
+                <li>Direction Générale de la Santé. Résultats du contrôle sanitaire de l’eau distribuée commune par
+                  commune. <a
+                    href="https://www.data.gouv.fr/fr/datasets/resultats-du-controle-sanitaire-de-leau-distribuee-commune-par-commune/"
+                    target="_blank"
+                    class="external">https://www.data.gouv.fr/fr/datasets/resultats-du-controle-sanitaire-de-leau-distribuee-commune-par-commune/</a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td data-translate="stockholm"></td>
+            <td>
+              <ul>
+                <li>The Stockholm Convention. The Stockholm Convention. <a
+                    href="http://chm.pops.int/TheConvention/ThePOPs/ListingofPOPs/tabid/2509/Default.aspx"
+                    target="_blank"
+                    class="external">http://chm.pops.int/TheConvention/ThePOPs/ListingofPOPs/tabid/2509/Default.aspx</a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>ECHA</td>
+            <td>
+              <ul>
+                <li>European Chemicals Agency. List of substances subject to POPs Regulation. <a
+                    href="https://echa.europa.eu/list-of-substances-subject-to-pops-regulation" target="_blank"
+                    class="external">https://echa.europa.eu/list-of-substances-subject-to-pops-regulation</a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td data-translate="ed"></td>
+            <td>
+              <ul>
+                <li>Federal Public Service – Health, Food Chain Safety and Environment (Belgium), National Environment
+                  and Health Action Plan (Belgium), Danish Environmental Protection Agency (Denmark), ANSES (France),
+                  French Ministry for the Ecological and Inclusive Transition (France), The Ministry of Infrastructure
+                  and Water Management (Netherland), General Directorate for Environmental Quality and Assessment
+                  (Spain), General Directorate for Public Health (Spain), KEMI (Sweden). The ED Lists. <a
+                    href="https://edlists.org/the-ed-lists" target="_blank"
+                    class="external">https://edlists.org/the-ed-lists</a></li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </aside>
+  </section>
+</main>
