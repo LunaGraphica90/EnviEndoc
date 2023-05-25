@@ -17,10 +17,19 @@ const routes = {
 };
 
 const gestionLocation = async () => {
-const path = window.location.pathname;
-const route = routes[path] || routes[404];
-const html = await fetch(route).then((data)=> data.text());
-document.getElementById('app').innerHTML= html;
+    const path = window.location.pathname;
+    const route = routes[path] || routes[404];
+    const html = await fetch(route).then((data)=> data.text());
+    document.getElementById('app').innerHTML= html;
+
+    if(path === "/"){
+        document.body.classList.add("home")
+    } else {
+        document.body.classList.remove("home")
+    }
+
+    translate();
+
 };
 
 window.onpopstate = gestionLocation;
