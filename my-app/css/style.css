@@ -270,6 +270,8 @@ header > nav > ul > li{
 
 .home__main-content-panel2 {
   text-align: center;
+  height: max-content;
+  align-self: center;
 }
 
 .home__main-content-panel1 > h1 {

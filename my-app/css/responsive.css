@@ -7,6 +7,15 @@
 }
 
 @media only screen and (max-width: 992px) {
+  .home__main-content-panel1 {
+    padding-left: 2rem;
+
+}
+
+.footer__soutiens-propos {
+  margin-bottom: 1em;
+}
+
   .card {
     width: 25%;
   }
