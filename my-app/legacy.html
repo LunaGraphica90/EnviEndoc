@@ -14,11 +14,10 @@
 
 <body>
   <header>
-    <!-- br et <em></em sur peturbaendcri et environneement pour green background> H1 sur accueil blabla endocri blabla span et -->
     <a href="./index.html"><img class="header__logo" src="./images/EnviEndoc_logo/EnviEndoc_logo2.png" /></a>
-    <nav class="header__menu">
+    <nav class="header__nav-desktop">
       <ul>
-        <li><a class="header__menu-links" href="./index.html" data-translate="navlink-home"></a></li>
+        <li><a class="header__menu-links active" href="./index.html" data-translate="navlink-home"></a></li>
         <li><a class="header__menu-links" href="./map.html" data-translate="navlink-carto"></a></li>
         <li><a class="header__menu-links" href="./sourcedata.html" data-translate="navlink-sources"></a></li>
         <li><a class="header__menu-links" href="./about.html" data-translate="navlink-about"></a></li>
@@ -30,7 +29,24 @@
         <option value="en">English</option>
       </select>
     </div>
+    <div class="menu-mobile">
+      <input id="menu-switch" type="checkbox" />
+      <nav id="menu" role="navigation">
+        <ul>
+          <li><a href="./index.html" data-translate="navlink-home"></a></li>
+          <li><a href="./map.html" data-translate="navlink-carto"></a></li>
+          <li><a href="./sourcedata.html" data-translate="navlink-sources"></a></li>
+          <li><a href="./about.html" data-translate="navlink-about"></a></li>
+        </ul>
+      </nav>
+      <label for="menu-switch" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
   </header>
+  
   <main class="main">
     <h1 data-translate="footlink-legacy"></h1>
     <section>

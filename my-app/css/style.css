@@ -326,9 +326,11 @@ header > nav > ul > li{
   grid-column: 3/3;
 }
 
-/*---------Page Sources des données---------*/
 
-/*---------Page À propos---------*/
+/*-----------------------------------------------*/
+/*-----ABOUT PAGE---*/
+/*-----------------------------------------------*/
+
 .row {
   display: flex;
   flex-wrap: wrap;
