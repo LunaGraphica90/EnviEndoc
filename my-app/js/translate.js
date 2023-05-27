@@ -29,7 +29,7 @@ function getLanguage() {
 // Chargement des traductions
 async function loadTranslations() {
     const lang = getLanguage();
-    const response = await fetch(`lang/${lang}.json`);
+    const response = await fetch(`./lang/${lang}.json`);
     const data = await response.json();
     return data;
 }

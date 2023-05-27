@@ -1,5 +1,18 @@
 import Papa from 'papaparse';
 
+function getLanguage() {
+  if (localStorage.getItem('language')) {
+      if(localStorage.getItem('language') === 'en'){
+          let langSelect = document.getElementById('language-select');
+          langSelect.options[1].setAttribute('selected', true);
+      }
+      return localStorage.getItem('language');
+  } else {
+    return 'fr'; // langue par défaut
+  }
+}
+
+
 const parseCSV = () => {
     const lang = getLanguage();
     const csvFile = lang === 'fr' ? '../documents/csv/listeFR.csv' : '../documents/csv/listeENG.csv';

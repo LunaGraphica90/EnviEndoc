@@ -68,7 +68,7 @@ h1 {
   padding: 0.5em;
   padding-left: 4em;
   text-transform: uppercase;
-  background: url(../images/title_background.png) no-repeat left center;
+  background: url('../images/title_background.png') no-repeat left center;
   background-size: 3em;
 }
 
@@ -243,7 +243,7 @@ header > nav > ul > li{
 }
 
 .box::before {
-  content:url('/images/down.png');
+  content:url('../images/down.png');
   position: absolute;
   top: 0.4em;
   right: 0;
