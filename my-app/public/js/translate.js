@@ -13,6 +13,8 @@ function selectLang(){
     
 }
 
+document.getElementById("language-select").addEventListener("change", selectLang);
+
 // Fonction pour récupérer la langue enregistrée dans le localstorage ou utiliser la langue par défaut
 function getLanguage() {
     if (localStorage.getItem('language')) {

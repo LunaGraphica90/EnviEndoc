@@ -1,6 +1,6 @@
 export default {
   build: {
-    //sourcemap: true,
+    sourcemap: true,
     root:"",
     rollupOptions: {
       input: {
@@ -11,19 +11,23 @@ export default {
         list:'./list.html',
         map:'./map.html',
         sourcedata: './sourcedata.html',
+        /* copyright: './public/js/copyright.js',
+        main:'./js/main.js',
+        pageTitles:'./public/js/pageTitles.js',
+        readcsv:'./public/js/readcsv.js',
+        translate: './public/js/translate.js',
         fr:'./lang/fr.json',
-        en:'./lang/en.json',
+        en:'./lang/en.json', */
       },
-      /* output:{
-        copyright: './js/copyright.js',
+      /* export:{
+        copyright: './public/js/copyright.js',
         main:'./js/main.js',
         pageTitiles:'./js/pageTitiles.js',
-        readcsv:'./js/readcsv.js',
-        translate: './js/translate.js',
+        readcsv:'./public/js/readcsv.js',
+        translate: './public/js/translate.js',
         fr:'./lang/fr.json',
-        en:'.lang.en.json',
-      } */
-
+        en:'./lang/en.json',
+      }, */
       output: {
         dir: 'dist', // Spécifiez le répertoire de sortie global ici
       },
