@@ -15,7 +15,7 @@ function getLanguage() {
 
 const parseCSV = () => {
     const lang = getLanguage();
-    const csvFile = lang === 'fr' ? './public/documents/csv/listeFR.csv' : './public/documents/csv/listeENG.csv';
+    const csvFile = lang === 'fr' ? './documents/csv/listeFR.csv' : './documents/csv/listeENG.csv';
 
     return new Promise((resolve, reject) => {
       Papa.parse(csvFile, {
