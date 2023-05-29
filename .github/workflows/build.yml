@@ -31,7 +31,7 @@ jobs:
         run: cd my-app/
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build
         run: npm run build
