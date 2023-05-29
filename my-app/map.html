@@ -6,17 +6,43 @@
 
 	<div class="main__content">
 		<div class="main__content-panel1">
-			<fieldset>
-				<legend>Choose :</legend>
-				<div>
-					<input type="checkbox" id="dataslayer" name="dataslayer" value="dataslayer" checked>
-					<label for="dataslayer">dataslayer blue</label>
-				</div>
-				<div>
-					<input type="checkbox" id="dataslayer2" name="dataslayer2" value="dataslayer2" checked>
-					<label for="dataslayer2">dataslayer red</label>
-				</div>
-			</fieldset>
+			<form id="form-map">
+				<fieldset>
+					<legend>Sources :</legend>
+					<div>
+						<label>
+							<input type="checkbox" id="BNVD" name="BNVD" value="BNVD" checked>
+							BNVD
+						</label>
+					</div>
+					<div>
+						<label>
+							<input type="checkbox" id="CNEP" name="CNEP" value="CNEP" checked>
+							CNEP
+						</label>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Filtres :</legend>
+					<div>
+						<select id="substance-filtre" required>
+							<option value="">--Choisissez une substance--</option>
+							<option value="9006-42-2">Zineb</option>
+							<option value="52315-07-8">Cypermethrin</option>
+							<option value="67747-09-5">Prochloraz</option>
+						</select>
+
+						<select id="année-filtre" required>
+							<option value="">--Choisissez une année--</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+							<option value="2020">2020</option>
+						</select>
+
+						<button type="submit">Chercher</button>
+					</div>
+				</fieldset>
+			</form>
 		</div>
 		<div class="main__content-panelmap">
 			<div id="map"></div>
