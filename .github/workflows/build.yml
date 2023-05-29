@@ -27,6 +27,9 @@ jobs:
         with:
           node-version: 18
 
+      - name: Change directory
+        run: cd my-app/
+
       - name: Install Dependencies
         run: npm ci
 
