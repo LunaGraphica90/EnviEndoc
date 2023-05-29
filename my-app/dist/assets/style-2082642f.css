@@ -87,7 +87,7 @@ a:hover{
 }
 
 a.external {
-  background: url('/images/external-link.png') no-repeat right center;
+  background: url('../images/external-link.png') no-repeat right center;
   background-size: 0.8em;
   align-self: center;
   padding-right: 1.2em;
@@ -99,7 +99,7 @@ a.btn{
 }
 
 a.btn.external{
-  background: url('/images/external-link.png') no-repeat center right 0.8em;
+  background: url('../images/external-link.png') no-repeat center right 0.8em;
   background-size: 0.8em;
   align-self: center;
   padding: 0.4em 2em 0.4em 1em;
