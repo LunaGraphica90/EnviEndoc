@@ -12,9 +12,67 @@ import Point from 'ol/geom/Point.js';
 import Stamen from 'ol/source/Stamen.js';
 import WebGLPointsLayer from 'ol/layer/WebGLPoints.js';
 import {Vector as VectorSource, OSM}  from 'ol/source.js';
-
 import axios from 'axios';
-import { MultiPolygon } from 'ol/geom';
+import { MultiPolygon, Polygon } from 'ol/geom';
+//import WebGLVectorLayerRenderer from 'ol/render/webgl/VectorLayer';
+import WebGLVectorLayerRenderer from 'ol/renderer/webgl/VectorLayer.js'
+import Layer from 'ol/layer/Layer';
+import {packColor} from 'ol/renderer/webgl/shaders.js';
+import {
+  Modify,
+  Select,
+  defaults as defaultInteractions,
+} from 'ol/interaction.js';
+import {WebGLTile as TileLayer} from 'ol/layer';
+
+// class WebGLLayer extends Layer {
+//   createRenderer() {
+//     return new WebGLVectorLayerRenderer(this, {
+//       fill: {
+//         attributes: {
+//           color: function (feature) {
+//             const value = feature.get('value');
+
+//             const colorByValue = [
+//               {valueMin: 0.0001, valueMax: 0.002, color: '#FFFFFF'},
+//               {valueMin: 0.0021, valueMax: 0.0062, color: '#ffe3e3'},
+//               {valueMin: 0.0063, valueMax: 0.02, color: '#ffc6c6'},
+//               {valueMin: 0.021, valueMax: 0.0551, color: '#ffaaaa'},
+//               {valueMin: 0.0552, valueMax: 0.1611, color: '#ff8e8e'},
+//               {valueMin: 0.1612, valueMax: 0.3952, color: '#ff7171'},
+//               {valueMin: 0.3953, valueMax: 0.9131, color: '#ff5555'},
+//               {valueMin: 0.9132, valueMax: 2.2567, color: '#ff3939'},
+//               {valueMin: 2.2568, valueMax: 6.5316, color: '#ff5555'},
+//               {valueMin: 6.5317, valueMax: 20000, color: '#ffc6c6'},
+//             ];
+
+//             const findColor = colorByValue.find((obj) => value >= obj.valueMin && value <= obj.valueMax);
+//             const color = findColor.color;
+            
+//             return packColor(color);
+//           },
+//           opacity: function () {
+//             return 1;
+//           },
+//         },
+//       },
+//       stroke: {
+//         attributes: {
+//           color: function () {
+//             const color = '#000000';
+//             return color;
+//           },
+//           width: function () {
+//             return 1;
+//           },
+//           opacity: function () {
+//             return 1;
+//           },
+//         }
+//       }
+//     });
+//   }
+// }
 
 // Centre carte sur centre de la France
 const FRANCE_LAT = fromLonLat([1.52, 46.36]);
@@ -83,6 +141,21 @@ Promise.all(URL_DATA_TABLE.map((endPoint) => axios.get(endPoint)))
       },
       title: `CNEP`
     });
+
+    // la version avec webGL
+    //     const datasLayer2 = new WebGLLayer({
+    //   source: new VectorSource({
+    //     features: BNVD.filter((item) => typeof item.properties.value === 'number').map((item) => { 
+    //       return new Feature({
+    //         ...item.properties, 
+    //         geometry: item.geometry.type === 'Polygon' 
+    //           ? new Polygon(item.geometry.coordinates) 
+    //           : new MultiPolygon(item.geometry.coordinates)
+    //         }
+    //     )})
+    //   }),
+    //   title: `BNVD`
+    // });
 
     /*
     let datasLayer2 = new VectorLayer({

@@ -3,141 +3,16 @@ import {Map, View} from 'ol';
 import {Stroke, Fill, Style} from 'ol/style'
 import LayerGroup from 'ol/layer/Group.js';
 import TileLayer from 'ol/layer/Tile';
-import {Projection, fromLonLat} from 'ol/proj.js';
-import GeoJSON from 'ol/format/GeoJSON';
 import VectorLayer from 'ol/layer/Vector';
 
 import Feature from 'ol/Feature.js';
 import Point from 'ol/geom/Point.js';
-import Stamen from 'ol/source/Stamen.js';
 import WebGLPointsLayer from 'ol/layer/WebGLPoints.js';
 import {Vector as VectorSource, OSM}  from 'ol/source.js';
 
 import axios from 'axios';
 import { MultiPolygon, Polygon } from 'ol/geom';
-//import WebGLVectorLayerRenderer from 'ol/render/webgl/VectorLayer';
-import WebGLVectorLayerRenderer from 'ol/renderer/webgl/VectorLayer.js'
-import Layer from 'ol/layer/Layer';
-import {packColor} from 'ol/renderer/webgl/shaders.js';
-import {
-  Modify,
-  Select,
-  defaults as defaultInteractions,
-} from 'ol/interaction.js';
-
-
-
-// class WebGLLayer extends Layer {
-//   createRenderer() {
-//     return new WebGLVectorLayerRenderer(this, {
-//       fill: {
-//         attributes: {
-//           color: function (feature) {
-//             const value = feature.get('value');
-
-//             const colorByValue = [
-//               {valueMin: 0.0001, valueMax: 0.002, color: '#FFFFFF'},
-//               {valueMin: 0.0021, valueMax: 0.0062, color: '#ffe3e3'},
-//               {valueMin: 0.0063, valueMax: 0.02, color: '#ffc6c6'},
-//               {valueMin: 0.021, valueMax: 0.0551, color: '#ffaaaa'},
-//               {valueMin: 0.0552, valueMax: 0.1611, color: '#ff8e8e'},
-//               {valueMin: 0.1612, valueMax: 0.3952, color: '#ff7171'},
-//               {valueMin: 0.3953, valueMax: 0.9131, color: '#ff5555'},
-//               {valueMin: 0.9132, valueMax: 2.2567, color: '#ff3939'},
-//               {valueMin: 2.2568, valueMax: 6.5316, color: '#ff5555'},
-//               {valueMin: 6.5317, valueMax: 20000, color: '#ffc6c6'},
-//             ];
-
-//             const findColor = colorByValue.find((obj) => value >= obj.valueMin && value <= obj.valueMax);
-//             const color = findColor.color;
-            
-//             return packColor(color);
-//           },
-//           opacity: function () {
-//             return 1;
-//           },
-//         },
-//       },
-//       stroke: {
-//         attributes: {
-//           color: function () {
-//             const color = '#000000';
-//             return color;
-//           },
-//           width: function () {
-//             return 1;
-//           },
-//           opacity: function () {
-//             return 1;
-//           },
-//         }
-//       }
-//     });
-//   }
-// }
-
-class WebGLLayer extends Layer {
-  constructor(options) {
-    // Appel du constructeur de la classe parent (Layer)
-    super(options);
-    this.selectedFeatures = this.getSource().getFeatures();
-    console.log(this.selectedFeatures);
-  }
-
-  createRenderer() {
-    return new WebGLVectorLayerRenderer(this, {
-      fill: {
-        attributes: {
-          color: function (feature) {
-            const value = feature.get('value');
-            const colorByValue = [
-              {valueMin: 0.0001, valueMax: 0.002, color: '#FFFFFF'},
-              {valueMin: 0.0021, valueMax: 0.0062, color: '#ffe3e3'},
-              {valueMin: 0.0063, valueMax: 0.02, color: '#ffc6c6'},
-              {valueMin: 0.021, valueMax: 0.0551, color: '#ffaaaa'},
-              {valueMin: 0.0552, valueMax: 0.1611, color: '#ff8e8e'},
-              {valueMin: 0.1612, valueMax: 0.3952, color: '#ff7171'},
-              {valueMin: 0.3953, valueMax: 0.9131, color: '#ff5555'},
-              {valueMin: 0.9132, valueMax: 2.2567, color: '#ff3939'},
-              {valueMin: 2.2568, valueMax: 6.5316, color: '#ff5555'},
-              {valueMin: 6.5317, valueMax: 20000, color: '#ffc6c6'},
-            ];
-
-            const findColor = colorByValue.find((obj) => value >= obj.valueMin && value <= obj.valueMax);
-            const color = findColor.color;
-            return packColor(color);
-          },
-          opacity: function () {
-            return 1;
-          },
-        },
-      },
-      stroke: {
-        attributes: {
-          color: function () {
-            const color = '#000000';
-            return color;
-          },
-          width: function () {
-            return 1;
-          },
-          opacity: function () {
-            return 1;
-          },
-        }
-      }
-    });
-  }
-
-  // Méthode pour récupérer les entités sélectionnées
-  getSelectedFeatures() {
-    console.log("coucou la compagnie");
-    return this.selectedFeatures;
-  }
-}
-
-
-
+import Select from 'ol/interaction/Select.js';
 
 // Centre carte sur centre de la France
 const FRANCE_LAT = [1.52, 46.36];
@@ -162,14 +37,14 @@ const map = new Map({
 const groupLayer = [];
 
 //gestion de l'api
-const getSubstanceInMap = (urlBNVD, urlCNEP, urlGeodAir, casSubstance) => {
+const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
   //clean groupLayer afin de ne pas additionner les couches
   groupLayer.length = 0;
   //supprime le groupe de calques
   map.removeLayer(map.getLayers().array_[1]);
   
   //on récupère la données
-  Promise.all([urlBNVD, urlCNEP, urlGeodAir, './datas/CNEP/CNEP_site.json'].map((endPoint) => axios.get(endPoint)))
+  Promise.all(urlTable.map((endPoint) => axios.get(endPoint)))
   .then((responses) => {
     const datas = responses.map(({ data }) => data);
     let [BNVD, CNEP, GEODAIR, CNEP_sites] = datas;
@@ -180,8 +55,21 @@ const getSubstanceInMap = (urlBNVD, urlCNEP, urlGeodAir, casSubstance) => {
     //console.log(GEODAIR.filter((item) => item.properties.cas.includes(casSubstance)));
     //console.log(CNEP.filter((item) => item.properties.substance.includes('Prochloraz')));
 
-    //filtre d'une substance en dure pour le test
-    CNEP = CNEP.filter((item) => item.properties.substance.includes('Prochloraz'));
+    //filtre d'une substance et d'une année
+    CNEP = CNEP.filter((item) => 
+      item.properties.cas_number.includes(substanceCas) && item.properties['date de fin de prélèvement'].slice(0,4) === cnepDate
+    );
+    console.log("CNEP: ",CNEP);
+
+    //prélèvement valide car avec une valeur
+    BNVD = BNVD.filter((item) => item.properties.value !== null);
+    console.log(BNVD);
+
+    //informe l'utilisateur du nombre de résultats par base de données
+    const bnvdNbResultElt = document.querySelector('#nb-result-bnvd');
+    const cnepNbResultElt = document.querySelector('#nb-result-cnep');
+    bnvdNbResultElt.textContent = `${BNVD.length} résultat(s)`;
+    cnepNbResultElt.textContent = `${CNEP.length} résultat(s)`;
 
 
 
@@ -210,142 +98,54 @@ const getSubstanceInMap = (urlBNVD, urlCNEP, urlGeodAir, casSubstance) => {
       title: `CNEP`
     });
 
-    const datasLayer2 = new WebGLLayer({
+    const BNVD_LAYER = new VectorLayer({
       source: new VectorSource({
         features: BNVD.filter((item) => typeof item.properties.value === 'number').map((item) => { 
-          return new Feature({
-            ...item.properties, 
+          return new Feature(
+            {...item.properties, 
             geometry: item.geometry.type === 'Polygon' 
               ? new Polygon(item.geometry.coordinates) 
               : new MultiPolygon(item.geometry.coordinates)
             }
         )})
       }),
+      style: function(feature) {
+        const value = feature.get('value');
+    
+        const colorByValue = [
+          { valueMin: 0.0001, valueMax: 0.0099, color: '255, 255, 255' },
+          { valueMin: 0.01, valueMax: 0.1999, color: '255, 227, 227' },
+          { valueMin: 0.2, valueMax: 0.9999, color: '255, 198, 198' },
+          { valueMin: 1, valueMax: 10.9999, color: '255, 170, 170' },
+          { valueMin: 11, valueMax: 50.9999, color: '255, 142, 142' },
+          { valueMin: 51, valueMax: 200.9999, color: '255, 113, 113' },
+          { valueMin: 201, valueMax: 800.9999, color: '255, 57, 57' },
+          { valueMin: 801, valueMax: 3000.9999, color: '255, 198, 198' },
+          { valueMin: 3001, valueMax: 20000, color: '255, 85, 85' }
+        ];
+    
+        const findColor = colorByValue.find((obj) => value >= obj.valueMin && value <= obj.valueMax);
+        const opacity = '0.5';
+        const color = `rgba(${findColor.color}, ${opacity})`;
+
+        return [
+          new Style({
+            fill: new Fill({
+              color: color
+            }),
+            stroke: new Stroke({
+              color: '#000000',
+              width: 1,
+            }),
+          }),
+        ];
+      },
       title: `BNVD`
     });
 
-    // const datasLayer2 = new VectorLayer({
-    //   source: new VectorSource({
-    //     features: BNVD.filter((item) => typeof item.properties.value === 'number').map((item) => { 
-    //       return new Feature(
-    //         {...item.properties, 
-    //         geometry: item.geometry.type === 'Polygon' 
-    //           ? new Polygon(item.geometry.coordinates) 
-    //           : new MultiPolygon(item.geometry.coordinates)
-    //         }
-    //     )})
-    //   }),
-    //   style: function(feature) {
-    //     const value = feature.get('value');
-    
-    //     const colorByValue = [
-    //       { valueMin: 0.0001, valueMax: 0.002, color: '#FFFFFF' },
-    //       { valueMin: 0.0021, valueMax: 0.0062, color: '#ffe3e3' },
-    //       { valueMin: 0.0063, valueMax: 0.02, color: '#ffc6c6' },
-    //       { valueMin: 0.021, valueMax: 0.0551, color: '#ffaaaa' },
-    //       { valueMin: 0.0552, valueMax: 0.1611, color: '#ff8e8e' },
-    //       { valueMin: 0.1612, valueMax: 0.3952, color: '#ff7171' },
-    //       { valueMin: 0.3953, valueMax: 0.9131, color: '#ff5555' },
-    //       { valueMin: 0.9132, valueMax: 2.2567, color: '#ff3939' },
-    //       { valueMin: 2.2568, valueMax: 6.5316, color: '#ff5555' },
-    //       { valueMin: 6.5317, valueMax: 20000, color: '#ffc6c6' },
-    //     ];
-    
-    //     const findColor = colorByValue.find((obj) => value >= obj.valueMin && value <= obj.valueMax);
-    //     const color = findColor.color;
-    
-    //     return [
-    //       new Style({
-    //         fill: new Fill({
-    //           color: color,
-    //         }),
-    //         stroke: new Stroke({
-    //           color: '#000000',
-    //           width: 1,
-    //         }),
-    //       }),
-    //     ];
-    //   },
-    //   title: `BNVD`
-    // });
-
-    // const datasLayer2 = new WebGLLayer({
-    //   source: new VectorSource({
-    //     features: BNVD.map((item, i) => { 
-    //       console.log(item.properties.value);
-    //       return new Feature(
-    //         {...item.properties, 
-    //         geometry: item.geometry.type === 'Polygon' 
-    //           ? new Polygon(item.geometry.coordinates) 
-    //           : new MultiPolygon(item.geometry.coordinates)
-    //         }
-    //     )}) 
-    //   }),
-    //   title: `BNVD`
-    // });
-    
-    // let datasLayer2 = new WebGLLayer({
-    //   source: new VectorSource({
-    //     wrapX: true,
-    //     features: BNVD_2020_CAS70630_17_0.map((item) => { 
-    //       return new Feature({...item.properties, geometry: new MultiPolygon(item.geometry.coordinates)}
-    //     )})
-    //   }),
-    //   style: new Style({
-    //     stroke: new Stroke({
-    //       color: 'blue',
-    //       width: 2
-    //     }),
-    //     fill: new Fill({
-    //       color: 'rgba(0, 0, 255, 0.1)'
-    //     })
-    //   }),
-    //   title: `BNVD`
-    // });
-    
-    //console.log(CNEP_SITE_LAYER);
-
-    groupLayer.push(datasLayer2);
-    //groupLayer.push(datasLayer3);
-
+    groupLayer.push(BNVD_LAYER);
     groupLayer.push(CNEP_LAYER);
-    console.log(datasLayer2.getSelectedFeatures());
     
-    const selectedStyle = new Style({
-      fill: new Fill({
-        color: 'rgba(255, 255, 255, 0.6)',
-      }),
-      stroke: new Stroke({
-        color: 'rgba(255, 255, 255, 0.7)',
-        width: 2,
-      }),
-    });
-    
-    console.log(groupLayer);
-    // Créez une interaction de sélection pour la couche contenant les polygones
-    var selectInteraction = new Select({
-      layers: [...groupLayer] ,
-      style: function (feature) {
-        const color = feature.get('COLOR_BIO') || '#eeeeee';
-        selectedStyle.getFill().setColor(color);
-        return selectedStyle;
-      },
-    });
-    
-    // Ajoutez l'interaction de sélection à la carte
-    map.addInteraction(selectInteraction);
-    
-    // Écoutez l'événement de sélection lorsqu'un polygone est cliqué
-    selectInteraction.on('select', function(event) {
-      console.log("le select:", event.selected);
-      var selectedFeature = event.selected[0]; // Récupère la première feature sélectionnée
-    
-      if (selectedFeature) {
-        var properties = selectedFeature.getProperties(); // Récupère les propriétés de la feature
-        // Faites quelque chose avec les propriétés récupérées, par exemple :
-        console.log(properties);
-      }
-    });
     
     
     // Regroupement des calques de données
@@ -355,17 +155,9 @@ const getSubstanceInMap = (urlBNVD, urlCNEP, urlGeodAir, casSubstance) => {
     
     // Ajout des données sur la carte 
     map.addLayer(baseLayerGroup);
-    
-    map.on('click', (e) => {
-      console.log("le click:", e);
-      map.forEachFeatureAtPixel(e.pixel, (feature) => {
-        const tableKeys = feature.getKeys();
-        console.log(tableKeys);
-      })
-    })
 
     // Layer switcher
-    const baseLayerElements = document.querySelectorAll('#form-map > fieldset> div > label > input[type=checkbox]');
+    const baseLayerElements = document.querySelectorAll('.main__content-panel1 > fieldset> div > label > input[type=checkbox]');
     for (let baseLayerElement of baseLayerElements){
       baseLayerElement.addEventListener('change', function(){
         let baseLayerElementValue = this.value;
@@ -393,14 +185,69 @@ formMapElt.addEventListener('submit', (e) =>{
   const BASE_URL = './datas/';
   const BNVD_FIN_NOM_FICHER = '_lambert93.geojsonl.json'
   const substanceFiltreValue = formMapElt.querySelector('#substance-filtre').value;
-  const dateFiltreValue = formMapElt.querySelector('#année-filtre').value;
-
-  const BNVD_URL = `${BASE_URL}BNVD/${substanceFiltreValue}/${substanceFiltreValue}_${dateFiltreValue}${BNVD_FIN_NOM_FICHER}`;
-
-  getSubstanceInMap(BNVD_URL, './datas/CNEP/CNEP.json', './datas/GEODAIR/geodair.json', substanceFiltreValue);
+  const bnvdDateValue = formMapElt.querySelector('#année-bnvd').value;
+  const cnepDateValue = formMapElt.querySelector('#année-cnep').value;
+  
+  const BNVD_URL = `${BASE_URL}BNVD/${substanceFiltreValue}/${substanceFiltreValue}_${bnvdDateValue}${BNVD_FIN_NOM_FICHER}`;
+  
+  getSubstanceInMap([BNVD_URL, './datas/CNEP/CNEP.json', './datas/GEODAIR/geodair.json', './datas/CNEP/CNEP_site.json'], substanceFiltreValue, cnepDateValue);
 });
 
 
+const selectedStyle = new Style({
+  fill: new Fill({
+    color: 'rgba(139, 0, 0, 0.6)'
+  }),
+  stroke: new Stroke({
+    color: 'rgba(255, 255, 255, 0.7)',
+    width: 2,
+  }),
+});
+
+// Créez une interaction de sélection pour la couche contenant les polygones
+var selectInteraction = new Select({
+  style: function (feature) {
+    const color = feature.get('COLOR_BIO') || '#eeeeee';
+    selectedStyle.getFill().setColor(color);
+    return selectedStyle;
+  },
+});
+
+// Ajoutez l'interaction de sélection à la carte
+map.addInteraction(selectInteraction);
+
+// Écoutez l'événement de sélection lorsqu'un polygone ou un point est cliqué
+selectInteraction.on('select', function(event) {
+  const selectedFeature = event.selected[0]; // Récupère la première feature sélectionnée
+  const sidePanelElt = document.querySelector('.main__content-panel2');
+  
+  if (selectedFeature) {
+    const properties = selectedFeature.getProperties(); // Récupère les propriétés de la feature
+    console.log(properties);
+    // Faites quelque chose avec les propriétés récupérées, par exemple :
+    const infosDivElt = document.createElement('div');
+
+    let content = `<h3> Informations sur la vente de la substance ${properties['subst_substance_name']} (cas: ${properties.BNVD_cas}) en ${properties.BNVD_annee} : </h3>`;
+    content += "<ul>";
+    const tableKeyBNVD = ['value', 'CP', 'NOM_COM', 'NOM_DEPT', 'NOM_REG', 'POPULATION', 'SUPERFICIE', 'subst_URL_for_deduct'];
+    console.log(event);
+    console.log(properties['subst_substance_name']);
+  
+    tableKeyBNVD.forEach((key) =>{
+      //si c'est la valeur on rajoute l'unité
+      if (key === 'value'){
+        content += `<li>${key} en Kg: ${properties[key]} </li>`;
+      }else{
+        content += `<li>${key} : ${properties[key]} </li>`;
+      }
+    })
+  
+    content += "</ul>"
+    infosDivElt.innerHTML = content; 
+    sidePanelElt.appendChild(infosDivElt);
+    console.log(properties);
+  }
+});
 
 
 // animate the map
