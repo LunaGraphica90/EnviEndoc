@@ -1,0 +1,902 @@
+[
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR21001",
+         "nom du site": "CAEN LA MER",
+         "région": "NORMANDIE",
+         "département": "CALVADOS",
+         "code INSEE de la commune": "14118",
+         "nom de la commune": "Caen"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            -0.391157955,
+            49.1924248
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR03087",
+         "nom du site": "AVIGNON",
+         "région": "PROVENCE-ALPES-COTE D'AZUR",
+         "département": "VAUCLUSE",
+         "code INSEE de la commune": "84007",
+         "nom de la commune": "Avignon"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            4.82496452,
+            43.9370804
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR19062",
+         "nom du site": "LAMBALLE",
+         "région": "BRETAGNE",
+         "département": "COTES-D'ARMOR",
+         "code INSEE de la commune": "22093",
+         "nom de la commune": "Lamballe"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            -2.49982452,
+            48.4738464
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR37036",
+         "nom du site": "CAPESTERRE-BELLE-EAU",
+         "région": "GUADELOUPE",
+         "département": "GUADELOUPE",
+         "code INSEE de la commune": "97107",
+         "nom de la commune": "Capesterre - Belle - Eau"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            -61.5821304,
+            16.0846043
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR42006",
+         "nom du site": "VERZY",
+         "région": "GRAND EST",
+         "département": "MARNE",
+         "code INSEE de la commune": "51614",
+         "nom de la commune": "Verzy"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            4.16493511,
+            49.1464653
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR35010",
+         "nom du site": "LIMOGES",
+         "région": "NOUVELLE-AQUITAINE",
+         "département": "HAUTE-VIENNE",
+         "code INSEE de la commune": "87085",
+         "nom de la commune": "Limoges"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            1.25484526,
+            45.8299522
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR34014",
+         "nom du site": "ORLEANS-SAINT-JEAN",
+         "région": "CENTRE-VAL DE LOIRE",
+         "département": "LOIRET",
+         "code INSEE de la commune": "45284",
+         "nom de la commune": "Saint-Jean-de-Braye"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            1.96624506,
+            47.9173851
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR19018",
+         "nom du site": "MORDELLES",
+         "région": "BRETAGNE",
+         "département": "ILLE-ET-VILAINE",
+         "code INSEE de la commune": "35310",
+         "nom de la commune": "mordelles"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            -1.83457875,
+            48.0828972
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR19072",
+         "nom du site": "HENVIC",
+         "région": "BRETAGNE",
+         "département": "FINISTERE",
+         "code INSEE de la commune": "29079",
+         "nom de la commune": "henvic"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            -3.94812179,
+            48.642498
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR18042",
+         "nom du site": "SAINT-QUENTIN",
+         "région": "HAUTS-DE-FRANCE",
+         "département": "AISNE",
+         "code INSEE de la commune": "02691",
+         "nom de la commune": "Saint-Quentin"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            3.28394341,
+            49.8513336
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR42004",
+         "nom du site": "VILLERS-LES-NANCY",
+         "région": "GRAND EST",
+         "département": "MEURTHE-ET-MOSELLE",
+         "code INSEE de la commune": "54578",
+         "nom de la commune": "Villers-les-Nancy"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            6.15321159,
+            48.662056
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR18056",
+         "nom du site": "THEZY-GLIMONT",
+         "région": "HAUTS-DE-FRANCE",
+         "département": "SOMME",
+         "code INSEE de la commune": "80752",
+         "nom de la commune": "Thézy-Glimont"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            2.426929,
+            49.8127747
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR10042",
+         "nom du site": "WEST-CAPPEL",
+         "région": "HAUTS-DE-FRANCE",
+         "département": "NORD",
+         "code INSEE de la commune": "59657",
+         "nom de la commune": "West-Cappel"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            2.50749731,
+            50.9269333
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR34105",
+         "nom du site": "BOURGUEIL",
+         "région": "CENTRE-VAL DE LOIRE",
+         "département": "INDRE-ET-LOIRE",
+         "code INSEE de la commune": "37031",
+         "nom de la commune": "Bourgueil"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            0.172621563,
+            47.2830925
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR31048",
+         "nom du site": "GRANDS LACS",
+         "région": "NOUVELLE-AQUITAINE",
+         "département": "LANDES",
+         "code INSEE de la commune": "40332",
+         "nom de la commune": "Ychoux"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            -0.961998343,
+            44.3297539
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR38080",
+         "nom du site": "CASUD",
+         "région": "LA REUNION",
+         "département": "LA REUNION",
+         "code INSEE de la commune": "97405",
+         "nom de la commune": "Petite-Ile"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            55.5612869,
+            -21.3474712
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR42007",
+         "nom du site": "COLMAR",
+         "région": "GRAND EST",
+         "département": "HAUT-RHIN",
+         "code INSEE de la commune": "68066",
+         "nom de la commune": "Colmar"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            7.33243179,
+            48.0690651
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR40013",
+         "nom du site": "CACAO",
+         "région": "GUYANE",
+         "département": "GUYANE",
+         "code INSEE de la commune": "97310",
+         "nom de la commune": "Cacao"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            -52.4645767,
+            4.57220554
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR21070",
+         "nom du site": "OUEST MANCHE",
+         "région": "NORMANDIE",
+         "département": "MANCHE",
+         "code INSEE de la commune": "50151",
+         "nom de la commune": "Creances"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            -1.55447817,
+            49.1966133
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR09015",
+         "nom du site": "POITIERS",
+         "région": "NOUVELLE-AQUITAINE",
+         "département": "VIENNE",
+         "code INSEE de la commune": "86194",
+         "nom de la commune": "Poitiers"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            0.358583,
+            46.5869
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR03089",
+         "nom du site": "CARPENTRAS",
+         "région": "PROVENCE-ALPES-COTE D'AZUR",
+         "département": "VAUCLUSE",
+         "code INSEE de la commune": "84031",
+         "nom de la commune": "Carpentras"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            5.04149008,
+            44.0355988
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR42001",
+         "nom du site": "REIMS",
+         "région": "GRAND EST",
+         "département": "MARNE",
+         "code INSEE de la commune": "51454",
+         "nom de la commune": "Reims"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            4.0257616,
+            49.2392693
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR26071",
+         "nom du site": "MACONNAIS-BEAUJOLAIS",
+         "région": "BOURGOGNE-FRANCHE-COMTE",
+         "département": "SAONE-ET-LOIRE",
+         "code INSEE de la commune": "71169",
+         "nom de la commune": "Davayé"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            4.74609613,
+            46.3023949
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR41062",
+         "nom du site": "AJACCIO",
+         "région": "CORSE",
+         "département": "CORSE-DU-SUD",
+         "code INSEE de la commune": "2A004",
+         "nom de la commune": "Ajaccio"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            8.77257252,
+            41.9450455
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR42005",
+         "nom du site": "VOUE",
+         "région": "GRAND EST",
+         "département": "AUBE",
+         "code INSEE de la commune": "10442",
+         "nom de la commune": "Voué"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            4.12316704,
+            48.4576912
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR23243",
+         "nom du site": "ANGERS MONPLAISIR",
+         "région": "PAYS DE LA LOIRE",
+         "département": "MAINE-ET-LOIRE",
+         "code INSEE de la commune": "49007",
+         "nom de la commune": "Angers Monplaisir"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            -0.529187441,
+            47.4893646
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR23244",
+         "nom du site": "POUILLE",
+         "région": "PAYS DE LA LOIRE",
+         "département": "VENDEE",
+         "code INSEE de la commune": "85181",
+         "nom de la commune": "Pouillé"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            -0.945287645,
+            46.5063057
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR39112",
+         "nom du site": "MACOUBA",
+         "région": "MARTINIQUE",
+         "département": "MARTINIQUE",
+         "code INSEE de la commune": "97215",
+         "nom de la commune": "Macouba"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            -61.139595,
+            14.8750887
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR50840",
+         "nom du site": "CARCASSONNE AGGLO",
+         "région": "OCCITANIE",
+         "département": "AUDE",
+         "code INSEE de la commune": "11042",
+         "nom de la commune": "Blomac"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            2.59790611,
+            43.2036018
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR43080",
+         "nom du site": "COMBANI",
+         "région": "MAYOTTE",
+         "département": "MAYOTTE",
+         "code INSEE de la commune": "97617",
+         "nom de la commune": "Tsingoni"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            45.1329994,
+            -12.7838001
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR41061",
+         "nom du site": "ALERIA",
+         "région": "CORSE",
+         "département": "HAUTE-CORSE",
+         "code INSEE de la commune": "2B009",
+         "nom de la commune": "Aléria"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            9.47363853,
+            42.1021652
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR31046",
+         "nom du site": "MEDOC",
+         "région": "NOUVELLE-AQUITAINE",
+         "département": "GIRONDE",
+         "code INSEE de la commune": "33395",
+         "nom de la commune": "Saint Estèphe"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            -0.77272445,
+            45.2594528
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR36300",
+         "nom du site": "LIVRON SUR DROME",
+         "région": "AUVERGNE-RHONE-ALPES",
+         "département": "DROME",
+         "code INSEE de la commune": "26165",
+         "nom de la commune": "Livron-sur-Drôme"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            4.84116602,
+            44.7758598
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR50204",
+         "nom du site": "CC GRAND PIC SAINT-LOUP",
+         "région": "OCCITANIE",
+         "département": "HERAULT",
+         "code INSEE de la commune": "34255",
+         "nom de la commune": "Saint-Gély-du-Fesc"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            3.79494095,
+            43.7024193
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR50841",
+         "nom du site": "CC ROUSSILLON-CONFLENT",
+         "région": "OCCITANIE",
+         "département": "PYRENEES-ORIENTALES",
+         "code INSEE de la commune": "66055",
+         "nom de la commune": "Corbère"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            2.66301942,
+            42.6527481
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR23245",
+         "nom du site": "SAINT JULIEN DE CONCELLES",
+         "région": "PAYS DE LA LOIRE",
+         "département": "LOIRE-ATLANTIQUE",
+         "code INSEE de la commune": "44169",
+         "nom de la commune": "Saint Julien de Concelles"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            -1.38769472,
+            47.2549057
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR26072",
+         "nom du site": "CC CLUNISOIS",
+         "région": "BOURGOGNE-FRANCHE-COMTE",
+         "département": "SAONE-ET-LOIRE",
+         "code INSEE de la commune": "71130",
+         "nom de la commune": "Chissey-les-Mâcon"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            4.72962856,
+            46.52351
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR26066",
+         "nom du site": "CC RIVES DE SAONE",
+         "région": "BOURGOGNE-FRANCHE-COMTE",
+         "département": "COTE-D'OR",
+         "code INSEE de la commune": "21440",
+         "nom de la commune": "Montot"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            5.24386311,
+            47.1401711
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR11025",
+         "nom du site": "LILLE",
+         "région": "HAUTS-DE-FRANCE",
+         "département": "NORD",
+         "code INSEE de la commune": "59350",
+         "nom de la commune": "Lille"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            3.0894382,
+            50.6287994
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR35028",
+         "nom du site": "SAINT-YRIEIX-LA-PERCHE",
+         "région": "NOUVELLE-AQUITAINE",
+         "département": "HAUTE-VIENNE",
+         "code INSEE de la commune": "87187",
+         "nom de la commune": "Saint Yrieix la Perche"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            1.24906111,
+            45.5119247
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR25060",
+         "nom du site": "PAYS DE BRAY",
+         "région": "NORMANDIE",
+         "département": "SEINE-MARITIME",
+         "code INSEE de la commune": "76148",
+         "nom de la commune": "Bures-en-bray"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            1.3431319,
+            49.7814484
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR31047",
+         "nom du site": "BORDEAUX",
+         "région": "NOUVELLE-AQUITAINE",
+         "département": "GIRONDE",
+         "code INSEE de la commune": "33063",
+         "nom de la commune": "Bordeaux"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            -0.559432983,
+            44.8449745
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR50819",
+         "nom du site": "TARN-ET GARONNE",
+         "région": "OCCITANIE",
+         "département": "TARN-ET-GARONNE",
+         "code INSEE de la commune": "82012",
+         "nom de la commune": "Les Barthes"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            1.16985488,
+            44.0966339
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR07031",
+         "nom du site": "RAGEADE",
+         "région": "AUVERGNE-RHONE-ALPES",
+         "département": "CANTAL",
+         "code INSEE de la commune": "15158",
+         "nom de la commune": "Rageade"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            3.27736092,
+            45.1047211
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR50058",
+         "nom du site": "TOULOUSE",
+         "région": "OCCITANIE",
+         "département": "HAUTE-GARONNE",
+         "code INSEE de la commune": "31555",
+         "nom de la commune": "Toulouse"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            1.38530731,
+            43.5970192
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR04004",
+         "nom du site": "PARIS XVIII",
+         "région": "ILE-DE-FRANCE",
+         "département": "PARIS",
+         "code INSEE de la commune": "75118",
+         "nom de la commune": "Paris 18ème"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            2.3455708,
+            48.8917274
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR20077",
+         "nom du site": "VILLEFRANCHE CENTRE",
+         "région": "AUVERGNE-RHONE-ALPES",
+         "département": "RHONE",
+         "code INSEE de la commune": "69264",
+         "nom de la commune": "Villefranche-sur-Saône"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            4.71556425,
+            45.9901009
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR03090",
+         "nom du site": "CAVAILLON",
+         "région": "PROVENCE-ALPES-COTE D'AZUR",
+         "département": "VAUCLUSE",
+         "code INSEE de la commune": "84035",
+         "nom de la commune": "Cavaillon"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            5.00720739,
+            43.8810768
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR07004",
+         "nom du site": "MONTFERRAND",
+         "région": "AUVERGNE-RHONE-ALPES",
+         "département": "PUY-DE-DOME",
+         "code INSEE de la commune": "63113",
+         "nom de la commune": "Clermont-Ferrand"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            3.11390615,
+            45.7973061
+         ]
+      }
+   },
+   {
+      "type": "Feature",
+      "properties": {
+         "code site": "FR04181",
+         "nom du site": "RAMBOUILLET",
+         "région": "ILE-DE-FRANCE",
+         "département": "YVELINES",
+         "code INSEE de la commune": "78517",
+         "nom de la commune": "Rambouillet"
+      },
+      "geometry": {
+         "type": "Point",
+         "coordinates": [
+            1.83053315,
+            48.6337318
+         ]
+      }
+   }
+]
