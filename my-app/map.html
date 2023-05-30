@@ -56,6 +56,7 @@
 				<div id="map"></div>
 			</div>
 			<div class="map__main-content-panel2">
+				<h3 data-translate="map-search" ></h3>
 				<div class="formulaire">
 					<fieldset>
 						<legend>Sources :</legend>
@@ -76,36 +77,35 @@
 					<form id="form-map">
 						<fieldset>
 							<legend>Filtres :</legend>
-							<div>
-								<label for="substance-filtre">
-									Substance:
+							<div style="display: flex; justify-content: space-between;">
+								<div style="display: flex;	flex-direction: column;">
+									<label for="substance-filtre">Substance:</label>
+									<label for="année-bnvd">BNVD:</label>
+									<label for="année-cnep">CNEP:</label>
+								</div>
+								<div  style="display: flex;	flex-direction: column; margin-left: 1em;">
 									<select id="substance-filtre" required>
 										<option value="">--Choisissez une substance--</option>
 										<option value="9006-42-2">Zineb</option>
 										<option value="52315-07-8">Cypermethrine</option>
 										<option value="67747-09-5">Prochloraz</option>
 									</select>
-								</label>
 
-								<label for="année-bnvd">
-									BNVD:
 									<select id="année-bnvd" required>
 										<option value="">--Choisissez une année--</option>
 										<option value="2020">2020</option>
 									</select>
 									<span id="nb-result-bnvd"></span>
-								</label>
 
-								<label for="année-cnep">
-									CNEP:
 									<select id="année-cnep" required>
 										<option value="">--Choisissez une année--</option>
 										<option value="2018">2018</option>
 										<option value="2019">2019</option>
 									</select>
 									<span id="nb-result-cnep"></span>
-								</label>
-							</div>
+
+								</div>
+							</div>					
 						</fieldset>
 
 						<button class="btn" type="submit">Chercher</button>
@@ -114,8 +114,13 @@
 				</div>
 
 				<div class="result">
-					<span class="sidepanel-title">Side Panel</span>
+					<h3 data-translate="map-result"></h3>
 					<div id="content"> </div>
+				</div>
+
+				<div>
+					<a href="./help.html" class="btn" data-translate="map-btn-help" target="_blank">Aide sur la carte</a>
+					<a href="" class="btn" data-translate="map-btn-export">Exporter les données</a>
 				</div>
 			</div>
 		</div>
