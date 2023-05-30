@@ -13,6 +13,8 @@ function selectLang(){
     
 }
 
+document.getElementById("language-select").addEventListener("change", selectLang);
+
 // Fonction pour récupérer la langue enregistrée dans le localstorage ou utiliser la langue par défaut
 function getLanguage() {
     if (localStorage.getItem('language')) {
@@ -29,7 +31,7 @@ function getLanguage() {
 // Chargement des traductions
 async function loadTranslations() {
     const lang = getLanguage();
-    const response = await fetch(`lang/${lang}.json`);
+    const response = await fetch(`./lang/${lang}.json`);
     const data = await response.json();
     return data;
 }

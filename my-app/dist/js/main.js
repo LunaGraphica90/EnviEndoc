@@ -1,4 +1,4 @@
-import '../css/style.css';
+import '../../css/style.css';
 import {Map, View} from 'ol';
 import LayerGroup from 'ol/layer/Group.js';
 import TileLayer from 'ol/layer/Tile';
