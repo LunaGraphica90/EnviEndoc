@@ -51,76 +51,76 @@
 
 		<h1 data-translate="map-title"></h1>
 
-		<div class="main__content">
-			<div class="main__content-panel1">
-
-				<fieldset>
-					<legend>Sources :</legend>
-					<div>
-						<label for="BNVD">
-							<input type="checkbox" id="BNVD" name="BNVD" value="BNVD" checked>
-							BNVD
-						</label>
-					</div>
-					<div>
-						<label for="CNEP">
-							<input type="checkbox" id="CNEP" name="CNEP" value="CNEP" checked>
-							CNEP
-						</label>
-					</div>
-				</fieldset>
-
-				<form id="form-map">
+		<div class="page-wrap">
+			<div class="map__main-content-panel1">
+				<div id="map"></div>
+			</div>
+			<div class="map__main-content-panel2">
+				<div class="formulaire">
 					<fieldset>
-						<legend>Filtres :</legend>
+						<legend>Sources :</legend>
 						<div>
-							<label for="substance-filtre">
-								Substance:
-								<select id="substance-filtre" required>
-									<option value="">--Choisissez une substance--</option>
-									<option value="9006-42-2">Zineb</option>
-									<option value="52315-07-8">Cypermethrine</option>
-									<option value="67747-09-5">Prochloraz</option>
-								</select>
+							<label for="BNVD">
+								<input type="checkbox" id="BNVD" name="BNVD" value="BNVD" checked>
+								BNVD
 							</label>
-
-							<label for="année-bnvd">
-								BNVD:
-								<select id="année-bnvd" required>
-									<option value="">--Choisissez une année--</option>
-									<option value="2020">2020</option>
-								</select>
-								<span id="nb-result-bnvd"></span>
-							</label>
-
-							<label for="année-cnep">
-								CNEP:
-								<select id="année-cnep" required>
-									<option value="">--Choisissez une année--</option>
-									<option value="2018">2018</option>
-									<option value="2019">2019</option>
-								</select>
-								<span id="nb-result-cnep"></span>
+						</div>
+						<div>
+							<label for="CNEP">
+								<input type="checkbox" id="CNEP" name="CNEP" value="CNEP" checked>
+								CNEP
 							</label>
 						</div>
 					</fieldset>
 
+					<form id="form-map">
+						<fieldset>
+							<legend>Filtres :</legend>
+							<div>
+								<label for="substance-filtre">
+									Substance:
+									<select id="substance-filtre" required>
+										<option value="">--Choisissez une substance--</option>
+										<option value="9006-42-2">Zineb</option>
+										<option value="52315-07-8">Cypermethrine</option>
+										<option value="67747-09-5">Prochloraz</option>
+									</select>
+								</label>
 
+								<label for="année-bnvd">
+									BNVD:
+									<select id="année-bnvd" required>
+										<option value="">--Choisissez une année--</option>
+										<option value="2020">2020</option>
+									</select>
+									<span id="nb-result-bnvd"></span>
+								</label>
 
+								<label for="année-cnep">
+									CNEP:
+									<select id="année-cnep" required>
+										<option value="">--Choisissez une année--</option>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+									</select>
+									<span id="nb-result-cnep"></span>
+								</label>
+							</div>
+						</fieldset>
 
-					<button type="submit">Chercher</button>
-				</form>
+						<button class="btn" type="submit">Chercher</button>
+					</form>
 
+				</div>
+
+				<div class="result">
+					<span class="sidepanel-title">Side Panel</span>
+					<div id="content"> </div>
+				</div>
 			</div>
-			<div class="main__content-panelmap">
-				<div id="map"></div>
-			</div>
-			<div class="main__content-panel2">
-				<span class="sidepanel-title">Side Panel</span>
-				<div id="content"> </div>
-			</div>
-
 		</div>
+
+
 		<section id="use-datas">
 			<aside>
 				<h2 data-translate="use-datas-title"></h2>
