@@ -219,7 +219,7 @@ map.addInteraction(selectInteraction);
 // Écoutez l'événement de sélection lorsqu'un polygone ou un point est cliqué
 selectInteraction.on('select', function(event) {
   const selectedFeature = event.selected[0]; // Récupère la première feature sélectionnée
-  const sidePanelElt = document.querySelector('.main__content-panel2');
+  const sidePanelElt = document.querySelector('.result');
   
   if (selectedFeature) {
     const properties = selectedFeature.getProperties(); // Récupère les propriétés de la feature
