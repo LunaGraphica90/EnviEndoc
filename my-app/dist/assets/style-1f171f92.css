@@ -1,17 +1,63 @@
 @import "../node_modules/ol/ol.css";
 
 
-/* Déclarations de variable pour uniformiser les pages,
- couleurs, polices etc
- changer couleurs avec les exactes*/
+@font-face {
+  font-family: 'montserratitalic';
+  src: url('../fonts/montserrat/montserrat-italic-webfont.woff2') format('woff2'),
+       url('../fonts/montserrat/montserrat-italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 
- @font-face {
-	font-family: 'Montserrat';
-  font-weight: 300;
-	src: url('../fonts/montserrat/fonts/Montserrat-VariableFont_wght.ttf'), format(‘truetype’)
 }
+
+@font-face {
+  font-family: 'montserratlight';
+  src: url('../fonts/montserrat/montserrat-light-webfont.woff2') format('woff2'),
+       url('../fonts/montserrat/montserrat-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'montserratlight_italic';
+  src: url('../fonts/montserrat/montserrat-lightitalic-webfont.woff2') format('woff2'),
+       url('../fonts/montserrat/montserrat-lightitalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'montserratregular';
+  src: url('../fonts/montserrat/montserrat-regular-webfont.woff2') format('woff2'),
+       url('../fonts/montserrat/montserrat-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'montserratsemibold';
+  src: url('../fonts/montserrat/montserrat-semibold-webfont.woff2') format('woff2'),
+       url('../fonts/montserrat/montserrat-semibold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'montserratsemibold_italic';
+  src: url('../fonts/montserrat/montserrat-semibolditalic-webfont.woff2') format('woff2'),
+       url('../fonts/montserrat/montserrat-semibolditalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
 :root{
-  --main-font: 'Montserrat';
+  --main-font: 'montserratregular', sans-serif ;
   --containers-bg-color: #1c3643;
   --green-highlight-color: #39c711;
   --dark-blue-color-on-hover: #152932;
@@ -22,7 +68,6 @@
   --font-titles-color: rgb(255, 255, 255);
   --font-hover-color: #b0f197;
 }
-/*police: Montserrat*/
 
 /*-----------------------------------------------*/
 /*-----GÉNÉRAL---*/
@@ -31,9 +76,9 @@
 html, body {
   font-family: var(--main-font);
   margin: 0;
-  /* height: 100%; */
   color: var(--general-text-color);
   scroll-behavior: smooth;
+  line-height: 1.2;
 }
 
 body.home{
@@ -53,7 +98,7 @@ section{
 }
 
 aside{
-  margin-top:8em;
+  margin-top:4em;
   margin-bottom:5em;
   border: var(--green-highlight-color) solid 2px;
   padding:1.5em;
@@ -65,7 +110,7 @@ aside{
 /*-----------------------------------------------*/
 h1 {
   font-size: var(--font-size-titles);
-  font-weight: 600;
+  font-family: 'montserratsemibold';
   padding: 0.5em;
   padding-left: 4em;
   text-transform: uppercase;
@@ -73,13 +118,17 @@ h1 {
   background-size: 3em;
 }
 
+h2{
+  font-family: 'montserratregular';
+}
+
 aside h2{
   margin-top:0;
 }
 
 h3{
+  font-family: 'montserratlight';
   text-transform: uppercase;
-  font-weight: 300;
   margin-top:0;
 }
 
@@ -329,11 +378,13 @@ header > nav > ul > li{
 .map__main-content-panel1{
   width: 60%;
   padding-left:1em;
+  box-sizing: border-box;
 }
 
 .map__main-content-panel2{
   width:40%;
   padding-inline: 1em;
+  box-sizing: border-box;
 }
 
 #map {
@@ -364,6 +415,7 @@ header > nav > ul > li{
 .formulaire{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 #form-map{
@@ -382,7 +434,8 @@ header > nav > ul > li{
 }
 
 .result{
-  padding: 1em;
+  min-height: 42vh;
+  padding-block: 1em;
   border-top:#1c1b20 2px solid;
   border-bottom:#1c1b20 2px solid;
   margin-block:2em
