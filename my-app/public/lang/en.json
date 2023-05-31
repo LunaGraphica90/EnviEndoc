@@ -48,5 +48,8 @@
     "about-team": "The team",
     "card-role-title": "Role in the project:",
     "card-role-orcid": "ORCID ID :",
-    "see": "See"
+    "see": "See",
+    "search": "Search",
+    "sources": "Sources:",
+    "filters": "Filters:"
 }
