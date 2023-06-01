@@ -54,6 +54,60 @@
 		<div class="page-wrap">
 			<div class="map__main-content-panel1">
 				<div id="map"></div>
+				<div id="map__legend">
+					<h3>Légende:</h3>
+					<div>
+						<h4>BNVD surfacique (valeur en Kg):</h4>
+						<div>
+							<span>&lt;= 0.0001 &gt; 0.0099</span>  
+							<svg width="30" height="20">
+								<rect width="100%" height="100%" fill="rgb(255, 255, 255)" stroke="black" />
+							</svg>
+						</div>
+						<div>
+							<span>&lt;= 0.01 &gt; 0.1999</span>
+							<svg width="30" height="20">
+								<rect width="100%" height="100%" fill="rgb(255, 227, 227)" stroke="black" />
+							</svg> 
+						</div>
+						<div>
+							<span>&lt;= 0.2 &gt;= 0.9999</span>
+							<svg width="30" height="20">
+								<rect width="100%" height="100%" fill="rgb(255, 198, 198)" stroke="black" />
+							</svg>
+						</div>
+						<div>
+							<span>&lt;= 1 &gt; 10.9999</span> 
+							<svg width="30" height="20">
+								<rect width="100%" height="100%" fill="rgb(255, 170, 170)" stroke="black" />
+							</svg>
+						</div>
+						<div>
+							<span>&lt;= 11 &gt; 50.9999</span> 
+							<svg width="30" height="20">
+								<rect width="100%" height="100%" fill="rgb(255, 142, 142)" stroke="black" />
+							</svg>
+						</div>
+						<div>
+							<span>&lt;= 51 &gt; 200.9999</span> 
+							<svg width="30" height="20">
+								<rect width="100%" height="100%" fill="rgb(255, 113, 113)" stroke="black" />
+							</svg>
+						</div>
+						<div>
+							<span>&lt;= 201 &gt; 3000.9999</span> 
+							<svg width="30" height="20">
+								<rect width="100%" height="100%" fill="rgb(255, 85, 85)" stroke="black" />
+							</svg>
+						</div>
+						<div>
+							<span>&lt;= 3001 &gt; 20000</span>
+							<svg width="30" height="20">
+								<rect width="100%" height="100%" fill="rgb(255, 57, 57)" stroke="black" />
+							</svg> 
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="map__main-content-panel2">
 				<h3 data-translate="map-search" ></h3>
