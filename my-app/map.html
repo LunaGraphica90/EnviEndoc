@@ -54,6 +54,64 @@
 		<div class="page-wrap">
 			<div class="map__main-content-panel1">
 				<div id="map"></div>
+			</div>
+			<div class="map__main-content-panel2">
+				<h3 data-translate="map-search" ></h3>
+				<div class="formulaire">
+					<fieldset>
+						<legend data-translate="sources"></legend>
+						<div>
+							<label for="BNVD">
+								<input type="checkbox" id="BNVD" name="BNVD" value="BNVD" checked>
+								BNVD
+							</label>
+						</div>
+						<div>
+							<label for="CNEP">
+								<input type="checkbox" id="CNEP" name="CNEP" value="CNEP" checked>
+								CNEP
+							</label>
+						</div>
+					</fieldset>
+					
+					<form id="form-map">
+						<fieldset>
+							<legend data-translate="filters"></legend>
+							<div style="display: flex; justify-content: space-between;">
+								<div style="display: flex;	flex-direction: column;">
+									<label for="substance-filtre">Substance:</label>
+									<label for="année-bnvd">BNVD:</label>
+									<label for="année-cnep">CNEP:</label>
+								</div>
+								<div  style="display: flex;	flex-direction: column; margin-left: 1em;">
+									<select id="substance-filtre" required>
+										<option value="">--Choisissez une substance--</option>
+										<option value="9006-42-2">Zineb</option>
+										<option value="52315-07-8">Cypermethrine</option>
+										<option value="67747-09-5">Prochloraz</option>
+									</select>
+									
+									<select id="année-bnvd" required>
+										<option value="">--Choisissez une année--</option>
+										<option value="2020">2020</option>
+									</select>
+									<span id="nb-result-bnvd"></span>
+									
+									<select id="année-cnep" required>
+										<option value="">--Choisissez une année--</option>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+									</select>
+									<span id="nb-result-cnep"></span>
+									
+								</div>
+							</div>					
+						</fieldset>
+						
+						<button class="btn" type="submit" data-translate="search"></button>
+					</form>
+					
+				</div>
 				<div id="map__legend">
 					<h3>Légende:</h3>
 					<div>
@@ -108,70 +166,8 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="map__main-content-panel2">
-				<h3 data-translate="map-search" ></h3>
-				<div class="formulaire">
-					<fieldset>
-						<legend data-translate="sources"></legend>
-						<div>
-							<label for="BNVD">
-								<input type="checkbox" id="BNVD" name="BNVD" value="BNVD" checked>
-								BNVD
-							</label>
-						</div>
-						<div>
-							<label for="CNEP">
-								<input type="checkbox" id="CNEP" name="CNEP" value="CNEP" checked>
-								CNEP
-							</label>
-						</div>
-					</fieldset>
-
-					<form id="form-map">
-						<fieldset>
-							<legend data-translate="filters"></legend>
-							<div style="display: flex; justify-content: space-between;">
-								<div style="display: flex;	flex-direction: column;">
-									<label for="substance-filtre">Substance:</label>
-									<label for="année-bnvd">BNVD:</label>
-									<label for="année-cnep">CNEP:</label>
-								</div>
-								<div  style="display: flex;	flex-direction: column; margin-left: 1em;">
-									<select id="substance-filtre" required>
-										<option value="">--Choisissez une substance--</option>
-										<option value="9006-42-2">Zineb</option>
-										<option value="52315-07-8">Cypermethrine</option>
-										<option value="67747-09-5">Prochloraz</option>
-									</select>
-
-									<select id="année-bnvd" required>
-										<option value="">--Choisissez une année--</option>
-										<option value="2020">2020</option>
-									</select>
-									<span id="nb-result-bnvd"></span>
-
-									<select id="année-cnep" required>
-										<option value="">--Choisissez une année--</option>
-										<option value="2018">2018</option>
-										<option value="2019">2019</option>
-									</select>
-									<span id="nb-result-cnep"></span>
-
-								</div>
-							</div>					
-						</fieldset>
-
-						<button class="btn" type="submit" data-translate="search"></button>
-					</form>
-
-				</div>
-
-				<div class="result">
-					<h3 data-translate="map-result"></h3>
-					<div id="content"> </div>
-				</div>
-
+				
+				
 				<div>
 					<a href="./help.html" class="btn" data-translate="map-btn-help" target="_blank">Aide sur la carte</a>
 					<a href="" class="btn" data-translate="map-btn-export">Exporter les données</a>
@@ -179,7 +175,12 @@
 			</div>
 		</div>
 
-
+		<div class="result">
+			<h3 data-translate="map-result"></h3>
+			<div id="content"> </div>
+		</div>
+		
+		
 		<section id="use-datas">
 			<aside>
 				<h2 data-translate="use-datas-title"></h2>
@@ -197,11 +198,11 @@
 											:
 											revue des bases de
 											données existantes</li>
-									</ul>
-								</td>
-							</tr>
-							<tr>
-								<td>DEDuCT</td>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td>DEDuCT</td>
 								<td>
 									<ul>
 										<li>B.S. Karthikeyan, J. Ravichandran, K. Mohanraj, R.P. Vivek-Ananth &#38; A.
@@ -209,16 +210,16 @@
 											knowledgebase on endocrine disrupting chemicals and their biological
 											systems-level perturbations,
 											Science of the Total Environment, 692: 281-296 (2019).</li>
-										<li>B.S. Karthikeyan, J. Ravichandran, S.R. Aparna &#38; A. Samal, DEDuCT 2.0:
-											An
-											updated
-											knowledgebase and an exploration of the current regulations and guidelines
-											from
-											the perspective of
-											endocrine disrupting chemicals, Chemosphere, 267:128898 (2021).</li>
-									</ul>
-								</td>
-							</tr>
+											<li>B.S. Karthikeyan, J. Ravichandran, S.R. Aparna &#38; A. Samal, DEDuCT 2.0:
+												An
+												updated
+												knowledgebase and an exploration of the current regulations and guidelines
+												from
+												the perspective of
+												endocrine disrupting chemicals, Chemosphere, 267:128898 (2021).</li>
+											</ul>
+										</td>
+									</tr>
 							<tr>
 								<td>Forever Pollution Project</td>
 								<td>
