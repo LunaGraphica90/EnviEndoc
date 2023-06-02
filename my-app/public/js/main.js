@@ -13,11 +13,18 @@ import {Vector as VectorSource, OSM}  from 'ol/source.js';
 import axios from 'axios';
 import { MultiPolygon, Polygon } from 'ol/geom';
 import Select from 'ol/interaction/Select.js';
+import { fromLonLat } from 'ol/proj';
+import {ScaleLine, defaults as defaultControls} from 'ol/control.js';
 
 // Centre carte sur centre de la France
-const FRANCE_LAT = [1.52, 46.36];
+const FRANCE_LAT = fromLonLat([1.52, 46.36]);
 
 const map = new Map({
+  controls: defaultControls().extend([
+    new ScaleLine({
+      units: 'metric',
+    })
+  ]),
   target: 'map',
   layers: [
     //fond carte openStreetMap :
@@ -29,8 +36,7 @@ const map = new Map({
   ],
   view: new View({
   center: FRANCE_LAT,
-  zoom: 6,
-  projection: "EPSG:4326"
+  zoom: 6
 })
 });
 
@@ -44,27 +50,49 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
   map.removeLayer(map.getLayers().array_[1]);
   
   //on récupère la données
-  Promise.all(urlTable.map((endPoint) => axios.get(endPoint)))
+  Promise.all(urlTable.map((endPoint) => {
+    if (endPoint.slice(0,13) === './datas/BNVD/'){
+      return axios.get(endPoint).catch(error => {return error});
+    }else{
+      return axios.get(endPoint)
+    }
+  }))
   .then((responses) => {
     const datas = responses.map(({ data }) => data);
     let [BNVD, CNEP, GEODAIR, CNEP_sites] = datas;
 
-   
+    if (!BNVD){
+      BNVD = [];
+      console.log(BNVD);
+    }
 
-    //console.log(GEODAIR);
-    //console.log(GEODAIR.filter((item) => item.properties.cas.includes(casSubstance)));
-    //console.log(CNEP.filter((item) => item.properties.substance.includes('Prochloraz')));
+    //on filtre geodair par le cas de la substance, puis on limite le nombre de pts sur la carte avec siteGeodair
+    // GEODAIR = GEODAIR.filter((item) => item.properties.cas.includes(substanceCas));
+
+    // const tableSiteGeodair = GEODAIR.map((item) => {
+    //   return {...item.geometry, 
+    //     properties: {
+    //       name: item.properties.name, 
+    //       site: item.properties.site, 
+    //       site_name: item.properties.site_name, 
+    //       zas: item.properties.zas, 
+    //       zas_code: item.properties.zas_code
+    //     }}
+    // });
+    // let siteGeodair = [...new Set(tableSiteGeodair.map((item) => item.properties.site))];
+
+    // siteGeodair = siteGeodair.map((codeSite) => tableSiteGeodair.find(((item) => codeSite === item.properties.site ))) ;
+    // console.log(siteGeodair);
 
     //filtre d'une substance et d'une année
     CNEP = CNEP.filter((item) => 
       item.properties.cas_number.includes(substanceCas) && item.properties['date de fin de prélèvement'].slice(0,4) === cnepDate
     );
-    console.log("CNEP: ",CNEP);
+
 
     //prélèvement valide car avec une valeur
     BNVD = BNVD.filter((item) => item.properties.value !== null);
-    console.log(BNVD);
-
+    
     //informe l'utilisateur du nombre de résultats par base de données
     const bnvdNbResultElt = document.querySelector('#nb-result-bnvd');
     const cnepNbResultElt = document.querySelector('#nb-result-cnep');
@@ -75,25 +103,48 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
 
     const sitesUtilise = [...new Set(CNEP.map((item) => item.properties['code site']))];
     CNEP_sites = CNEP_sites.filter((item) => sitesUtilise.find((codeSite) => codeSite === item.properties['code site']) );
+
+
+    // const GEODAIR_LAYER = new WebGLPointsLayer({
+    //   source: new VectorSource({
+    //   wrapX: true,
+    //   features: siteGeodair.map((item) => 
+    //     { return new Feature({
+    //       ...item.properties, 
+    //       geometry: new Point(fromLonLat(item.coordinates)),
+    //       samplesGeo: GEODAIR.filter((sample) => sample.properties.site === item.properties.site)
+    //     })
+    //   })
+    //   }),
+    //   style: {
+    //     "symbol": {
+    //       "symbolType": "circle",
+    //       "size": 15,
+    //       "color": 'red',
+    //       "rotateWithView": true
+    //     }
+    //   },
+    //   title: `GEODAIR`
+    // });
     
     const CNEP_LAYER = new WebGLPointsLayer({
-        source: new VectorSource({
-        wrapX: true,
-        features: CNEP_sites.map((item) => 
-          { return new Feature({
-                ...item.properties, 
-                geometry: new Point(item.geometry.coordinates),
-                samples: CNEP.filter((sample) => sample.properties['code site'] === item.properties['code site'])
-              })
-            })
-        }),
-        style: {
-          "symbol": {
-            "symbolType": "circle",
-            "size": 15,
-            "color": 'blue',
-            "rotateWithView": true
-          }
+      source: new VectorSource({
+      wrapX: true,
+      features: CNEP_sites.map((item) => 
+        { return new Feature({
+          ...item.properties, 
+          geometry: new Point(fromLonLat(item.geometry.coordinates)),
+          samples: CNEP.filter((sample) => sample.properties['code site'] === item.properties['code site'])
+        })
+      })
+      }),
+      style: {
+        "symbol": {
+          "symbolType": "circle",
+          "size": 15,
+          "color": 'blue',
+          "rotateWithView": true
+        }
       },
       title: `CNEP`
     });
@@ -104,8 +155,8 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
           return new Feature(
             {...item.properties, 
             geometry: item.geometry.type === 'Polygon' 
-              ? new Polygon(item.geometry.coordinates) 
-              : new MultiPolygon(item.geometry.coordinates)
+              ? new Polygon(item.geometry.coordinates.map((value) => value.map((coordinates) => fromLonLat(coordinates)))) 
+              : new MultiPolygon(item.geometry.coordinates.map((value) => value.map((coordinates) => fromLonLat(coordinates))))
             }
         )})
       }),
@@ -119,13 +170,12 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
           { valueMin: 1, valueMax: 10.9999, color: '255, 170, 170' },
           { valueMin: 11, valueMax: 50.9999, color: '255, 142, 142' },
           { valueMin: 51, valueMax: 200.9999, color: '255, 113, 113' },
-          { valueMin: 201, valueMax: 800.9999, color: '255, 57, 57' },
-          { valueMin: 801, valueMax: 3000.9999, color: '255, 198, 198' },
-          { valueMin: 3001, valueMax: 20000, color: '255, 85, 85' }
+          { valueMin: 201, valueMax: 3000.9999, color: '255, 85, 85' },
+          { valueMin: 3001, valueMax: 20000, color: '255, 57, 57' }
         ];
     
         const findColor = colorByValue.find((obj) => value >= obj.valueMin && value <= obj.valueMax);
-        const opacity = '0.5';
+        const opacity = '1';
         const color = `rgba(${findColor.color}, ${opacity})`;
 
         return [
@@ -145,6 +195,8 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
 
     groupLayer.push(BNVD_LAYER);
     groupLayer.push(CNEP_LAYER);
+    //groupLayer.push(GEODAIR_LAYER);
+
     
     
     
@@ -157,7 +209,7 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
     map.addLayer(baseLayerGroup);
 
     // Layer switcher
-    const baseLayerElements = document.querySelectorAll('.main__content-panel1 > fieldset> div > label > input[type=checkbox]');
+    const baseLayerElements = document.querySelectorAll('.formulaire > fieldset > div > label > input[type=checkbox]');
     for (let baseLayerElement of baseLayerElements){
       baseLayerElement.addEventListener('change', function(){
         let baseLayerElementValue = this.value;
@@ -172,9 +224,7 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
         })
       })
     }
-
-
-})
+  })
 };
 
 
@@ -219,35 +269,174 @@ map.addInteraction(selectInteraction);
 // Écoutez l'événement de sélection lorsqu'un polygone ou un point est cliqué
 selectInteraction.on('select', function(event) {
   const selectedFeature = event.selected[0]; // Récupère la première feature sélectionnée
-  const sidePanelElt = document.querySelector('.result');
-  
+  const resultContentElt = document.querySelector('#content');
   if (selectedFeature) {
     const properties = selectedFeature.getProperties(); // Récupère les propriétés de la feature
     console.log(properties);
-    // Faites quelque chose avec les propriétés récupérées, par exemple :
-    const infosDivElt = document.createElement('div');
 
-    let content = `<h3> Informations sur la vente de la substance ${properties['subst_substance_name']} (cas: ${properties.BNVD_cas}) en ${properties.BNVD_annee} : </h3>`;
-    content += "<ul>";
-    const tableKeyBNVD = ['value', 'CP', 'NOM_COM', 'NOM_DEPT', 'NOM_REG', 'POPULATION', 'SUPERFICIE', 'subst_URL_for_deduct'];
-    console.log(event);
-    console.log(properties['subst_substance_name']);
-  
-    tableKeyBNVD.forEach((key) =>{
-      //si c'est la valeur on rajoute l'unité
-      if (key === 'value'){
-        content += `<li>${key} en Kg: ${properties[key]} </li>`;
-      }else{
-        content += `<li>${key} : ${properties[key]} </li>`;
-      }
-    })
-  
-    content += "</ul>"
-    infosDivElt.innerHTML = content; 
-    sidePanelElt.appendChild(infosDivElt);
-    console.log(properties);
+    //si l'utilisateur à cliquer sur une surface de la BNVD
+    if (properties.BNVD_annee){
+      getInfosBNVD(properties, resultContentElt);
+    } else if (properties.samples){
+      getInfosCNEP(properties, resultContentElt);
+    }else if (properties.samplesGeo){
+      //getInfosGEODAIR(properties, resultContentElt);
+    }
+    
   }
 });
+
+/*
+const getInfosGEODAIR = (properties, parentElt) => {
+
+  const contentAlreadyExisting = parentElt.querySelector('#content-geodair');
+  if (contentAlreadyExisting !== null){
+    contentAlreadyExisting.remove();
+  }
+
+  const contentGeodairElt = document.createElement('div');
+  contentGeodairElt.id = 'content-geodair';
+
+  let content = `<h3> Prélèvement de la substance ${properties.samples[0].properties.substance} (cas: ${properties.samples[0].properties.cas_number}), 
+  sur le site de ${properties['nom de la commune']} de la période ${dateBeginning} au ${dateEnd} : </h3>`;
+  content += "<table>";
+
+  const ignoredKeys = ['code INSEE de la commune', 'code site', 'latitude', 'longitude', 'substance_name', 'cas_number', 'value']
+
+  properties.samples.forEach((item, iteration) => {
+    //creation de la tête de tableau
+    if (iteration === 0){
+      Object.keys(item.properties).forEach((key, i) => {
+        if (i === 0) content += `<thead><tr>`;
+        if (key !== ignoredKeys.find((value) => value === key)){
+          //on passe les valeurs tu tableau, sinon on créer le champ
+          content += `<th>${key}</th>`;
+        }
+        if (i === item.properties.length) content += `</tr></thead>`;
+      });
+
+      content += `<tbody>`;
+    }
+
+    content += `<tr>`;
+    Object.keys(item.properties).forEach((key, i) => {
+      if (key === 'date de début de prélèvement' || key === 'date de fin de prélèvement'){
+        content += `<td>${item.properties[key]}</td>`;
+      }else if (key !== ignoredKeys.find((value) => value === key)){
+        //on passe les valeurs tu tableau, sinon on créer le champ
+        content += `<td>${item.properties[key]}</td>`;
+      }
+    }); 
+    content += `</tr>`;
+
+    if (iteration === properties.samples.length) content += `</tbody>`;
+  });
+  
+  content += "</table>"
+  contentBnvdElt.innerHTML = content; 
+  parentElt.appendChild(contentBnvdElt);
+};
+*/
+
+const getInfosCNEP = (properties, parentElt) => {
+
+  const contentAlreadyExisting = parentElt.querySelector('#content-cnep');
+  if (contentAlreadyExisting !== null){
+    contentAlreadyExisting.remove();
+  }
+
+  const contentBnvdElt = document.createElement('div');
+  contentBnvdElt.id = 'content-cnep';
+
+  //permet de convertir les dates
+  const getDate = (dateCurrent) => {
+    return new Date(dateCurrent).toLocaleString('fr-FR');
+  };
+
+  const dateBeginning = getDate(properties.samples[0].properties['date de début de prélèvement']).slice(0,10);
+  const dateEnd = getDate(properties.samples[properties.samples.length - 1].properties['date de fin de prélèvement']).slice(0,10);
+
+  let content = `<h3> Prélèvement de la substance ${properties.samples[0].properties.substance} (cas: ${properties.samples[0].properties.cas_number}), 
+  sur le site de ${properties['nom de la commune']} de la période ${dateBeginning} au ${dateEnd} : </h3>`;
+  content += "<table>";
+
+  const ignoredKeys = ['code INSEE de la commune', 'code site', 'latitude', 'longitude', 'substance_name', 'cas_number', 'value']
+
+  properties.samples.forEach((item, iteration) => {
+    //creation de la tête de tableau
+    if (iteration === 0){
+      Object.keys(item.properties).forEach((key, i) => {
+        if (i === 0) content += `<thead><tr>`;
+        if (key !== ignoredKeys.find((value) => value === key)){
+          //on passe les valeurs tu tableau, sinon on créer le champ
+          content += `<th>${key}</th>`;
+        }
+        if (i === item.properties.length) content += `</tr></thead>`;
+      });
+
+      content += `<tbody>`;
+    }
+
+    content += `<tr>`;
+    Object.keys(item.properties).forEach((key, i) => {
+      if (key === 'date de début de prélèvement' || key === 'date de fin de prélèvement'){
+        content += `<td>${getDate(item.properties[key])}</td>`;
+      }else if (key !== ignoredKeys.find((value) => value === key)){
+        //on passe les valeurs tu tableau, sinon on créer le champ
+        content += `<td>${item.properties[key]}</td>`;
+      }
+    }); 
+    content += `</tr>`;
+
+    if (iteration === properties.samples.length) content += `</tbody>`;
+  });
+  
+  content += "</table>"
+  contentBnvdElt.innerHTML = content; 
+  parentElt.appendChild(contentBnvdElt);
+};
+
+const getInfosBNVD = (properties, parentElt) => {
+
+  const contentAlreadyExisting = parentElt.querySelector('#content-bnvd');
+  if (contentAlreadyExisting !== null){
+    contentAlreadyExisting.remove();
+  }
+
+  const contentBnvdElt = document.createElement('div');
+  contentBnvdElt.id = 'content-bnvd';
+  
+  let content = `<h3> Informations sur la vente de la substance ${properties['subst_substance_name']} (cas: ${properties.BNVD_cas}) en ${properties.BNVD_annee} : </h3>`;
+  content += "<ul>";
+  
+  const tableKeyBNVD = [
+    {key: 'value', name: 'Quantité'}, 
+    {key: 'NOM_COM', name: 'Commune'},
+    {key: 'NOM_DEPT', name: 'Département'}, 
+    {key: 'NOM_REG', name: 'Région'}, 
+    {key: 'CP', name: 'Code Postal'}, 
+    {key: 'POPULATION', name: 'Population'}, 
+    {key: 'SUPERFICIE', name: 'Superficie'}, 
+    {key: 'subst_URL_for_deduct', name: 'Lien externe'}
+  ];
+  
+  tableKeyBNVD.forEach((item) =>{
+    //si c'est la valeur on rajoute l'unité
+    if (item.key === 'value'){
+      content += `<li>${item.name}: ${properties[item.key]} ${properties.unit}s </li>`;
+    }else if (item.key === 'subst_URL_for_deduct'){
+      content += `<li>${item.name}: <a target="_blank" href='${properties[item.key]}'>DEDuCT (s'ouvre dans une nouvelle fenêtre)</a> </li>`;
+    }else if (item.key === 'SUPERFICIE'){
+      content += `<li>${item.name}: ${properties[item.key]}m² </li>`;
+    }else{
+      content += `<li>${item.name} : ${properties[item.key]} </li>`;
+    }
+  })
+  
+  content += "</ul>"
+  contentBnvdElt.innerHTML = content; 
+  parentElt.appendChild(contentBnvdElt);
+};
 
 
 // animate the map
