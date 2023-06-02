@@ -50,27 +50,49 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
   map.removeLayer(map.getLayers().array_[1]);
   
   //on récupère la données
-  Promise.all(urlTable.map((endPoint) => axios.get(endPoint)))
+  Promise.all(urlTable.map((endPoint) => {
+    if (endPoint.slice(0,13) === './datas/BNVD/'){
+      return axios.get(endPoint).catch(error => {return error});
+    }else{
+      return axios.get(endPoint)
+    }
+  }))
   .then((responses) => {
     const datas = responses.map(({ data }) => data);
     let [BNVD, CNEP, GEODAIR, CNEP_sites] = datas;
 
-   
+    if (!BNVD){
+      BNVD = [];
+      console.log(BNVD);
+    }
 
-    //console.log(GEODAIR);
-    //console.log(GEODAIR.filter((item) => item.properties.cas.includes(casSubstance)));
-    //console.log(CNEP.filter((item) => item.properties.substance.includes('Prochloraz')));
+    //on filtre geodair par le cas de la substance, puis on limite le nombre de pts sur la carte avec siteGeodair
+    // GEODAIR = GEODAIR.filter((item) => item.properties.cas.includes(substanceCas));
+
+    // const tableSiteGeodair = GEODAIR.map((item) => {
+    //   return {...item.geometry, 
+    //     properties: {
+    //       name: item.properties.name, 
+    //       site: item.properties.site, 
+    //       site_name: item.properties.site_name, 
+    //       zas: item.properties.zas, 
+    //       zas_code: item.properties.zas_code
+    //     }}
+    // });
+    // let siteGeodair = [...new Set(tableSiteGeodair.map((item) => item.properties.site))];
+
+    // siteGeodair = siteGeodair.map((codeSite) => tableSiteGeodair.find(((item) => codeSite === item.properties.site ))) ;
+    // console.log(siteGeodair);
 
     //filtre d'une substance et d'une année
     CNEP = CNEP.filter((item) => 
       item.properties.cas_number.includes(substanceCas) && item.properties['date de fin de prélèvement'].slice(0,4) === cnepDate
     );
-    console.log("CNEP: ",CNEP);
+
 
     //prélèvement valide car avec une valeur
     BNVD = BNVD.filter((item) => item.properties.value !== null);
-    console.log("BNVD: ", BNVD);
-
+    
     //informe l'utilisateur du nombre de résultats par base de données
     const bnvdNbResultElt = document.querySelector('#nb-result-bnvd');
     const cnepNbResultElt = document.querySelector('#nb-result-cnep');
@@ -81,6 +103,29 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
 
     const sitesUtilise = [...new Set(CNEP.map((item) => item.properties['code site']))];
     CNEP_sites = CNEP_sites.filter((item) => sitesUtilise.find((codeSite) => codeSite === item.properties['code site']) );
+
+
+    // const GEODAIR_LAYER = new WebGLPointsLayer({
+    //   source: new VectorSource({
+    //   wrapX: true,
+    //   features: siteGeodair.map((item) => 
+    //     { return new Feature({
+    //       ...item.properties, 
+    //       geometry: new Point(fromLonLat(item.coordinates)),
+    //       samplesGeo: GEODAIR.filter((sample) => sample.properties.site === item.properties.site)
+    //     })
+    //   })
+    //   }),
+    //   style: {
+    //     "symbol": {
+    //       "symbolType": "circle",
+    //       "size": 15,
+    //       "color": 'red',
+    //       "rotateWithView": true
+    //     }
+    //   },
+    //   title: `GEODAIR`
+    // });
     
     const CNEP_LAYER = new WebGLPointsLayer({
       source: new VectorSource({
@@ -150,6 +195,8 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
 
     groupLayer.push(BNVD_LAYER);
     groupLayer.push(CNEP_LAYER);
+    //groupLayer.push(GEODAIR_LAYER);
+
     
     
     
@@ -177,9 +224,7 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
         })
       })
     }
-
-
-})
+  })
 };
 
 
@@ -233,12 +278,65 @@ selectInteraction.on('select', function(event) {
     if (properties.BNVD_annee){
       getInfosBNVD(properties, resultContentElt);
     } else if (properties.samples){
-      console.log("cnep fréro !");
       getInfosCNEP(properties, resultContentElt);
+    }else if (properties.samplesGeo){
+      //getInfosGEODAIR(properties, resultContentElt);
     }
     
   }
 });
+
+/*
+const getInfosGEODAIR = (properties, parentElt) => {
+
+  const contentAlreadyExisting = parentElt.querySelector('#content-geodair');
+  if (contentAlreadyExisting !== null){
+    contentAlreadyExisting.remove();
+  }
+
+  const contentGeodairElt = document.createElement('div');
+  contentGeodairElt.id = 'content-geodair';
+
+  let content = `<h3> Prélèvement de la substance ${properties.samples[0].properties.substance} (cas: ${properties.samples[0].properties.cas_number}), 
+  sur le site de ${properties['nom de la commune']} de la période ${dateBeginning} au ${dateEnd} : </h3>`;
+  content += "<table>";
+
+  const ignoredKeys = ['code INSEE de la commune', 'code site', 'latitude', 'longitude', 'substance_name', 'cas_number', 'value']
+
+  properties.samples.forEach((item, iteration) => {
+    //creation de la tête de tableau
+    if (iteration === 0){
+      Object.keys(item.properties).forEach((key, i) => {
+        if (i === 0) content += `<thead><tr>`;
+        if (key !== ignoredKeys.find((value) => value === key)){
+          //on passe les valeurs tu tableau, sinon on créer le champ
+          content += `<th>${key}</th>`;
+        }
+        if (i === item.properties.length) content += `</tr></thead>`;
+      });
+
+      content += `<tbody>`;
+    }
+
+    content += `<tr>`;
+    Object.keys(item.properties).forEach((key, i) => {
+      if (key === 'date de début de prélèvement' || key === 'date de fin de prélèvement'){
+        content += `<td>${item.properties[key]}</td>`;
+      }else if (key !== ignoredKeys.find((value) => value === key)){
+        //on passe les valeurs tu tableau, sinon on créer le champ
+        content += `<td>${item.properties[key]}</td>`;
+      }
+    }); 
+    content += `</tr>`;
+
+    if (iteration === properties.samples.length) content += `</tbody>`;
+  });
+  
+  content += "</table>"
+  contentBnvdElt.innerHTML = content; 
+  parentElt.appendChild(contentBnvdElt);
+};
+*/
 
 const getInfosCNEP = (properties, parentElt) => {
 
