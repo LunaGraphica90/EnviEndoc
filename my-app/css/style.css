@@ -417,6 +417,9 @@ header > nav > ul > li{
   flex-direction: row;
   flex-wrap: wrap;
 }
+#map__legend{
+  margin-top: 20px;
+}
 
 #form-map{
   display: flex;
@@ -435,12 +438,17 @@ header > nav > ul > li{
 
 .result{
   min-height: 42vh;
-  padding-block: 1em;
+  padding: 1em;
   border-top:#1c1b20 2px solid;
   border-bottom:#1c1b20 2px solid;
   margin-block:2em
 }
-
+#content-bnvd, #content-cnep{
+  margin-block: 3em;
+}
+#content-cnep > table{
+  margin: 1em;
+}
 
 
 /*-----------------------------------------------*/
