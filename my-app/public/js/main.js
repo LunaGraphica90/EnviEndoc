@@ -1,6 +1,6 @@
 import '../../css/style.css';
 import {Map, View} from 'ol';
-import {Stroke, Fill, Style, Text} from 'ol/style'
+import {Stroke, Fill, Style, Text, Circle} from 'ol/style'
 import LayerGroup from 'ol/layer/Group.js';
 import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
@@ -59,14 +59,27 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
   }))
   .then((responses) => {
     const datas = responses.map(({ data }) => data);
-    let [BNVD, CNEP, GEODAIR, CNEP_sites, IGN] = datas;
+    let [BNVD, CNEP, CNEP_sites] = datas;
 
     if (!BNVD){
       BNVD = [];
       console.log(BNVD);
     }
 
-    console.log(IGN);
+    // SISEEAU = SISEEAU.filter((item) => item.properties.casparam.includes(substanceCas));
+    // console.log(SISEEAU);
+
+    // const tableSiteSISEEAU = SISEEAU.map((item) => {
+    //   return {...item.geometry, 
+    //     properties: {
+    //       commune: item.properties.nomcommune, 
+    //       'nom du réseau': item.properties.nomreseau,
+    //       'unité de référence': item.properties.cdunitereferencesiseeaux
+    //     }}
+    // });
+
+    // let siteSISEEAU = [...new Set(tableSiteSISEEAU.map((item) => item.properties['nom du réseau']))];
+    // siteSISEEAU = siteSISEEAU.map((site) => tableSiteSISEEAU.find(((item) => site === item.properties['nom du réseau'] )));
 
     //on filtre geodair par le cas de la substance, puis on limite le nombre de pts sur la carte avec siteGeodair
     // GEODAIR = GEODAIR.filter((item) => item.properties.cas.includes(substanceCas));
@@ -94,7 +107,6 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
 
     //prélèvement valide car avec une valeur
     BNVD = BNVD.filter((item) => item.properties.value !== null);
-    console.log(BNVD);
     
     //informe l'utilisateur du nombre de résultats par base de données
     const bnvdNbResultElt = document.querySelector('#nb-result-bnvd');
@@ -130,7 +142,50 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
     //   title: `GEODAIR`
     // });
     
-    const CNEP_LAYER = new WebGLPointsLayer({
+
+    // const SISEEAU_LAYER = new VectorLayer({
+    //   source: new VectorSource({
+    //   wrapX: true,
+    //   features: siteSISEEAU.map((item) => 
+    //     { return new Feature({
+    //       ...item.properties, 
+    //       geometry: new Point(fromLonLat(item.coordinates)),
+    //       samplesSIS: SISEEAU.filter((sample) => sample.properties.nomcommune === item.properties.commune)
+    //     })
+    //   })
+    //   }),
+    //   style: function(feature) {
+    //     const nbSamples = feature.get('samplesSIS').length.toString();
+
+    //     return [
+    //       new Style({
+    //         image: new Circle({
+    //           radius: 15,
+    //           fill: new Fill({
+    //             color: 'green'
+    //           }),
+    //           stroke: new Stroke({
+    //             color: 'white',
+    //             width: 1,
+    //           })
+    //         }),
+    //         text: new Text({
+    //           text: nbSamples,  
+    //           fill: new Fill({
+    //             color: '#fff',
+    //           }),
+    //           stroke: new Stroke({
+    //             color: 'rgba(0, 0, 0, 0.6)',
+    //             width: 3,
+    //           })
+    //         })
+    //       }),
+    //     ];
+    //   },
+    //   title: `SISEEAU`
+    // });
+
+    const CNEP_LAYER = new VectorLayer({
       source: new VectorSource({
       wrapX: true,
       features: CNEP_sites.map((item) => 
@@ -141,13 +196,33 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
         })
       })
       }),
-      style: {
-        "symbol": {
-          "symbolType": "circle",
-          "size": 15,
-          "color": 'blue',
-          "rotateWithView": true
-        }
+      style: function(feature) {
+        const nbSamples = feature.get('samples').length.toString();
+
+        return [
+          new Style({
+            image: new Circle({
+              radius: 15,
+              fill: new Fill({
+                color: 'blue'
+              }),
+              stroke: new Stroke({
+                color: 'white',
+                width: 1,
+              })
+            }),
+            text: new Text({
+              text: nbSamples,  
+              fill: new Fill({
+                color: '#fff',
+              }),
+              stroke: new Stroke({
+                color: 'rgba(0, 0, 0, 0.6)',
+                width: 3,
+              })
+            })
+          }),
+        ];
       },
       title: `CNEP`
     });
@@ -209,6 +284,7 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
 
     groupLayer.push(BNVD_LAYER);
     groupLayer.push(CNEP_LAYER);
+    //groupLayer.push(SISEEAU_LAYER);
     //groupLayer.push(GEODAIR_LAYER);
 
     
@@ -255,16 +331,36 @@ formMapElt.addEventListener('submit', (e) =>{
   const BNVD_URL = `${BASE_URL}BNVD/${substanceFiltreValue}/${substanceFiltreValue}_${bnvdDateValue}${BNVD_FIN_NOM_FICHER}`;
   
   getSubstanceInMap([BNVD_URL, 
-    './datas/CNEP/CNEP.json', 
-    './datas/GEODAIR/geodair.json', 
-    './datas/CNEP/CNEP_site.json', 
-    './datas/IGN_2016.json'], 
+    './datas/CNEP/CNEP.json',  
+    './datas/CNEP/CNEP_site.json',], 
     substanceFiltreValue, cnepDateValue
   );
 });
 
 
-const selectedStyle = new Style({
+const selectedStyle = function (textContent) {
+
+return [new Style({
+  image: new Circle({
+    radius: 15,
+    fill: new Fill({
+      color: 'white'
+    }),
+    stroke: new Stroke({
+      color: 'black',
+      width: 3,
+    })
+  }),
+  text: new Text({ 
+    text: textContent,
+    fill: new Fill({
+      color: 'white',
+    }),
+    stroke: new Stroke({
+      color: 'rgb(0, 0, 0, 0.8)',
+      width: 3,
+    })
+  }),
   fill: new Fill({
     color: 'white'
   }),
@@ -272,12 +368,23 @@ const selectedStyle = new Style({
     color: 'black',
     width: 2,
   }),
-});
+})]}
 
 // Créez une interaction de sélection pour la couche contenant les polygones
-var selectInteraction = new Select({
+const selectInteraction = new Select({
   style: function (feature) {
-    return selectedStyle;
+
+    const nameCity = feature.get('NOM_COM');
+    const nbSamples = feature.get('samples');
+    let textContent;
+
+    if (nameCity){
+      textContent = nameCity;
+    }else if (nbSamples){
+      textContent = nbSamples.length.toString();
+    }
+
+    return selectedStyle(textContent);
   },
 });
 
@@ -290,7 +397,6 @@ selectInteraction.on('select', function(event) {
   const resultContentElt = document.querySelector('#content');
   if (selectedFeature) {
     const properties = selectedFeature.getProperties(); // Récupère les propriétés de la feature
-    console.log(properties);
 
     //si l'utilisateur à cliquer sur une surface de la BNVD
     if (properties.BNVD_annee){
@@ -365,6 +471,9 @@ const getInfosCNEP = (properties, parentElt) => {
 
   const contentBnvdElt = document.createElement('div');
   contentBnvdElt.id = 'content-cnep';
+
+  //méthode de trie, ici de la date la plus récente à la plus vieille
+  properties.samples.sort((a,b) => Date.parse(a.properties['date de début de prélèvement']) - Date.parse(b.properties['date de début de prélèvement']) );
 
   //permet de convertir les dates
   const getDate = (dateCurrent) => {
