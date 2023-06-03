@@ -1,6 +1,6 @@
 import '../../css/style.css';
 import {Map, View} from 'ol';
-import {Stroke, Fill, Style} from 'ol/style'
+import {Stroke, Fill, Style, Text} from 'ol/style'
 import LayerGroup from 'ol/layer/Group.js';
 import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
@@ -59,12 +59,14 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
   }))
   .then((responses) => {
     const datas = responses.map(({ data }) => data);
-    let [BNVD, CNEP, GEODAIR, CNEP_sites] = datas;
+    let [BNVD, CNEP, GEODAIR, CNEP_sites, IGN] = datas;
 
     if (!BNVD){
       BNVD = [];
       console.log(BNVD);
     }
+
+    console.log(IGN);
 
     //on filtre geodair par le cas de la substance, puis on limite le nombre de pts sur la carte avec siteGeodair
     // GEODAIR = GEODAIR.filter((item) => item.properties.cas.includes(substanceCas));
@@ -92,6 +94,7 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
 
     //prélèvement valide car avec une valeur
     BNVD = BNVD.filter((item) => item.properties.value !== null);
+    console.log(BNVD);
     
     //informe l'utilisateur du nombre de résultats par base de données
     const bnvdNbResultElt = document.querySelector('#nb-result-bnvd');
@@ -177,6 +180,7 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
         const findColor = colorByValue.find((obj) => value >= obj.valueMin && value <= obj.valueMax);
         const opacity = '1';
         const color = `rgba(${findColor.color}, ${opacity})`;
+        const nameCity = feature.get('NOM_COM');
 
         return [
           new Style({
@@ -187,6 +191,16 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
               color: '#000000',
               width: 1,
             }),
+            text: new Text({
+              text: nameCity,  
+              fill: new Fill({
+                color: '#fff',
+              }),
+              stroke: new Stroke({
+                color: 'rgba(0, 0, 0, 0.6)',
+                width: 3,
+              })
+            })
           }),
         ];
       },
@@ -240,16 +254,22 @@ formMapElt.addEventListener('submit', (e) =>{
   
   const BNVD_URL = `${BASE_URL}BNVD/${substanceFiltreValue}/${substanceFiltreValue}_${bnvdDateValue}${BNVD_FIN_NOM_FICHER}`;
   
-  getSubstanceInMap([BNVD_URL, './datas/CNEP/CNEP.json', './datas/GEODAIR/geodair.json', './datas/CNEP/CNEP_site.json'], substanceFiltreValue, cnepDateValue);
+  getSubstanceInMap([BNVD_URL, 
+    './datas/CNEP/CNEP.json', 
+    './datas/GEODAIR/geodair.json', 
+    './datas/CNEP/CNEP_site.json', 
+    './datas/IGN_2016.json'], 
+    substanceFiltreValue, cnepDateValue
+  );
 });
 
 
 const selectedStyle = new Style({
   fill: new Fill({
-    color: 'rgba(139, 0, 0, 0.6)'
+    color: 'white'
   }),
   stroke: new Stroke({
-    color: 'rgba(255, 255, 255, 0.7)',
+    color: 'black',
     width: 2,
   }),
 });
@@ -257,8 +277,6 @@ const selectedStyle = new Style({
 // Créez une interaction de sélection pour la couche contenant les polygones
 var selectInteraction = new Select({
   style: function (feature) {
-    const color = feature.get('COLOR_BIO') || '#eeeeee';
-    selectedStyle.getFill().setColor(color);
     return selectedStyle;
   },
 });
