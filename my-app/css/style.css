@@ -418,7 +418,7 @@ header > nav > ul > li{
   flex-wrap: wrap;
 }
 #map__legend{
-  margin-top: 20px;
+  margin-block:3em;
 }
 
 #form-map{
