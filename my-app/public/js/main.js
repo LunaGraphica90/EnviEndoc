@@ -16,6 +16,7 @@ import Select from 'ol/interaction/Select.js';
 import { fromLonLat } from 'ol/proj';
 import {ScaleLine, defaults as defaultControls} from 'ol/control.js';
 
+
 // Centre carte sur centre de la France
 const FRANCE_LAT = fromLonLat([1.52, 46.36]);
 
@@ -35,13 +36,20 @@ const map = new Map({
     })
   ],
   view: new View({
-  center: FRANCE_LAT,
-  zoom: 6
-})
+    center: FRANCE_LAT,
+    zoom: 6
+  })
 });
 
 const groupLayer = [];
 
+/**
+ * Allows you to retrieve data and display it on the map.
+ * @param {array} urlTable - An array of URLs for the API call.
+ * @param {string} urlTable[0] - A string representing a URL.
+ * @param {string} substanceCas - A string representing the cas of the substance to be searched.
+ * @param {string} cnepDate - A string representing the date of CNEP research.
+ */
 //gestion de l'api
 const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
   //clean groupLayer afin de ne pas additionner les couches
@@ -196,6 +204,11 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
         })
       })
       }),
+      /**
+       * Represents the style of the feature.
+       * @param {object} feature - Point that will be displayed on the map.
+       * @returns {object} A new style.
+       */
       style: function(feature) {
         const nbSamples = feature.get('samples').length.toString();
 
@@ -238,6 +251,11 @@ const getSubstanceInMap = (urlTable, substanceCas, cnepDate) => {
             }
         )})
       }),
+      /**
+       * Represents the style of the feature.
+       * @param {object} feature - Areal that will be displayed on the map.
+       * @returns {object} A new style.
+       */
       style: function(feature) {
         const value = feature.get('value');
     
@@ -337,7 +355,11 @@ formMapElt.addEventListener('submit', (e) =>{
   );
 });
 
-
+/**
+ * Function that allows to style the selected feature on the map.
+ * @param {string} textContent - Represents the text to display on the selected feature.
+ * @returns {object} a new Style.
+ */
 const selectedStyle = function (textContent) {
 
 return [new Style({
@@ -370,10 +392,15 @@ return [new Style({
   }),
 })]}
 
+
 // Créez une interaction de sélection pour la couche contenant les polygones
 const selectInteraction = new Select({
+  /**
+   * Allows you to return the style with the correct textContent.
+   * @param {object} feature - Represents the selected feature.
+   * @returns {object} a new style.
+   */
   style: function (feature) {
-
     const nameCity = feature.get('NOM_COM');
     const nbSamples = feature.get('samples');
     let textContent;
@@ -462,8 +489,12 @@ const getInfosGEODAIR = (properties, parentElt) => {
 };
 */
 
+/**
+ * Allows to display CNEP data in the DOM.
+ * @param {object} properties - Represents the selected feature with its data.
+ * @param {Element} parentElt - Represents the parent element where we will insert the new element.
+ */
 const getInfosCNEP = (properties, parentElt) => {
-
   const contentAlreadyExisting = parentElt.querySelector('#content-cnep');
   if (contentAlreadyExisting !== null){
     contentAlreadyExisting.remove();
@@ -476,6 +507,11 @@ const getInfosCNEP = (properties, parentElt) => {
   properties.samples.sort((a,b) => Date.parse(a.properties['date de début de prélèvement']) - Date.parse(b.properties['date de début de prélèvement']) );
 
   //permet de convertir les dates
+  /**
+   * Allows you to convert dates with French locales.
+   * @param {string} dateCurrent - Represents the date.
+   * @returns {string} a new date in French format.
+   */
   const getDate = (dateCurrent) => {
     return new Date(dateCurrent).toLocaleString('fr-FR');
   };
@@ -523,6 +559,12 @@ const getInfosCNEP = (properties, parentElt) => {
   parentElt.appendChild(contentBnvdElt);
 };
 
+
+/**
+ * Allows to display BNVD data in the DOM.
+ * @param {object} properties - Represents the selected feature with its data.
+ * @param {Element} parentElt - Represents the parent element where we will insert the new element.
+ */
 const getInfosBNVD = (properties, parentElt) => {
 
   const contentAlreadyExisting = parentElt.querySelector('#content-bnvd');
