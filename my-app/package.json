@@ -7,11 +7,13 @@
     "serve": "vite preview"
   },
   "devDependencies": {
+    "jsdoc": "^4.0.2",
     "vite": "^4.0.4"
   },
   "dependencies": {
     "axios": "^1.4.0",
     "ol": "latest",
-    "papaparse": "^5.4.1"
+    "papaparse": "^5.4.1",
+    "prettier": "^3.0.0"
   }
 }

@@ -1,4 +1,4 @@
-let date = new Date();
+let date = new Date()
 let year = date.getFullYear()
 
-document.getElementById('copyright').innerHTML = "Copyright © " + year;
+document.getElementById('copyright').innerHTML = 'Copyright © ' + year
